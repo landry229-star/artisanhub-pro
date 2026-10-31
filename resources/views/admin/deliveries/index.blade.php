@@ -16,8 +16,8 @@
     @foreach([
         ['label'=>'Sans livreur',   'value'=>$stats['en_recherche'], 'bg'=>'#FFF3CD','ic'=>'#856404'],
         ['label'=>'En cours',       'value'=>$stats['active'],       'bg'=>'#CCE5FF','ic'=>'#004085'],
-        ['label'=>'Livrées',        'value'=>$stats['livrees'],      'bg'=>'#D4EDDA','ic'=>'#155724'],
-        ['label'=>'Échouées',       'value'=>$stats['echouees'],     'bg'=>'#F8D7DA','ic'=>'#721C24'],
+        ['label'=>'Livrées',        'value'=>$stats['livrees'],      'bg'=>'#E6F7F5','ic'=>'#0B2545'],
+        ['label'=>'Échouées',       'value'=>$stats['echouees'],     'bg'=>'#FCE7EA','ic'=>'#E71D36'],
     ] as $k)
         <div class="col-6 col-lg-3">
             <div class="stat-card">
@@ -76,7 +76,7 @@
                         </td>
                         <td style="font-size:.82rem">
                             <i class="bi bi-geo-alt me-1 text-clay"></i>{{ $d->pickup_city }}<br>
-                            <i class="bi bi-geo-alt-fill me-1" style="color:#155724"></i>{{ $d->delivery_city }}
+                            <i class="bi bi-geo-alt-fill me-1" style="color:#0B2545"></i>{{ $d->delivery_city }}
                         </td>
                         <td>
                             @if($d->livreur)
@@ -128,7 +128,7 @@
                 <span class="label">Trajet</span>
                 <span class="text-end">
                     <i class="bi bi-geo-alt me-1 text-clay"></i>{{ $d->pickup_city }} →
-                    <i class="bi bi-geo-alt-fill me-1" style="color:#155724"></i>{{ $d->delivery_city }}
+                    <i class="bi bi-geo-alt-fill me-1" style="color:#0B2545"></i>{{ $d->delivery_city }}
                 </span>
             </div>
             <div class="mcard-row">

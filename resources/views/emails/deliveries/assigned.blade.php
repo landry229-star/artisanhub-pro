@@ -4,7 +4,7 @@
 <div class="subtitle">Une livraison vous a été assignée</div>
 
 <p>Bonjour <strong>{{ $notifiable->name }}</strong>,</p>
-<p>Une nouvelle mission de livraison vous attend sur ArtisanHub.</p>
+<p>Une nouvelle mission de livraison vous attend sur ArtisanHub Pro.</p>
 
 <div class="info-box">
     <div class="info-row">
@@ -21,13 +21,13 @@
     </div>
     <div class="info-row">
         <span class="info-label">Vos frais</span>
-        <span class="info-value" style="color:#C4622D;font-size:15px">
+        <span class="info-value" style="color:#0B2545;font-size:15px">
             {{ number_format($delivery->fee,0,',',' ') }} XOF
         </span>
     </div>
 </div>
 
-<p style="font-size:13px;color:#9A8070">
+<p style="font-size:13px;color:#64748B">
     ⚠️ Vous avez <strong>2 heures</strong> pour accepter ou refuser cette mission.
     Passé ce délai, elle sera réassignée à un autre livreur.
 </p>

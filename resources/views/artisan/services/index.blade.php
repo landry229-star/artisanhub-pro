@@ -72,7 +72,7 @@
 
         <div class="content-card mt-3" style="background:var(--sand)">
             <p class="section-label mb-2">💡 ASTUCE</p>
-            <p style="font-size:.82rem;color:#5C3D1E;margin-bottom:0">
+            <p style="font-size:.82rem;color:#294361;margin-bottom:0">
                 Les services permettent aux clients de commander directement avec un prix et un délai définis. Créez des services précis pour éviter les négociations.
             </p>
         </div>
@@ -99,7 +99,7 @@
                     @foreach($services as $service)
                         <div class="col-md-6">
                             <div class="border rounded-3 p-3 h-100"
-                                 style="border-color:{{ $service->is_active ? '#ECD8C6' : '#dee2e6' }}!important;
+                                 style="border-color:{{ $service->is_active ? '#DDE3EA' : '#dee2e6' }}!important;
                                         opacity:{{ $service->is_active ? '1' : '0.6' }}">
 
                                 @if($service->image_path)
@@ -111,8 +111,8 @@
                                 <div class="d-flex justify-content-between align-items-start mb-1">
                                     <div class="fw-700" style="font-size:.9rem">{{ $service->title }}</div>
                                     <span class="badge ms-1 px-2 py-1"
-                                          style="background:{{ $service->is_active ? '#D4EDDA' : '#F8D7DA' }};
-                                                 color:{{ $service->is_active ? '#155724' : '#721C24' }};
+                                          style="background:{{ $service->is_active ? '#E6F7F5' : '#FCE7EA' }};
+                                                 color:{{ $service->is_active ? '#0B2545' : '#E71D36' }};
                                                  font-size:.72rem;white-space:nowrap">
                                         {{ $service->is_active ? 'Actif' : 'Inactif' }}
                                     </span>

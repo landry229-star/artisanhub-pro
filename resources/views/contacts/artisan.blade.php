@@ -26,7 +26,7 @@
 <div class="content-card">
     <h5 class="mb-3 fw-700"><i class="bi bi-people me-2 text-clay"></i>Clients déjà servis</h5>
     @forelse($clients as $c)
-        <div class="gap-3 py-2 d-flex align-items-center" style="border-bottom:1px solid #ECD8C6">
+        <div class="gap-3 py-2 d-flex align-items-center" style="border-bottom:1px solid #DDE3EA">
             <img src="{{ $c->avatarUrl() }}" class="rounded-circle" width="44" height="44" style="object-fit:cover">
             <div class="flex-grow-1">
                 <div class="fw-600">{{ $c->name }}</div>

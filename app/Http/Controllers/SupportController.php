@@ -58,7 +58,7 @@ class SupportController extends Controller
                 'userId'        => auth()->id(),
                 'ticket'        => $ticket,
             ], function ($m) use ($validated, $subjectLabels) {
-                $m->to('support@artisanhub.bj', 'Support ArtisanHub')
+                $m->to('support@artisanhub.bj', 'Support ArtisanHub Pro')
                   ->replyTo($validated['email'], $validated['name'])
                   ->subject('[Support] ' . $subjectLabels[$validated['subject']] . ' — ' . $validated['name']);
             });
@@ -69,7 +69,7 @@ class SupportController extends Controller
                 'subject' => $subjectLabels[$validated['subject']],
             ], function ($m) use ($validated) {
                 $m->to($validated['email'], $validated['name'])
-                  ->subject('✅ Votre demande a bien été reçue — ArtisanHub');
+                  ->subject('✅ Votre demande a bien été reçue — ArtisanHub Pro');
             });
 
         } catch (\Exception $e) {

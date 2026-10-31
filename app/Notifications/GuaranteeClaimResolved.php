@@ -24,7 +24,7 @@ class GuaranteeClaimResolved extends Notification implements ShouldQueue
     {
         return $this->claim->isApproved()
             ? "✅ Votre réclamation de garantie (commande #{$this->claim->order_id}) est approuvée — {$this->claim->refund_amount} XOF vous seront remboursés."
-            : "Réponse à votre réclamation de garantie (commande #{$this->claim->order_id}) : non retenue. Détails sur ArtisanHub.";
+            : "Réponse à votre réclamation de garantie (commande #{$this->claim->order_id}) : non retenue. Détails sur ArtisanHub Pro.";
     }
 
     public function toMail(object $notifiable): MailMessage
@@ -32,12 +32,12 @@ class GuaranteeClaimResolved extends Notification implements ShouldQueue
         $mail = (new MailMessage)->greeting("Bonjour {$notifiable->name},");
 
         if ($this->claim->isApproved()) {
-            $mail->subject('✅ Votre réclamation a été approuvée — ArtisanHub')
+            $mail->subject('✅ Votre réclamation a été approuvée — ArtisanHub Pro')
                 ->line("Votre réclamation concernant la commande #{$this->claim->order_id} a été approuvée.")
                 ->line("Montant à vous rembourser : {$this->claim->refund_amount} XOF.")
                 ->line('Notre équipe va procéder au remboursement sous peu.');
         } else {
-            $mail->subject('Réponse à votre réclamation — ArtisanHub')
+            $mail->subject('Réponse à votre réclamation — ArtisanHub Pro')
                 ->line("Votre réclamation concernant la commande #{$this->claim->order_id} n'a pas été retenue.")
                 ->line("Raison : {$this->claim->admin_note}");
         }

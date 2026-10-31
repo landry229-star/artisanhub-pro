@@ -27,10 +27,10 @@
     </div>
     <div class="d-flex gap-2 flex-wrap" style="align-self:flex-start">
         <span class="badge px-3 py-2 badge-{{ strtolower(str_replace(' ','',($profile->badge()))) }}"
-              style="background:{{ $profile->badge()==='Top Artisan' ? 'var(--clay)' : ($profile->badge()==='Vérifié' ? '#2E7D32' : 'var(--gold)') }};color:#fff;font-size:.8rem;white-space:nowrap">
+              style="background:{{ $profile->badge()==='Top Artisan' ? 'var(--navy)' : ($profile->badge()==='Vérifié' ? 'var(--success)' : '#F8F9FA') }};color:{{ $profile->badge()==='Nouveau' ? 'var(--navy)' : ($profile->badge()==='Vérifié' ? 'var(--navy)' : '#fff') }};font-size:.8rem;white-space:nowrap">
             {{ $profile->badge() }}
         </span>
-        <span class="badge px-3 py-2" style="background:{{ $profile->tierColor() }};color:#fff;font-size:.8rem;white-space:nowrap">
+        <span class="badge px-3 py-2" style="background:{{ $profile->tierColor() }};color:#0B2545;font-size:.8rem;white-space:nowrap">
             <i class="bi bi-award me-1"></i>{{ $profile->tierLabel() }}
         </span>
     </div>
@@ -42,8 +42,8 @@
         $statCards = [
             ['label'=>'En attente',   'value'=>$stats['pending'],     'icon'=>'bi-clock',        'color'=>'#FFF3CD','icolor'=>'#856404'],
             ['label'=>'En cours',     'value'=>$stats['in_progress'], 'icon'=>'bi-tools',        'color'=>'#CCE5FF','icolor'=>'#004085'],
-            ['label'=>'Terminées',    'value'=>$stats['completed'],   'icon'=>'bi-check-circle', 'color'=>'#D4EDDA','icolor'=>'#155724'],
-            ['label'=>'Revenus XOF',  'value'=>number_format($stats['revenue'],0,',',' '), 'icon'=>'bi-cash-coin','color'=>'#F5EFE6','icolor'=>'var(--clay)'],
+            ['label'=>'Terminées',    'value'=>$stats['completed'],   'icon'=>'bi-check-circle', 'color'=>'#E6F7F5','icolor'=>'#0B2545'],
+            ['label'=>'Revenus XOF',  'value'=>number_format($stats['revenue'],0,',',' '), 'icon'=>'bi-cash-coin','color'=>'#F8F9FA','icolor'=>'var(--clay)'],
         ];
     @endphp
     @foreach($statCards as $sc)
@@ -70,7 +70,7 @@
                 <a href="{{ route('artisan.orders.index') }}" class="btn btn-sm btn-outline-clay">Voir tout</a>
             </div>
             @forelse($recentOrders as $order)
-                <div class="d-flex align-items-center gap-3 py-3 border-bottom" style="border-color:#F5EFE6!important">
+                <div class="d-flex align-items-center gap-3 py-3 border-bottom" style="border-color:#F8F9FA!important">
                     <img src="{{ $order->client->avatarUrl() }}" class="rounded-circle" width="40" height="40" style="object-fit:cover">
                     <div class="flex-grow-1">
                         <div class="fw-600">{{ $order->title }}</div>

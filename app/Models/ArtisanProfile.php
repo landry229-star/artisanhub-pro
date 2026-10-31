@@ -76,9 +76,9 @@ class ArtisanProfile extends Model
     public function tierColor(): string
     {
         return match($this->tier) {
-            self::TIER_EXPERT   => '#B8860B', // or
-            self::TIER_CONFIRME => '#0D6EFD', // bleu
-            default             => '#6C757D', // gris
+            self::TIER_EXPERT   => '#2EC4B6',
+            self::TIER_CONFIRME => '#FF6B35',
+            default             => '#F8F9FA',
         };
     }
 

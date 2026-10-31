@@ -62,13 +62,13 @@ public function isSearching(): bool
     {
         return match($this->status) {
             'en_recherche' => '#FFF3CD',
-            'assignee'     => '#CFF4FC',
-            'acceptee'     => '#CCE5FF',
-            'en_route'     => '#F5EFE6',
-            'recuperee'    => '#F5EFE6',
-            'livree'       => '#D4EDDA',
-            'echouee'      => '#F8D7DA',
-            default        => '#F5EFE6',
+            'assignee'     => '#EAF0F7',
+            'acceptee'     => '#EAF0F7',
+            'en_route'     => '#FFF0E8',
+            'recuperee'    => '#FFF0E8',
+            'livree'       => '#E6F7F5',
+            'echouee'      => '#FCE7EA',
+            default        => '#F8F9FA',
         };
     }
 
@@ -76,13 +76,13 @@ public function isSearching(): bool
     {
         return match($this->status) {
             'en_recherche' => '#856404',
-            'assignee'     => '#055160',
-            'acceptee'     => '#004085',
-            'en_route'     => '#C4622D',
-            'recuperee'    => '#C4622D',
-            'livree'       => '#155724',
-            'echouee'      => '#721C24',
-            default        => '#2C1A0E',
+            'assignee'     => '#0B2545',
+            'acceptee'     => '#0B2545',
+            'en_route'     => '#0B2545',
+            'recuperee'    => '#0B2545',
+            'livree'       => '#0B2545',
+            'echouee'      => '#E71D36',
+            default        => '#0B2545',
         };
     }
 

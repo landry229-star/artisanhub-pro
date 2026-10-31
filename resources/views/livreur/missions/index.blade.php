@@ -35,7 +35,7 @@
     {{-- Missions actives --}}
     <div class="col-12">
         <div class="content-card">
-            <h5 class="fw-700 mb-4"><i class="bi bi-truck me-2" style="color:#C4622D"></i>Missions en cours ({{ $missions->count() }})</h5>
+            <h5 class="fw-700 mb-4"><i class="bi bi-truck me-2" style="color:#0B2545"></i>Missions en cours ({{ $missions->count() }})</h5>
 
             @if($missions->isEmpty())
                 <div class="text-center py-5 text-muted">
@@ -92,7 +92,7 @@
                             @elseif($delivery->canBeDelivered())
                                 <form action="{{ route('livreur.missions.deliver', $delivery) }}" method="POST">
                                     @csrf @method('PATCH')
-                                    <button class="btn btn-sm py-1 px-2" style="font-size:.8rem;background:#d4edda;border:1px solid #c3e6cb;color:#155724"
+                                    <button class="btn btn-sm py-1 px-2" style="font-size:.8rem;background:#d4edda;border:1px solid #c3e6cb;color:#0B2545"
                                             onclick="return confirm('Confirmer la remise du colis au client ?')">
                                         <i class="bi bi-check2-all me-1"></i>Livré au client
                                     </button>
@@ -139,11 +139,11 @@
     @if($history->isNotEmpty())
     <div class="col-12">
         <div class="content-card">
-            <h5 class="fw-700 mb-4"><i class="bi bi-clock-history me-2" style="color:#9A8070"></i>Historique</h5>
+            <h5 class="fw-700 mb-4"><i class="bi bi-clock-history me-2" style="color:#64748B"></i>Historique</h5>
             <div class="table-responsive">
                 <table class="table" style="font-size:.85rem">
                     <thead>
-                        <tr style="border-bottom:2px solid #ECD8C6">
+                        <tr style="border-bottom:2px solid #DDE3EA">
                             <th>Commande</th><th>Client</th><th>Trajet</th><th>Frais</th><th>Statut</th><th>Date</th>
                         </tr>
                     </thead>

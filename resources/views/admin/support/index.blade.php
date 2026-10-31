@@ -1,6 +1,11 @@
 @extends('layouts.dashboard')
 
 @section('title', 'Support admin')
+@section('page-title', 'Support admin')
+
+@section('sidebar-nav')
+    @include('admin.partials.sidebar')
+@endsection
 
 @section('content')
 <div class="container-fluid py-4">

@@ -3,23 +3,7 @@
 @section('page-title', 'Mes commandes')
 
 @section('sidebar-nav')
-    <div class="sidebar-section-title">Principal</div>
-    <a href="{{ route('client.dashboard') }}" class="sidebar-link">
-        <i class="bi bi-speedometer2"></i> Tableau de bord
-    </a>
-    <a href="{{ route('client.orders.index') }}" class="sidebar-link active">
-        <i class="bi bi-bag"></i> Mes commandes
-    </a>
-    <a href="{{ route('client.wallet.index') }}" class="sidebar-link">
-        <i class="bi bi-receipt"></i> Mes paiements
-    </a>
-    <a href="{{ route('contacts.index') }}" class="sidebar-link">
-        <i class="bi bi-people"></i> Mes contacts
-    </a>
-    <div class="sidebar-section-title mt-2">Découvrir</div>
-    <a href="{{ route('artisans.index') }}" class="sidebar-link">
-        <i class="bi bi-search"></i> Explorer les artisans
-    </a>
+    @include('client.partials.sidebar')
 @endsection
 
 @section('topbar-actions')
@@ -54,7 +38,7 @@
     </form>
 
     @forelse($orders as $order)
-        <div class="border rounded-3 p-3 mb-3" style="border-color:#ECD8C6!important">
+        <div class="border rounded-3 p-3 mb-3" style="border-color:#DDE3EA!important">
 
             {{-- En-tête --}}
             <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
@@ -106,18 +90,18 @@
                         L'artisan travaille sur votre commande. Vous pouvez lui envoyer un message.
                     </p>
                 @elseif($order->status === 'livree')
-                    <p class="mb-0 fw-600" style="font-size:.82rem;color:#155724">
+                    <p class="mb-0 fw-600" style="font-size:.82rem;color:#0B2545">
                         <i class="bi bi-truck me-1"></i>
                         ✅ L'artisan a livré ! Validez pour déclencher le paiement.
                     </p>
                 @elseif($order->status === 'terminee')
-                    <p class="mb-0" style="font-size:.82rem;color:#155724">
+                    <p class="mb-0" style="font-size:.82rem;color:#0B2545">
                         <i class="bi bi-star me-1"></i>
                         Commande terminée et payée.
                         @if(!$order->review) Pensez à laisser un avis ! @endif
                     </p>
                 @elseif($order->status === 'litige')
-                    <p class="mb-0" style="font-size:.82rem;color:#721C24">
+                    <p class="mb-0" style="font-size:.82rem;color:#E71D36">
                         <i class="bi bi-exclamation-triangle me-1"></i>
                         Litige en cours — notre équipe intervient sous 48h.
                     </p>
@@ -277,15 +261,15 @@ document.querySelectorAll('.modal').forEach(modal => {
     const labels = modal.querySelectorAll('.star-label');
     labels.forEach((label, index) => {
         label.addEventListener('mouseover', () => {
-            labels.forEach((l, i) => l.style.color = i <= index ? '#D4A853' : '#ccc');
+            labels.forEach((l, i) => l.style.color = i <= index ? '#FF6B35' : '#ccc');
         });
         label.addEventListener('mouseout', () => {
             const checked = modal.querySelector('.star-input:checked');
             const checkedIndex = checked ? parseInt(checked.value) - 1 : -1;
-            labels.forEach((l, i) => l.style.color = i <= checkedIndex ? '#D4A853' : '#ccc');
+            labels.forEach((l, i) => l.style.color = i <= checkedIndex ? '#FF6B35' : '#ccc');
         });
         label.addEventListener('click', () => {
-            labels.forEach((l, i) => l.style.color = i <= index ? '#D4A853' : '#ccc');
+            labels.forEach((l, i) => l.style.color = i <= index ? '#FF6B35' : '#ccc');
         });
     });
 });

@@ -15,8 +15,8 @@
 {{-- KPIs --}}
 <div class="row g-3 mb-4">
     @php $kpis = [
-        ['label'=>'Commissions totales',    'value'=>number_format($stats['total_commission'],0,',',' ').' XOF', 'icon'=>'bi-cash-coin',    'bg'=>'#D4EDDA','ic'=>'#155724'],
-        ['label'=>'Ce mois-ci',             'value'=>number_format($stats['month_commission'],0,',',' ').' XOF', 'icon'=>'bi-calendar-month','bg'=>'#F5EFE6','ic'=>'#C4622D'],
+        ['label'=>'Commissions totales',    'value'=>number_format($stats['total_commission'],0,',',' ').' XOF', 'icon'=>'bi-cash-coin',    'bg'=>'#E6F7F5','ic'=>'#0B2545'],
+        ['label'=>'Ce mois-ci',             'value'=>number_format($stats['month_commission'],0,',',' ').' XOF', 'icon'=>'bi-calendar-month','bg'=>'#F8F9FA','ic'=>'#FF6B35'],
         ['label'=>'Volume total traité',    'value'=>number_format($stats['total_volume'],0,',',' ').' XOF',     'icon'=>'bi-graph-up',      'bg'=>'#CCE5FF','ic'=>'#004085'],
         ['label'=>'À reverser aux artisans','value'=>number_format($stats['pending_reversals'],0,',',' ').' XOF','icon'=>'bi-hourglass',    'bg'=>'#FFF3CD','ic'=>'#856404'],
     ]; @endphp
@@ -50,7 +50,7 @@
     <div class="table-responsive desktop-only-table">
         <table class="table align-middle" style="font-size:.875rem">
             <thead>
-                <tr style="border-bottom:2px solid #ECD8C6">
+                <tr style="border-bottom:2px solid #DDE3EA">
                     <th>Artisan</th>
                     <th>Ville</th>
                     <th>Téléphone</th>
@@ -77,7 +77,7 @@
                 <td>📍 {{ $artisan->city }}</td>
                 <td>
                     @if($artisan->phone)
-                        <a href="tel:{{ $artisan->phone }}" class="text-decoration-none fw-600" style="color:#C4622D">
+                        <a href="tel:{{ $artisan->phone }}" class="text-decoration-none fw-600" style="color:#0B2545">
                             📞 {{ $artisan->phone }}
                         </a>
                     @else
@@ -85,12 +85,12 @@
                     @endif
                 </td>
                 <td class="text-center">
-                    <span class="badge" style="background:#ECD8C6;color:#5C3D1E">
+                    <span class="badge" style="background:#DDE3EA;color:#294361">
                         {{ $artisan->nb_paiements }}
                     </span>
                 </td>
                 <td>
-                    <span class="fw-700" style="color:#155724;font-size:1rem">
+                    <span class="fw-700" style="color:#0B2545;font-size:1rem">
                         {{ number_format($artisan->solde_a_reverser,0,',',' ') }} XOF
                     </span>
                 </td>
@@ -124,18 +124,18 @@
             <div class="mcard-row">
                 <span class="label">Téléphone</span>
                 @if($artisan->phone)
-                    <a href="tel:{{ $artisan->phone }}" class="text-decoration-none fw-600" style="color:#C4622D">📞 {{ $artisan->phone }}</a>
+                    <a href="tel:{{ $artisan->phone }}" class="text-decoration-none fw-600" style="color:#0B2545">📞 {{ $artisan->phone }}</a>
                 @else
                     <span class="text-muted">—</span>
                 @endif
             </div>
             <div class="mcard-row">
                 <span class="label">Nb commandes</span>
-                <span class="badge" style="background:#ECD8C6;color:#5C3D1E">{{ $artisan->nb_paiements }}</span>
+                <span class="badge" style="background:#DDE3EA;color:#294361">{{ $artisan->nb_paiements }}</span>
             </div>
             <div class="mcard-row">
                 <span class="label">Solde à reverser</span>
-                <span class="fw-700" style="color:#155724">{{ number_format($artisan->solde_a_reverser,0,',',' ') }} XOF</span>
+                <span class="fw-700" style="color:#0B2545">{{ number_format($artisan->solde_a_reverser,0,',',' ') }} XOF</span>
             </div>
             <div class="mcard-actions">
                 <button class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#reverseModal{{ $artisan->id }}">
@@ -169,7 +169,7 @@
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span class="text-muted">Montant à verser</span>
-                                <strong style="color:#155724;font-size:1.1rem">
+                                <strong style="color:#0B2545;font-size:1.1rem">
                                     {{ number_format($artisan->solde_a_reverser,0,',',' ') }} XOF
                                 </strong>
                             </div>
@@ -195,11 +195,11 @@
     @endforeach
 </div>
 @else
-<div class="content-card mb-4" style="background:#D4EDDA;border:1px solid #c3e6cb">
+<div class="content-card mb-4" style="background:#E6F7F5;border:1px solid #c3e6cb">
     <div class="d-flex align-items-center gap-3">
-        <i class="bi bi-check-circle-fill" style="font-size:1.8rem;color:#155724;flex-shrink:0"></i>
+        <i class="bi bi-check-circle-fill" style="font-size:1.8rem;color:#0B2545;flex-shrink:0"></i>
         <div>
-            <p class="fw-700 mb-0" style="color:#155724">Tous les artisans ont été payés ✅</p>
+            <p class="fw-700 mb-0" style="color:#0B2545">Tous les artisans ont été payés ✅</p>
             <p class="mb-0 text-muted" style="font-size:.85rem">Aucun reversement en attente.</p>
         </div>
     </div>
@@ -208,13 +208,13 @@
 
 {{-- ★ REMBOURSEMENTS EN ATTENTE (arbitrage litige) --}}
 @if($pendingRefunds->isNotEmpty())
-<div class="content-card mb-4" style="border:2px solid #F8D7DA">
+<div class="content-card mb-4" style="border:2px solid #FCE7EA">
     <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
         <h5 class="fw-700 mb-0">
-            <i class="bi bi-arrow-counterclockwise me-2" style="color:#721C24"></i>
+            <i class="bi bi-arrow-counterclockwise me-2" style="color:#E71D36"></i>
             Remboursements à confirmer ({{ $pendingRefunds->count() }})
         </h5>
-        <span class="badge px-3 py-2" style="background:#F8D7DA;color:#721C24;font-size:.85rem">
+        <span class="badge px-3 py-2" style="background:#FCE7EA;color:#E71D36;font-size:.85rem">
             Total : {{ number_format($pendingRefunds->sum('amount'),0,',',' ') }} XOF
         </span>
     </div>
@@ -227,7 +227,7 @@
     <div class="table-responsive desktop-only-table">
         <table class="table align-middle" style="font-size:.875rem">
             <thead>
-                <tr style="border-bottom:2px solid #ECD8C6">
+                <tr style="border-bottom:2px solid #DDE3EA">
                     <th>Commande</th>
                     <th>Client</th>
                     <th>Montant</th>
@@ -246,7 +246,7 @@
                 </td>
                 <td>{{ $payment->order->client->name }}</td>
                 <td>
-                    <span class="fw-700" style="color:#721C24;font-size:1rem">
+                    <span class="fw-700" style="color:#E71D36;font-size:1rem">
                         {{ number_format($payment->amount,0,',',' ') }} XOF
                     </span>
                 </td>
@@ -275,7 +275,7 @@
                 <span class="text-muted" style="font-size:.75rem">#{{ $payment->order_id }}</span>
             </div>
             <div class="mcard-row"><span class="label">Client</span><span>{{ $payment->order->client->name }}</span></div>
-            <div class="mcard-row"><span class="label">Montant</span><span class="fw-700" style="color:#721C24">{{ number_format($payment->amount,0,',',' ') }} XOF</span></div>
+            <div class="mcard-row"><span class="label">Montant</span><span class="fw-700" style="color:#E71D36">{{ number_format($payment->amount,0,',',' ') }} XOF</span></div>
             <div class="mcard-row"><span class="label">Demandé par</span><span>{{ $payment->refundRequestedBy?->name ?? '—' }}</span></div>
             <div class="mcard-row"><span class="label">Date</span><span>{{ $payment->refund_requested_at->format('d/m/Y') }}</span></div>
             <div class="mcard-actions">
@@ -306,7 +306,7 @@
                             </div>
                             <div class="d-flex justify-content-between">
                                 <span class="text-muted">Montant remboursé</span>
-                                <strong style="color:#721C24;font-size:1.1rem">
+                                <strong style="color:#E71D36;font-size:1.1rem">
                                     {{ number_format($payment->amount,0,',',' ') }} XOF
                                 </strong>
                             </div>
@@ -341,7 +341,7 @@
             <div class="table-responsive desktop-only-table">
                 <table class="table align-middle" style="font-size:.82rem">
                     <thead>
-                        <tr style="border-bottom:2px solid #ECD8C6">
+                        <tr style="border-bottom:2px solid #DDE3EA">
                             <th>#</th><th>Commande</th><th>Artisan</th>
                             <th>Montant</th><th>Commission</th><th>Net artisan</th>
                             <th>Reversé</th><th>Date</th>
@@ -357,14 +357,14 @@
                                 </td>
                                 <td>{{ $p->order->artisan->name }}</td>
                                 <td class="fw-600">{{ number_format($p->amount,0,',',' ') }}</td>
-                                <td style="color:#C4622D;font-weight:600">
+                                <td style="color:#0B2545;font-weight:600">
                                     {{ number_format($p->commission,0,',',' ') }}
                                     <span class="text-muted" style="font-weight:400">({{ round($p->commission_rate*100) }}%)</span>
                                 </td>
-                                <td style="color:#155724;font-weight:700">{{ number_format($p->net_amount,0,',',' ') }}</td>
+                                <td style="color:#0B2545;font-weight:700">{{ number_format($p->net_amount,0,',',' ') }}</td>
                                 <td>
                                     @if($p->isReversed())
-                                        <span class="badge" style="background:#D4EDDA;color:#155724;font-size:.72rem">
+                                        <span class="badge" style="background:#E6F7F5;color:#0B2545;font-size:.72rem">
                                             <i class="bi bi-check-lg me-1"></i>{{ $p->reversed_at->format('d/m/Y') }}
                                         </span>
                                     @else
@@ -393,18 +393,18 @@
                     <div class="mcard-row"><span class="label">Montant</span><span class="fw-600">{{ number_format($p->amount,0,',',' ') }} XOF</span></div>
                     <div class="mcard-row">
                         <span class="label">Commission</span>
-                        <span style="color:#C4622D;font-weight:600">
+                        <span style="color:#0B2545;font-weight:600">
                             {{ number_format($p->commission,0,',',' ') }} ({{ round($p->commission_rate*100) }}%)
                         </span>
                     </div>
                     <div class="mcard-row">
                         <span class="label">Net artisan</span>
-                        <span style="color:#155724;font-weight:700">{{ number_format($p->net_amount,0,',',' ') }} XOF</span>
+                        <span style="color:#0B2545;font-weight:700">{{ number_format($p->net_amount,0,',',' ') }} XOF</span>
                     </div>
                     <div class="mcard-row">
                         <span class="label">Reversé</span>
                         @if($p->isReversed())
-                            <span class="badge" style="background:#D4EDDA;color:#155724"><i class="bi bi-check-lg me-1"></i>{{ $p->reversed_at->format('d/m/Y') }}</span>
+                            <span class="badge" style="background:#E6F7F5;color:#0B2545"><i class="bi bi-check-lg me-1"></i>{{ $p->reversed_at->format('d/m/Y') }}</span>
                         @else
                             <span class="badge" style="background:#FFF3CD;color:#856404">En attente</span>
                         @endif
@@ -426,11 +426,11 @@
             <h5 class="fw-700 mb-3">🏆 Top artisans</h5>
             @forelse($topArtisans as $i => $artisan)
                 <div class="d-flex align-items-center gap-3 py-2 border-bottom flex-wrap"
-                     style="border-color:#F5EFE6!important">
+                     style="border-color:#F8F9FA!important">
                     <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
                          style="width:28px;height:28px;
-                                background:{{ $i===0?'#D4A853':($i===1?'#C0C0C0':($i===2?'#CD7F32':'#F5EFE6')) }};
-                                color:{{ $i<3?'#fff':'#9A8070' }};font-weight:700;font-size:.8rem">
+                                background:{{ $i===0?'#FF6B35':($i===1?'#C0C0C0':($i===2?'#CD7F32':'#F8F9FA')) }};
+                                color:{{ $i<3?'#fff':'#64748B' }};font-weight:700;font-size:.8rem">
                         {{ $i+1 }}
                     </div>
                     <img src="{{ $artisan->avatarUrl() }}" class="rounded-circle"

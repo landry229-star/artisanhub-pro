@@ -3,20 +3,7 @@
 @section('page-title', 'Mes contacts')
 
 @section('sidebar-nav')
-    <div class="sidebar-section-title">Principal</div>
-    <a href="{{ route('client.dashboard') }}" class="sidebar-link">
-        <i class="bi bi-speedometer2"></i> Tableau de bord
-    </a>
-    <a href="{{ route('client.orders.index') }}" class="sidebar-link">
-        <i class="bi bi-bag"></i> Mes commandes
-    </a>
-    <a href="{{ route('contacts.index') }}" class="sidebar-link active">
-        <i class="bi bi-people"></i> Mes contacts
-    </a>
-    <div class="mt-2 sidebar-section-title">Découvrir</div>
-    <a href="{{ route('artisans.index') }}" class="sidebar-link">
-        <i class="bi bi-search"></i> Explorer les artisans
-    </a>
+    @include('client.partials.sidebar')
 @endsection
 
 @section('content')
@@ -28,7 +15,7 @@
             Vous pouvez demander directement un livreur déjà connu plutôt que d'attendre l'attribution automatique.
         </p>
         @foreach($pendingDeliveries as $delivery)
-            <div class="p-3 mb-2 rounded" style="background:#F5EFE6">
+            <div class="p-3 mb-2 rounded" style="background:#F8F9FA">
                 <div class="mb-2 fw-600">Commande #{{ $delivery->order_id }} — {{ $delivery->order->title }}</div>
                 <div class="gap-2 d-flex flex-wrap">
                     @foreach($livreurs as $l)
@@ -50,7 +37,7 @@
         <div class="content-card">
             <h5 class="mb-3 fw-700"><i class="bi bi-tools me-2 text-clay"></i>Artisans déjà sollicités</h5>
             @forelse($artisans as $a)
-                <div class="gap-3 py-2 d-flex align-items-center" style="border-bottom:1px solid #ECD8C6">
+                <div class="gap-3 py-2 d-flex align-items-center" style="border-bottom:1px solid #DDE3EA">
                     <img src="{{ $a->avatarUrl() }}" class="rounded-circle" width="44" height="44" style="object-fit:cover">
                     <div class="flex-grow-1">
                         <div class="fw-600">{{ $a->name }}</div>
@@ -67,7 +54,7 @@
         <div class="content-card">
             <h5 class="mb-3 fw-700"><i class="bi bi-bicycle me-2 text-clay"></i>Livreurs déjà sollicités</h5>
             @forelse($livreurs as $l)
-                <div class="gap-3 py-2 d-flex align-items-center" style="border-bottom:1px solid #ECD8C6">
+                <div class="gap-3 py-2 d-flex align-items-center" style="border-bottom:1px solid #DDE3EA">
                     <img src="{{ $l->avatarUrl() }}" class="rounded-circle" width="44" height="44" style="object-fit:cover">
                     <div class="flex-grow-1">
                         <div class="fw-600">{{ $l->name }}</div>

@@ -269,6 +269,7 @@ Route::get('/messages/{order}',                   [\App\Http\Controllers\Admin\M
 Route::delete('/messages/{message}',              [\App\Http\Controllers\Admin\MessageController::class, 'destroy'])->name('messages.destroy');
 Route::patch('/messages/{message}/signaler',      [\App\Http\Controllers\Admin\MessageController::class, 'flag'])->name('messages.flag');
 Route::patch('/messages/{message}/designaler',    [\App\Http\Controllers\Admin\MessageController::class, 'unflag'])->name('messages.unflag');
+Route::get('/journal-audit', [\App\Http\Controllers\Admin\AuditLogController::class, 'index'])->name('audit-logs.index');
 Route::get('/support',                            [AdminSupport::class, 'index'])->name('support.index');
 Route::get('/support/{ticket}',                   [AdminSupport::class, 'show'])->name('support.show');
 Route::patch('/support/{ticket}/assigner',        [AdminSupport::class, 'assign'])->name('support.assign');

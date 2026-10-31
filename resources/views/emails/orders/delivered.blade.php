@@ -34,7 +34,7 @@
 </a>
 
 <hr class="divider">
-<p style="font-size:12px;color:#9A8070;text-align:center;margin:0">
+<p style="font-size:12px;color:#64748B;text-align:center;margin:0">
     Vous avez 72h pour valider. Passé ce délai, un admin pourra arbitrer automatiquement.
 </p>
 @endsection

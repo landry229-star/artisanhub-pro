@@ -38,7 +38,7 @@
                         </div>
                     </div>
                 </div>
-                <span style="color:#D4A853">
+                <span style="color:#0B2545">
                     @for($i=1;$i<=5;$i++)<i class="bi bi-star{{ $i<=$review->rating?'-fill':'' }}"></i>@endfor
                 </span>
             </div>
@@ -50,8 +50,8 @@
             @endif
 
             @if($review->artisan_reply)
-                <div class="p-3 rounded-3" style="background:#F5EFE6">
-                    <div class="fw-600 mb-1" style="font-size:.82rem;color:#C4622D">
+                <div class="p-3 rounded-3" style="background:#F8F9FA">
+                    <div class="fw-600 mb-1" style="font-size:.82rem;color:#0B2545">
                         <i class="bi bi-reply-fill me-1"></i>Votre réponse
                     </div>
                     <p class="mb-0" style="font-size:.9rem">{{ $review->artisan_reply }}</p>

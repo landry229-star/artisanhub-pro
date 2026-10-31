@@ -48,6 +48,7 @@ class RoleAccessTest extends TestCase
         $admin = $this->makeUser('admin');
 
         $this->actingAs($admin)->get(route('admin.dashboard'))->assertOk();
+        $this->actingAs($admin)->get(route('admin.audit-logs.index'))->assertOk();
         $this->actingAs($admin)->get(route('client.dashboard'))->assertForbidden();
         $this->actingAs($admin)->get(route('artisan.dashboard'))->assertForbidden();
     }

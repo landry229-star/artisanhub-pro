@@ -32,7 +32,7 @@
     </form>
 
     @forelse($orders as $order)
-        <div class="p-3 mb-3 border rounded-3" style="border-color:#ECD8C6!important">
+        <div class="p-3 mb-3 border rounded-3" style="border-color:#DDE3EA!important">
 
             {{-- En-tête commande --}}
             <div class="flex-wrap gap-2 d-flex justify-content-between align-items-start">

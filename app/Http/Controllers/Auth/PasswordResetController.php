@@ -49,7 +49,7 @@ class PasswordResetController extends Controller
                     'user' => $user,
                     'url'  => $url,
                 ], fn($m) => $m->to($request->email, $user->name)
-                                ->subject('Réinitialisez votre mot de passe — ArtisanHub'));
+                                ->subject('Réinitialisez votre mot de passe — ArtisanHub Pro'));
             } catch (\Exception $e) {
                 Log::error("Reset password email failed [{$request->email}]: " . $e->getMessage());
             }

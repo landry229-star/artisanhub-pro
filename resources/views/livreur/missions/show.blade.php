@@ -60,31 +60,31 @@
                         <div class="text-center flex-shrink-0" style="min-width:72px;flex:1">
                             <div class="rounded-circle d-flex align-items-center justify-content-center mx-auto mb-1"
                                  style="width:36px;height:36px;
-                                        background:{{ $i <= $cur ? '#C4622D' : '#ECD8C6' }};
-                                        color:{{ $i <= $cur ? '#fff' : '#9A8070' }}">
+                                        background:{{ $i <= $cur ? '#FF6B35' : '#DDE3EA' }};
+                                        color:{{ $i <= $cur ? '#fff' : '#64748B' }}">
                                 <i class="bi {{ $step['icon'] }}" style="font-size:.85rem"></i>
                             </div>
                             <div style="font-size:.68rem;
-                                        color:{{ $i <= $cur ? '#C4622D' : '#9A8070' }};
+                                        color:{{ $i <= $cur ? '#FF6B35' : '#64748B' }};
                                         font-weight:{{ $i === $cur ? '700' : '400' }}">
                                 {{ $step['label'] }}
                             </div>
                         </div>
                         @if(!$loop->last)
                             <div style="flex:1;min-width:12px;height:2px;margin-bottom:20px;
-                                        background:{{ $i < $cur ? '#C4622D' : '#ECD8C6' }}"></div>
+                                        background:{{ $i < $cur ? '#FF6B35' : '#DDE3EA' }}"></div>
                         @endif
                     @endforeach
                 </div>
             @endif
 
-            <hr style="border-color:#ECD8C6">
+            <hr style="border-color:#DDE3EA">
 
             {{-- Détails trajet --}}
             <div class="row g-3 mb-4">
                 <div class="col-md-6">
-                    <div class="p-3 rounded-3" style="background:#F5EFE6">
-                        <div style="font-size:.72rem;color:#9A8070;text-transform:uppercase;letter-spacing:.1em">
+                    <div class="p-3 rounded-3" style="background:#F8F9FA">
+                        <div style="font-size:.72rem;color:#64748B;text-transform:uppercase;letter-spacing:.1em">
                             📍 Récupérer chez
                         </div>
                         <div class="fw-700 mt-1">{{ $delivery->order->artisan->name }}</div>
@@ -92,15 +92,15 @@
                             {{ $delivery->pickup_address ?? $delivery->pickup_city }}
                         </div>
                         @if($delivery->picked_up_at)
-                            <div class="mt-1" style="font-size:.78rem;color:#155724">
+                            <div class="mt-1" style="font-size:.78rem;color:#0B2545">
                                 ✅ Récupéré le {{ $delivery->picked_up_at->format('d/m H:i') }}
                             </div>
                         @endif
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="p-3 rounded-3" style="background:#D4EDDA">
-                        <div style="font-size:.72rem;color:#155724;text-transform:uppercase;letter-spacing:.1em">
+                    <div class="p-3 rounded-3" style="background:#E6F7F5">
+                        <div style="font-size:.72rem;color:#0B2545;text-transform:uppercase;letter-spacing:.1em">
                             🏠 Livrer à
                         </div>
                         <div class="fw-700 mt-1">{{ $delivery->order->client->name }}</div>
@@ -108,7 +108,7 @@
                             {{ $delivery->delivery_address ?? $delivery->delivery_city }}
                         </div>
                         @if($delivery->delivered_at)
-                            <div class="mt-1" style="font-size:.78rem;color:#155724">
+                            <div class="mt-1" style="font-size:.78rem;color:#0B2545">
                                 ✅ Livré le {{ $delivery->delivered_at->format('d/m H:i') }}
                             </div>
                         @endif
@@ -178,9 +178,9 @@
 
     {{-- Sidebar --}}
     <div class="col-lg-4">
-        <div class="content-card mb-3" style="background:#F5EFE6">
+        <div class="content-card mb-3" style="background:#F8F9FA">
             <p class="section-label mb-2">MES GAINS</p>
-            <div style="font-size:1.8rem;font-weight:700;color:#C4622D">
+            <div style="font-size:1.8rem;font-weight:700;color:#0B2545">
                 {{ number_format($delivery->fee, 0, ',', ' ') }} XOF
             </div>
             <p class="text-muted mb-0" style="font-size:.82rem">
@@ -219,7 +219,7 @@
                     </a>
                 @endif
             </div>
-            <hr style="border-color:#ECD8C6">
+            <hr style="border-color:#DDE3EA">
             <div>
                 <div class="fw-600" style="font-size:.875rem">Client</div>
                 <div class="text-muted" style="font-size:.82rem">{{ $delivery->order->client->name }}</div>

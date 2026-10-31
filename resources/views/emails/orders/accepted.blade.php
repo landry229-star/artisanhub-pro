@@ -31,7 +31,7 @@
     @if($order->budget)
     <div class="info-row">
         <span class="info-label">Montant à payer</span>
-        <span class="info-value" style="color:#C4622D;font-size:15px">{{ number_format($order->budget,0,',',' ') }} XOF</span>
+        <span class="info-value" style="color:#0B2545;font-size:15px">{{ number_format($order->budget,0,',',' ') }} XOF</span>
     </div>
     @endif
 </div>
@@ -43,7 +43,7 @@
 </a>
 
 <hr class="divider">
-<p style="font-size:12px;color:#9A8070;text-align:center;margin:0">
+<p style="font-size:12px;color:#64748B;text-align:center;margin:0">
     💡 Le paiement sera déclenché uniquement après votre validation de la livraison.
 </p>
 @endsection

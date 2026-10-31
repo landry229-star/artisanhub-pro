@@ -75,7 +75,7 @@ class KycController extends Controller
             'phone_otp_attempts'   => 0,
         ]);
 
-        if (!$this->sms->send($this->toE164($user->phone), "Votre code de vérification ArtisanHub : {$code} (valable 10 min).")) {
+        if (!$this->sms->send($this->toE164($user->phone), "Votre code de vérification ArtisanHub Pro : {$code} (valable 10 min).")) {
             $user->update([
                 'phone_otp_code' => null,
                 'phone_otp_expires_at' => null,

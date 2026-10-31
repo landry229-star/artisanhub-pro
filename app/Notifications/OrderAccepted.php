@@ -21,7 +21,7 @@ class OrderAccepted extends Notification implements ShouldQueue
 
     public function toWhatsApp(object $notifiable): string
     {
-        return "✅ Votre commande « {$this->order->title} » a été acceptée par l'artisan. Le contrat est disponible sur ArtisanHub.";
+        return "✅ Votre commande « {$this->order->title} » a été acceptée par l'artisan. Le contrat est disponible sur ArtisanHub Pro.";
     }
 
     public function toMail(object $notifiable): MailMessage

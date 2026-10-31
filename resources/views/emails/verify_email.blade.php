@@ -5,7 +5,7 @@
 
 <p>Bonjour <strong>{{ $user->name }}</strong>,</p>
 <p>
-    Merci de rejoindre ArtisanHub ! Cliquez sur le bouton ci-dessous
+    Merci de rejoindre ArtisanHub Pro ! Cliquez sur le bouton ci-dessous
     pour confirmer votre adresse email et activer votre compte.
 </p>
 
@@ -29,11 +29,11 @@
 </a>
 
 <hr class="divider">
-<p style="font-size:12px;color:#9A8070;text-align:center">
-    Si vous n'avez pas créé de compte sur ArtisanHub, ignorez cet email.<br>
+<p style="font-size:12px;color:#64748B;text-align:center">
+    Si vous n'avez pas créé de compte sur ArtisanHub Pro, ignorez cet email.<br>
     Si le bouton ne fonctionne pas, copiez ce lien dans votre navigateur :
 </p>
-<p style="font-size:11px;color:#C4622D;text-align:center;word-break:break-all">
+<p style="font-size:11px;color:#0B2545;text-align:center;word-break:break-all">
     {{ $url }}
 </p>
 @endsection

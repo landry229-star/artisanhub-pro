@@ -28,9 +28,9 @@
             <div class="content-card mb-4">
                 <p class="section-label mb-3">QUE FAIRE MAINTENANT ?</p>
                 @foreach([
-                    ['num'=>'1','title'=>'Ouvrez votre boîte email','desc'=>'Cherchez un email de ArtisanHub : « Vérifiez votre adresse email »','bg'=>'#F5EFE6','color'=>'#C4622D'],
-                    ['num'=>'2','title'=>'Cliquez sur le lien','desc'=>'Le lien est valable 24 heures. Un seul clic suffit.','bg'=>'#F5EFE6','color'=>'#C4622D'],
-                    ['num'=>'✓','title'=>'Votre compte est activé !','desc'=>'Vous accédez automatiquement à votre espace.','bg'=>'#D4EDDA','color'=>'#155724'],
+                    ['num'=>'1','title'=>'Ouvrez votre boîte email','desc'=>'Cherchez un email de ArtisanHub Pro : « Vérifiez votre adresse email »','bg'=>'#F8F9FA','color'=>'#FF6B35'],
+                    ['num'=>'2','title'=>'Cliquez sur le lien','desc'=>'Le lien est valable 24 heures. Un seul clic suffit.','bg'=>'#F8F9FA','color'=>'#FF6B35'],
+                    ['num'=>'✓','title'=>'Votre compte est activé !','desc'=>'Vous accédez automatiquement à votre espace.','bg'=>'#E6F7F5','color'=>'#0B2545'],
                 ] as $step)
                     <div class="d-flex gap-3 {{ !$loop->last ? 'mb-3' : '' }}">
                         <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
@@ -47,7 +47,7 @@
             </div>
 
             {{-- Renvoyer --}}
-            <div class="card p-4 mb-4" style="background:#F5EFE6;border-color:#ECD8C6">
+            <div class="card p-4 mb-4" style="background:#F8F9FA;border-color:#DDE3EA">
                 <p class="fw-600 mb-1">
                     <i class="bi bi-envelope me-2 text-clay"></i>Email non reçu ?
                 </p>

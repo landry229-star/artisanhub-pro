@@ -3,17 +3,17 @@
 <head>
     <meta charset="utf-8">
     <style>
-        body { font-family: DejaVu Sans, sans-serif; color: #2C1A0E; font-size: 11px; }
-        h1 { color: #C4622D; margin-bottom: 4px; }
+        body { font-family: DejaVu Sans, sans-serif; color: #0B2545; font-size: 11px; }
+        h1 { color: #0B2545; margin-bottom: 4px; }
         .muted { color: #765F51; }
         table { width: 100%; border-collapse: collapse; margin-top: 22px; }
-        th, td { border-bottom: 1px solid #ECD8C6; padding: 8px 5px; text-align: left; }
-        th { background: #F5EFE6; }
+        th, td { border-bottom: 1px solid #DDE3EA; padding: 8px 5px; text-align: left; }
+        th { background: #F8F9FA; }
         .right { text-align: right; }
     </style>
 </head>
 <body>
-    <h1>ArtisanHub</h1>
+    <img src="{{ public_path('images/artisanhub-pro-logo.jpg') }}" alt="ArtisanHub Pro" style="width:112px;height:112px;object-fit:cover;border-radius:12px">
     <h2>Relevé financier</h2>
     <p class="muted">{{ $artisan->name }} · édité le {{ now()->format('d/m/Y à H:i') }}</p>
     <table>

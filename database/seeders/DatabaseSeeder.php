@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
     {
         // ── Admin ──────────────────────────────────────────────────────────
         User::forceCreate([
-            'name'        => 'Admin ArtisanHub',
+            'name'        => 'Admin ArtisanHub Pro',
             'email'       => 'admin@artisanhub.bj',
             'password'    => Hash::make('password'),
             'role'        => 'admin',

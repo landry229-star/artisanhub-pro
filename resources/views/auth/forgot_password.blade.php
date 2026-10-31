@@ -44,7 +44,7 @@
 
             <p class="text-center mt-3 text-muted">
                 Vous vous souvenez de votre mot de passe ?
-                <a href="{{ route('login') }}" style="color:var(--clay);font-weight:600">
+                <a href="{{ route('login') }}" style="color:var(--navy);font-weight:600">
                     Se connecter
                 </a>
             </p>

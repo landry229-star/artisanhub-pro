@@ -2,7 +2,7 @@
 namespace App\Notifications;
 
 /**
- * Trait à ajouter dans toutes les notifications ArtisanHub.
+ * Trait à ajouter dans toutes les notifications ArtisanHub Pro.
  * Ajoute le canal 'database' en plus du 'mail' existant.
  * Chaque notification doit implémenter toDatabase().
  */

@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('title', 'Support client')
-@section('meta_description', "Besoin d'aide sur ArtisanHub ? Contactez notre support client pour toute question sur vos commandes, paiements ou votre compte artisan.")
+@section('meta_description', "Besoin d'aide sur ArtisanHub Pro ? Contactez notre support client pour toute question sur vos commandes, paiements ou votre compte artisan.")
 
 @section('content')
 <div class="container py-5" style="max-width:900px">
 
     <div class="mb-5 text-center">
-        <p style="color:#C4622D;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase" class="mb-2">AIDE</p>
+        <p style="color:#0B2545;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase" class="mb-2">AIDE</p>
         <h1 style="font-family:'Playfair Display',serif;font-size:2rem">Comment pouvons-nous vous aider ?</h1>
         <p class="text-muted">Notre équipe répond sous 24h ouvrées</p>
     </div>
@@ -16,30 +16,30 @@
         <div class="col-md-4">
             <div class="card border-0 shadow-sm p-4 h-100 text-center">
                 <div style="font-size:2rem;margin-bottom:12px">📧</div>
-                <h3 style="font-size:1rem;font-weight:700;color:#2C1A0E">Email</h3>
+                <h3 style="font-size:1rem;font-weight:700;color:#0B2545">Email</h3>
                 <p class="text-muted" style="font-size:.9rem">Pour les questions générales et les litiges</p>
-                <a href="mailto:support@artisanhub.bj" style="color:#C4622D;font-weight:600">support@artisanhub.bj</a>
+                <a href="mailto:support@artisanhub.bj" style="color:#0B2545;font-weight:600">support@artisanhub.bj</a>
                 <div class="mt-2 text-muted" style="font-size:.8rem">Réponse sous 24h</div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card border-0 shadow-sm p-4 h-100 text-center">
                 <div style="font-size:2rem;margin-bottom:12px">💬</div>
-                <h3 style="font-size:1rem;font-weight:700;color:#2C1A0E">WhatsApp</h3>
+                <h3 style="font-size:1rem;font-weight:700;color:#0B2545">WhatsApp</h3>
                 <p class="text-muted" style="font-size:.9rem">Pour les urgences et problèmes de paiement</p>
-                <a href="https://wa.me/22997000000" target="_blank" style="color:#C4622D;font-weight:600">+229 97 00 00 00</a>
+                <a href="https://wa.me/22997000000" target="_blank" style="color:#0B2545;font-weight:600">+229 97 00 00 00</a>
                 <div class="mt-2 text-muted" style="font-size:.8rem">Lun–Ven, 8h–18h</div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="card border-0 shadow-sm p-4 h-100 text-center">
                 <div style="font-size:2rem;margin-bottom:12px">⚖️</div>
-                <h3 style="font-size:1rem;font-weight:700;color:#2C1A0E">Litige</h3>
+                <h3 style="font-size:1rem;font-weight:700;color:#0B2545">Litige</h3>
                 <p class="text-muted" style="font-size:.9rem">Problème avec une commande spécifique</p>
                 @auth
-                    <a href="{{ route('client.orders.index') }}" style="color:#C4622D;font-weight:600">Signaler un litige</a>
+                    <a href="{{ route('client.orders.index') }}" style="color:#0B2545;font-weight:600">Signaler un litige</a>
                 @else
-                    <a href="{{ route('login') }}" style="color:#C4622D;font-weight:600">Se connecter d'abord</a>
+                    <a href="{{ route('login') }}" style="color:#0B2545;font-weight:600">Se connecter d'abord</a>
                 @endauth
                 <div class="mt-2 text-muted" style="font-size:.8rem">Décision sous 48h ouvrées</div>
             </div>
@@ -51,7 +51,7 @@
         {{-- Formulaire de contact --}}
         <div class="col-md-7">
             <div class="card border-0 shadow-sm p-4">
-                <h2 style="font-size:1.2rem;font-weight:700;color:#2C1A0E;margin-bottom:20px">📝 Nous écrire</h2>
+                <h2 style="font-size:1.2rem;font-weight:700;color:#0B2545;margin-bottom:20px">📝 Nous écrire</h2>
 
                 @if(session('success'))
                     <div class="alert alert-success">
@@ -99,8 +99,8 @@
                         @error('message')<div class="invalid-feedback">{{ $message }}</div>@enderror
                     </div>
 
-                    <button type="submit" class="btn w-100 text-white fw-semibold"
-                        style="background:#C4622D;padding:10px">
+                    <button type="submit" class="btn w-100 fw-semibold"
+                        style="background:#FF6B35;color:#0B2545;padding:10px">
                         Envoyer le message
                     </button>
                 </form>
@@ -110,7 +110,7 @@
         {{-- FAQ rapide --}}
         <div class="col-md-5">
             <div class="card border-0 shadow-sm p-4">
-                <h2 style="font-size:1.2rem;font-weight:700;color:#2C1A0E;margin-bottom:20px">❓ Questions fréquentes</h2>
+                <h2 style="font-size:1.2rem;font-weight:700;color:#0B2545;margin-bottom:20px">❓ Questions fréquentes</h2>
 
                 @php
                 $faqs = [
@@ -128,7 +128,7 @@
                     <div class="accordion-item border-bottom" style="border:none">
                         <h3 class="accordion-header">
                             <button class="accordion-button collapsed px-0 py-3"
-                                style="font-size:.9rem;font-weight:600;background:transparent;box-shadow:none;color:#2C1A0E"
+                                style="font-size:.9rem;font-weight:600;background:transparent;box-shadow:none;color:#0B2545"
                                 type="button" data-bs-toggle="collapse" data-bs-target="#faq{{ $i }}">
                                 {{ $faq['q'] }}
                             </button>
@@ -142,8 +142,8 @@
                     @endforeach
                 </div>
 
-                <div class="mt-3 p-3 rounded-3" style="background:#F5EFE6">
-                    <div style="font-size:.85rem;color:#5C3D1E">
+                <div class="mt-3 p-3 rounded-3" style="background:#F8F9FA">
+                    <div style="font-size:.85rem;color:#294361">
                         <strong>Vous ne trouvez pas la réponse ?</strong><br>
                         Écrivez-nous via le formulaire ou sur WhatsApp. Nous répondons sous 24h.
                     </div>

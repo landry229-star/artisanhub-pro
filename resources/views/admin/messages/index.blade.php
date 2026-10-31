@@ -16,9 +16,9 @@
 <div class="row g-3 mb-4">
     @php $kpis = [
         ['label'=>'Conversations actives', 'value'=>$stats['total_convs'],  'icon'=>'bi-chat-dots',       'bg'=>'#CCE5FF','ic'=>'#004085'],
-        ['label'=>'Messages signalés',     'value'=>$stats['flagged_msgs'], 'icon'=>'bi-flag-fill',       'bg'=>'#F8D7DA','ic'=>'#721c24'],
+        ['label'=>'Messages signalés',     'value'=>$stats['flagged_msgs'], 'icon'=>'bi-flag-fill',       'bg'=>'#FCE7EA','ic'=>'#721c24'],
         ['label'=>'Commandes alertées',    'value'=>$stats['alerted_orders'],'icon'=>'bi-exclamation-triangle-fill','bg'=>'#FFF3CD','ic'=>'#856404'],
-        ['label'=>'Messages aujourd\'hui', 'value'=>$stats['today_messages'],'icon'=>'bi-clock',          'bg'=>'#D4EDDA','ic'=>'#155724'],
+        ['label'=>'Messages aujourd\'hui', 'value'=>$stats['today_messages'],'icon'=>'bi-clock',          'bg'=>'#E6F7F5','ic'=>'#0B2545'],
     ]; @endphp
     @foreach($kpis as $k)
     <div class="col-6 col-lg-3">
@@ -72,7 +72,7 @@
     <div class="table-responsive desktop-only-table">
         <table class="table align-middle" style="font-size:.875rem">
             <thead>
-                <tr style="border-bottom:2px solid #ECD8C6">
+                <tr style="border-bottom:2px solid #DDE3EA">
                     <th>Commande</th>
                     <th>Client</th>
                     <th>Artisan</th>
@@ -98,7 +98,7 @@
                 <td>{{ $order->client->name }}</td>
                 <td>{{ $order->artisan->name }}</td>
                 <td class="text-center">
-                    <span class="badge" style="background:#ECD8C6;color:#5C3D1E">{{ $totalMsgs }}</span>
+                    <span class="badge" style="background:#DDE3EA;color:#294361">{{ $totalMsgs }}</span>
                 </td>
                 <td>
                     <span class="badge bg-{{ $order->statusColor() }}">{{ $order->statusLabel() }}</span>
@@ -151,7 +151,7 @@
             <div class="mcard-row"><span class="label">Artisan</span><span>{{ $order->artisan->name }}</span></div>
             <div class="mcard-row">
                 <span class="label">Messages</span>
-                <span class="badge" style="background:#ECD8C6;color:#5C3D1E">{{ $totalMsgs }}</span>
+                <span class="badge" style="background:#DDE3EA;color:#294361">{{ $totalMsgs }}</span>
             </div>
             <div class="mcard-row">
                 <span class="label">Statut</span>

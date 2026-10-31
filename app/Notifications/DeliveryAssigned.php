@@ -21,7 +21,7 @@ class DeliveryAssigned extends Notification implements ShouldQueue
 
     public function toWhatsApp(object $notifiable): string
     {
-        return "🚴 Nouvelle mission de livraison disponible sur ArtisanHub. Connectez-vous pour l'accepter.";
+        return "🚴 Nouvelle mission de livraison disponible sur ArtisanHub Pro. Connectez-vous pour l'accepter.";
     }
 
     public function toMail(object $notifiable): MailMessage

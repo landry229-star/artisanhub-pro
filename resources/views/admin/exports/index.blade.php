@@ -1,6 +1,11 @@
 @extends('layouts.dashboard')
 
 @section('title', 'Historique des exports')
+@section('page-title', 'Historique des exports')
+
+@section('sidebar-nav')
+    @include('admin.partials.sidebar')
+@endsection
 
 @section('content')
 <div class="container-fluid py-4">

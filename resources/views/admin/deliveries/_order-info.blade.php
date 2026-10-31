@@ -14,7 +14,7 @@
     </div>
     <div class="d-flex justify-content-between mb-2">
         <span class="text-muted">Frais livraison</span>
-        <strong style="color:#C4622D">{{ number_format($delivery->fee,0,',',' ') }} XOF</strong>
+        <strong style="color:#0B2545">{{ number_format($delivery->fee,0,',',' ') }} XOF</strong>
     </div>
     <div class="d-flex justify-content-between mb-3">
         <span class="text-muted">Statut commande</span>

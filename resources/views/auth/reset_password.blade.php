@@ -69,7 +69,7 @@
                         <div class="d-flex gap-1" id="strength-bars">
                             @for($i=0; $i<4; $i++)
                                 <div class="flex-grow-1 rounded"
-                                     style="height:4px;background:#ECD8C6;transition:.3s"
+                                     style="height:4px;background:#DDE3EA;transition:.3s"
                                      id="bar-{{ $i }}"></div>
                             @endfor
                         </div>
@@ -108,7 +108,7 @@ document.getElementById('pwd').addEventListener('input', function() {
     const bars    = document.querySelectorAll('[id^="bar-"]');
 
     bars.forEach((b, i) => {
-        b.style.background = i < score ? colors[score-1] : '#ECD8C6';
+        b.style.background = i < score ? colors[score-1] : '#DDE3EA';
     });
 
     const label = document.getElementById('strength-label');

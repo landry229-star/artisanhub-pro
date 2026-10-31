@@ -3,17 +3,7 @@
 @section('page-title', 'Mon profil')
 
 @section('sidebar-nav')
-    <div class="sidebar-section-title">Principal</div>
-    <a href="{{ route('client.dashboard') }}" class="sidebar-link"><i class="bi bi-speedometer2"></i> Tableau de bord</a>
-    <a href="{{ route('client.orders.index') }}" class="sidebar-link"><i class="bi bi-bag"></i> Mes commandes</a>
-    <a href="{{ route('client.wallet.index') }}" class="sidebar-link"><i class="bi bi-receipt"></i> Mes paiements</a>
-    <a href="{{ route('contacts.index') }}" class="sidebar-link">
-        <i class="bi bi-people"></i> Mes contacts
-    </a>
-    <div class="sidebar-section-title mt-2">Mon compte</div>
-    <a href="{{ route('client.profile.edit') }}" class="sidebar-link active"><i class="bi bi-person-gear"></i> Mon profil</a>
-    <a href="{{ route('client.favorites.index') }}" class="sidebar-link"><i class="bi bi-heart"></i> Mes favoris</a>
-    <a href="{{ route('artisans.index') }}" class="sidebar-link"><i class="bi bi-search"></i> Explorer</a>
+    @include('client.partials.sidebar')
 @endsection
 
 @section('content')
@@ -28,7 +18,7 @@
             {{-- Avatar --}}
             <div class="mb-4 d-flex align-items-center gap-4">
                 <img src="{{ $user->avatarUrl() }}" class="rounded-circle" id="avatar-preview"
-                     width="80" height="80" style="object-fit:cover;border:3px solid #C4622D">
+                     width="80" height="80" style="object-fit:cover;border:3px solid #FF6B35">
                 <div>
                     <label class="btn btn-outline-clay btn-sm">
                         <i class="bi bi-camera me-1"></i>Changer la photo

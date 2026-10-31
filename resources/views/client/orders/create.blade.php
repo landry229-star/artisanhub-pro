@@ -9,9 +9,9 @@
             {{-- En-tête artisan --}}
             <div class="d-flex gap-3 align-items-center mb-4">
                 <img src="{{ $artisan->avatarUrl() }}" class="rounded-circle"
-                     width="56" height="56" style="object-fit:cover;border:2px solid #C4622D">
+                     width="56" height="56" style="object-fit:cover;border:2px solid #FF6B35">
                 <div>
-                    <p style="color:#C4622D;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em" class="mb-0">Nouvelle commande pour</p>
+                    <p style="color:#0B2545;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em" class="mb-0">Nouvelle commande pour</p>
                     <h2 style="font-family:'Playfair Display',serif" class="mb-0">{{ $artisan->name }}</h2>
                     <span class="text-muted" style="font-size:.85rem">{{ $artisan->artisanProfile->specialty }}</span>
                 </div>
@@ -20,13 +20,13 @@
             {{-- Carte service sélectionné --}}
             @if($service)
             <div class="card p-3 mb-4 d-flex flex-row gap-3 align-items-center"
-                 style="border:2px solid #C4622D;background:#fdf8f4">
+                 style="border:2px solid #FF6B35;background:#fdf8f4">
                 @if($service->image_path)
                     <img src="{{ asset('storage/'.$service->image_path) }}"
                          style="width:70px;height:70px;object-fit:cover;border-radius:8px;flex-shrink:0">
                 @endif
                 <div class="flex-grow-1">
-                    <p class="mb-0" style="font-size:.72rem;color:#C4622D;font-weight:700;text-transform:uppercase;letter-spacing:.08em">Service sélectionné</p>
+                    <p class="mb-0" style="font-size:.72rem;color:#0B2545;font-weight:700;text-transform:uppercase;letter-spacing:.08em">Service sélectionné</p>
                     <p class="fw-700 mb-0">{{ $service->title }}</p>
                     <p class="mb-0 text-muted" style="font-size:.82rem">{{ $service->formattedPrice() }} — {{ $service->delayLabel() }}</p>
                 </div>
@@ -104,7 +104,7 @@
                         @error('images.*')<div class="invalid-feedback">{{ $message }}</div>@enderror
                     </div>
 
-                    <div class="p-3 rounded-3 mb-4" style="background:#F5EFE6;border:1px solid #ECD8C6">
+                    <div class="p-3 rounded-3 mb-4" style="background:#F8F9FA;border:1px solid #DDE3EA">
                         {{-- Option livraison --}}
                         <div class="form-check mb-2">
                             <input class="form-check-input" type="checkbox" name="needs_delivery"
@@ -137,9 +137,9 @@
                         </div>
                     </div>
 
-                    <div class="p-3 rounded-3 mb-4" style="background:#F5EFE6;border:1px solid #ECD8C6">
+                    <div class="p-3 rounded-3 mb-4" style="background:#F8F9FA;border:1px solid #DDE3EA">
                         <p class="mb-1 fw-600" style="font-size:.875rem">📋 Ce qui se passe ensuite :</p>
-                        <ol class="mb-0" style="font-size:.82rem;color:#5C3D1E;padding-left:1.2rem">
+                        <ol class="mb-0" style="font-size:.82rem;color:#294361;padding-left:1.2rem">
                             <li>L'artisan reçoit votre demande et peut l'accepter ou refuser</li>
                             <li>Si acceptée, un contrat numérique est généré automatiquement</li>
                             <li>Vous communiquez via la messagerie intégrée</li>

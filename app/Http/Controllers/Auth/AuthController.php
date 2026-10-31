@@ -57,7 +57,7 @@ class AuthController extends Controller
                 'user' => $user,
                 'url'  => $url,
             ], fn($m) => $m->to($user->email, $user->name)
-                            ->subject('Vérifiez votre email — ArtisanHub'));
+                            ->subject('Vérifiez votre email — ArtisanHub Pro'));
         } catch (\Exception $e) {
             Log::error("Email vérification non envoyé [{$user->email}] : " . $e->getMessage());
         }

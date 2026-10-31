@@ -22,7 +22,7 @@ class OrderDelayed extends Notification implements ShouldQueue
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-            ->subject('Délai dépassé pour une commande ArtisanHub')
+            ->subject('Délai dépassé pour une commande ArtisanHub Pro')
             ->line("La commande « {$this->order->title} » a dépassé le délai prévu.")
             ->action('Voir la commande', $notifiable->isArtisan()
                 ? route('artisan.orders.show', $this->order->id)

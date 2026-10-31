@@ -133,7 +133,7 @@
                         <form action="{{ route('admin.orders.arbitrate', $order) }}" method="POST">
                             @csrf @method('PATCH')
                             <div class="modal-body">
-                                <div class="p-3 rounded-3 mb-3" style="background:#F5EFE6">
+                                <div class="p-3 rounded-3 mb-3" style="background:#F8F9FA">
                                     <strong>{{ $order->title }}</strong><br>
                                     <small class="text-muted">{{ $order->client->name }} → {{ $order->artisan->name }}</small>
                                 </div>

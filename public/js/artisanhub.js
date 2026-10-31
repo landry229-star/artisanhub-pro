@@ -1,5 +1,5 @@
 /**
- * ArtisanHub — Validation JS globale
+ * ArtisanHub Pro — Validation JS globale
  * Gère tous les formulaires de la plateforme.
  */
 

@@ -86,7 +86,7 @@ $exceptions->report(function (\Exception $e) {
 
     foreach ($criticalPatterns as $pattern) {
         if (str_contains($e->getMessage(), $pattern)) {
-            \Illuminate\Support\Facades\Log::critical('🚨 ERREUR CRITIQUE ArtisanHub', [
+            \Illuminate\Support\Facades\Log::critical('🚨 ERREUR CRITIQUE ArtisanHub Pro', [
                 'message'   => $e->getMessage(),
                 'file'      => $e->getFile(),
                 'line'      => $e->getLine(),

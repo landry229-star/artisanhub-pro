@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Artisans à '.$city.' — ArtisanHub')
+@section('title', 'Artisans à '.$city.' — ArtisanHub Pro')
 @section('meta_description', "Trouvez un artisan qualifié à ".$city.", Bénin : poterie, menuiserie, couture, bijouterie et plus. Devis gratuit, garantie satisfait ou repris.")
 
 @push('head')
@@ -17,22 +17,22 @@
 @endpush
 
 @section('content')
-<div style="background:linear-gradient(135deg,#2C1A0E 0%,#5C3D1E 60%,#9E4A1E 100%);padding:48px 0 40px">
+<div style="background:linear-gradient(135deg,#0B2545 0%,#294361 60%,#0B2545 100%);padding:48px 0 40px">
     <div class="container">
         <nav aria-label="breadcrumb" class="mb-3">
-            <ol class="breadcrumb mb-0" style="--bs-breadcrumb-divider-color:#D4A853">
-                <li class="breadcrumb-item"><a href="{{ route('home') }}" style="color:#D4A853">Accueil</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('artisans.index') }}" style="color:#D4A853">Artisans</a></li>
+            <ol class="breadcrumb mb-0" style="--bs-breadcrumb-divider-color:#0B2545">
+                <li class="breadcrumb-item"><a href="{{ route('home') }}" style="color:#0B2545">Accueil</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('artisans.index') }}" style="color:#0B2545">Artisans</a></li>
                 <li class="breadcrumb-item active" style="color:#fff" aria-current="page">{{ $city }}</li>
             </ol>
         </nav>
-        <p style="color:#D4A853;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-align:center" class="mb-2">
+        <p style="color:#0B2545;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-align:center" class="mb-2">
             📍 VILLE
         </p>
         <h1 style="font-family:'Playfair Display',serif;color:#fff;font-size:2rem;text-align:center" class="mb-2">
             Artisans à {{ $city }}
         </h1>
-        <p style="color:#C8B5A0;text-align:center;max-width:560px;margin:0 auto" class="mb-4">
+        <p style="color:#CBD5E1;text-align:center;max-width:560px;margin:0 auto" class="mb-4">
             {{ $artisans->total() }} artisan{{ $artisans->total() > 1 ? 's' : '' }} vérifié{{ $artisans->total() > 1 ? 's' : '' }} à {{ $city }}, prêts à recevoir votre demande de devis.
         </p>
 

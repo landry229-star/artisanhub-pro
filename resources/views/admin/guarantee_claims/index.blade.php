@@ -16,8 +16,8 @@
 <div class="row g-3 mb-4">
     @php $kpis = [
         ['label'=>'En attente', 'value'=>$stats['pending'],  'icon'=>'bi-hourglass',    'bg'=>'#FFF3CD','ic'=>'#856404'],
-        ['label'=>'Approuvées', 'value'=>$stats['approved'], 'icon'=>'bi-check-circle', 'bg'=>'#D4EDDA','ic'=>'#155724'],
-        ['label'=>'Rejetées',   'value'=>$stats['rejected'], 'icon'=>'bi-x-circle',     'bg'=>'#F8D7DA','ic'=>'#721C24'],
+        ['label'=>'Approuvées', 'value'=>$stats['approved'], 'icon'=>'bi-check-circle', 'bg'=>'#E6F7F5','ic'=>'#0B2545'],
+        ['label'=>'Rejetées',   'value'=>$stats['rejected'], 'icon'=>'bi-x-circle',     'bg'=>'#FCE7EA','ic'=>'#E71D36'],
     ]; @endphp
     @foreach($kpis as $k)
         <div class="col-6 col-lg-4">
@@ -153,7 +153,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                         </div>
                         <div class="modal-body">
-                            <div class="p-3 rounded-3 mb-3" style="background:#F5EFE6">
+                            <div class="p-3 rounded-3 mb-3" style="background:#F8F9FA">
                                 <strong>{{ $claim->client->name }}</strong> vs <strong>{{ $claim->artisan->name }}</strong><br>
                                 <small class="text-muted">{{ $claim->reason }}</small>
                             </div>
@@ -180,7 +180,7 @@
                                 </button>
                             </form>
 
-                            <hr style="border-color:#ECD8C6">
+                            <hr style="border-color:#DDE3EA">
 
                             {{-- Rejeter --}}
                             <form action="{{ route('admin.guarantee-claims.reject', $claim) }}" method="POST">

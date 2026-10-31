@@ -3,31 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>404 — Page introuvable | ArtisanHub</title>
+    <title>404 — Page introuvable | ArtisanHub Pro</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        :root { --clay:#C4622D; --earth:#2C1A0E; --sand:#F5EFE6; }
+        :root { --navy:#0B2545; --orange:#FF6B35; --clay:var(--navy); --earth:var(--navy); --sand:#F8F9FA; }
         * { font-family:'DM Sans',sans-serif; }
         h1,h2 { font-family:'Playfair Display',serif; }
         body { background:var(--sand); color:var(--earth); min-height:100vh;
                display:flex; flex-direction:column; }
         .error-code { font-size:clamp(5rem,15vw,10rem); font-weight:800;
-                      color:var(--clay); opacity:.15; line-height:1;
+                      color:var(--navy); opacity:.15; line-height:1;
                       font-family:'Playfair Display',serif; }
-        .btn-clay { background:var(--clay); color:#fff; border:none; font-weight:700; }
-        .btn-clay:hover { background:#9E4A1E; color:#fff; }
-        .btn-outline-clay { border:2px solid var(--clay); color:var(--clay); font-weight:700; }
-        .btn-outline-clay:hover { background:var(--clay); color:#fff; }
-        nav { background:rgba(253,250,247,.97); border-bottom:1px solid #ECD8C6; }
+        .btn-clay { background:var(--orange); color:var(--navy); border:none; font-weight:700; }
+        .btn-clay:hover { background:#F25C2B; color:var(--navy); }
+        .btn-outline-clay { border:2px solid var(--clay); color:var(--navy); font-weight:700; }
+        .btn-outline-clay:hover { background:var(--orange); color:var(--navy); }
+        nav { background:rgba(255,255,255,.97); border-bottom:1px solid #DDE3EA; }
         .brand { font-family:'Playfair Display',serif; font-weight:700;
-                 color:var(--clay); font-size:1.3rem; text-decoration:none; }
+                 color:var(--navy); font-size:1.3rem; text-decoration:none; }
     </style>
 </head>
 <body>
     <nav class="navbar px-4 py-3">
-        <a href="/" class="brand">🏺 ArtisanHub</a>
+        <a href="/" class="brand"><img src="{{ asset('images/artisanhub-pro-logo.jpg') }}" alt="ArtisanHub Pro" style="width:112px;height:112px;object-fit:cover;border-radius:12px"></a>
     </nav>
 
     <div class="flex-grow-1 d-flex align-items-center justify-content-center py-5">
@@ -62,8 +62,8 @@
         </div>
     </div>
 
-    <footer class="text-center py-3" style="color:#9A8070;font-size:.85rem">
-        © 2026 ArtisanHub · Bénin 🇧🇯
+    <footer class="text-center py-3" style="color:#64748B;font-size:.85rem">
+        © 2026 ArtisanHub Pro · Bénin 🇧🇯
     </footer>
 </body>
 </html>

@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="theme-color" content="#C4622D">
+    <meta name="theme-color" content="#FF6B35">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('icons/icon.svg') }}">
+    <link rel="icon" href="{{ asset('favicon.ico') }}">
     <link rel="manifest" href="{{ asset('manifest.webmanifest') }}">
     <link rel="apple-touch-icon" href="{{ asset('icons/icon-192.png') }}">
-    <title>@yield('title', 'Dashboard') — ArtisanHub</title>
+    <title>@yield('title', 'Dashboard') — ArtisanHub Pro</title>
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => navigator.serviceWorker.register('{{ asset('sw.js') }}', { scope: '/' }));
@@ -18,21 +20,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@400;600;700&family=DM+Mono&display=swap" rel="stylesheet">
     <style>
         :root {
-            --clay:#C4622D; --clay-dark:#9E4A1E; --clay-light:#E8845A;
-            --earth:#2C1A0E; --earth-mid:#5C3D1E;
-            --gold:#D4A853; --sand:#F5EFE6; --white:#FDFAF7;
+            --navy:#0B2545; --orange:#FF6B35; --surface:#FFFFFF;
+            --surface-muted:#F8F9FA; --success:#2EC4B6; --danger:#E71D36;
+            --clay:var(--navy); --clay-dark:#071A31; --clay-light:var(--orange);
+            --earth:var(--navy); --earth-mid:#294361;
+            --gold:var(--orange); --sand:var(--surface-muted); --white:var(--surface);
             --sidebar-w: 260px;
         }
         * { font-family:'DM Sans',sans-serif; }
         h1,h2,h3,.brand { font-family:'Playfair Display',serif; }
-        body { background:#F0EBE3; color:var(--earth); min-height:100vh; }
-        ::selection { background:var(--clay-light); color:#fff; }
-        :focus-visible { outline:3px solid rgba(212,168,83,.85); outline-offset:3px; }
+        body { background:#F8F9FA; color:var(--earth); min-height:100vh; }
+        ::selection { background:var(--clay-light); color:var(--navy); }
+        :focus-visible { outline:3px solid rgba(255,107,53,.85); outline-offset:3px; }
         .btn { border-radius:10px; }
         .sidebar-link, .stat-card, .content-card { transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease; }
-        .stat-card:hover { transform:translateY(-2px); box-shadow:0 10px 24px rgba(44,26,14,.08); }
-        .content-card { box-shadow:0 2px 8px rgba(44,26,14,.03); }
-        .topbar { box-shadow:0 2px 8px rgba(44,26,14,.04); }
+        .stat-card:hover { transform:translateY(-2px); box-shadow:0 10px 24px rgba(11,37,69,.08); }
+        .content-card { box-shadow:0 2px 8px rgba(11,37,69,.03); }
+        .topbar { box-shadow:0 2px 8px rgba(11,37,69,.04); }
 
 
 
@@ -47,10 +51,15 @@
             z-index:200; overflow-y:auto;
         }
         .sidebar-brand {
-            padding:24px 20px 16px;
+            padding:8px 20px;
             font-family:'Playfair Display',serif;
             font-size:1.3rem; color:#fff; font-weight:700;
             border-bottom:1px solid rgba(255,255,255,.08);
+            text-align:center;
+        }
+        .sidebar-brand img {
+            display:block; width:48px; height:48px; object-fit:contain;
+            border-radius:12px; margin:0 auto;
         }
         .sidebar-user {
             padding:16px 20px;
@@ -62,22 +71,22 @@
             object-fit:cover; border:2px solid var(--clay);
         }
         .sidebar-user-name  { color:#fff; font-weight:600; font-size:.9rem; line-height:1.2; }
-        .sidebar-user-role  { color:#9A8070; font-size:.75rem; }
+        .sidebar-user-role  { color:#64748B; font-size:.75rem; }
         .sidebar-nav { padding:12px 0; flex:1; }
         .sidebar-section-title {
-            color:#6B5545; font-size:.7rem; font-weight:700;
+            color:#CBD5E1; font-size:.7rem; font-weight:700;
             letter-spacing:.12em; text-transform:uppercase;
             padding:12px 20px 4px;
         }
         .sidebar-link {
             display:flex; align-items:center; gap:10px;
-            padding:10px 20px; color:#B8A090; text-decoration:none;
+            padding:10px 20px; color:#CBD5E1; text-decoration:none;
             font-weight:500; font-size:.9rem; transition:.15s;
             border-left:3px solid transparent;
         }
         .sidebar-link:hover { color:#fff; background:rgba(255,255,255,.05); }
-        .sidebar-link.active { color:#fff; background:rgba(196,98,45,.15);
-            border-left-color:var(--clay); }
+        .sidebar-link.active { color:#fff; background:rgba(255,107,53,.15);
+            border-left-color:var(--navy); }
         .sidebar-link i { font-size:1.1rem; width:20px; text-align:center; }
         .sidebar-footer {
             padding:16px 20px;
@@ -85,11 +94,11 @@
         }
         .sidebar-logout {
             display:flex; align-items:center; gap:10px;
-            color:#9A8070; font-size:.875rem; cursor:pointer;
+            color:#64748B; font-size:.875rem; cursor:pointer;
             background:none; border:none; padding:0; width:100%;
             transition:.15s;
         }
-        .sidebar-logout:hover { color:#FF6B6B; }
+        .sidebar-logout:hover { color:#E71D36; }
 
         /* ── Main ────────────────────────────────────────────────────── */
         .main-content {
@@ -97,7 +106,7 @@
             min-height:100vh; padding:0;
         }
         .topbar {
-            background:var(--white); border-bottom:1px solid #ECD8C6;
+            background:var(--white); border-bottom:1px solid #DDE3EA;
             padding:12px 28px; display:flex; align-items:center;
             justify-content:space-between; position:sticky; top:0; z-index:100;
         }
@@ -106,7 +115,7 @@
 
         /* ── Cards ───────────────────────────────────────────────────── */
         .stat-card {
-            background:var(--white); border:1px solid #ECD8C6;
+            background:var(--white); border:1px solid #DDE3EA;
             border-radius:14px; padding:20px 24px;
         }
         .stat-card .stat-icon {
@@ -118,31 +127,31 @@
         .stat-card .stat-label { color:var(--earth-mid); font-size:.85rem; }
 
         .content-card {
-            background:var(--white); border:1px solid #ECD8C6;
+            background:var(--white); border:1px solid #DDE3EA;
             border-radius:14px; padding:24px;
         }
 
         /* ── Table ───────────────────────────────────────────────────── */
         .table { --bs-table-bg:transparent; }
         .table th { color:var(--earth-mid); font-size:.8rem; text-transform:uppercase;
-            letter-spacing:.08em; font-weight:700; border-bottom:2px solid #ECD8C6; }
-        .table td { border-bottom:1px solid #F5EFE6; vertical-align:middle; }
+            letter-spacing:.08em; font-weight:700; border-bottom:2px solid #DDE3EA; }
+        .table td { border-bottom:1px solid #F8F9FA; vertical-align:middle; }
 
         /* ── Badges statuts ──────────────────────────────────────────── */
         .badge-status { font-size:.75rem; padding:4px 10px; border-radius:100px; font-weight:600; }
         .status-en_attente  { background:#FFF3CD; color:#856404; }
-        .status-acceptee    { background:#CFF4FC; color:#055160; }
-        .status-en_cours    { background:#CCE5FF; color:#004085; }
+        .status-acceptee    { background:#E6F7F5; color:#0B2545; }
+        .status-en_cours    { background:#EAF0F7; color:#0B2545; }
         .status-livree      { background:#E2E3E5; color:#383D41; }
-        .status-terminee    { background:#D4EDDA; color:#155724; }
-        .status-annulee     { background:#F8D7DA; color:#721C24; }
-        .status-litige      { background:#F8D7DA; color:#721C24; border:1px solid #F5C6CB; }
+        .status-terminee    { background:#E6F7F5; color:#0B2545; }
+        .status-annulee     { background:#FCE7EA; color:#E71D36; }
+        .status-litige      { background:#FCE7EA; color:#E71D36; border:1px solid #F5C6CB; }
 
         /* ── Buttons ─────────────────────────────────────────────────── */
-        .btn-clay { background:var(--clay); color:#fff; border:none; font-weight:700; }
-        .btn-clay:hover { background:var(--clay-dark); color:#fff; }
-        .btn-outline-clay { border:2px solid var(--clay); color:var(--clay); font-weight:700; }
-        .btn-outline-clay:hover { background:var(--clay); color:#fff; }
+        .btn-clay { background:var(--orange); color:var(--navy); border:none; font-weight:700; }
+        .btn-clay:hover { background:#F25C2B; color:var(--navy); }
+        .btn-outline-clay { border:2px solid var(--orange); color:var(--navy); font-weight:700; }
+        .btn-outline-clay:hover { background:var(--orange); color:var(--navy); }
 
         /* ── Responsive ──────────────────────────────────────────────── */
         /*
@@ -180,7 +189,7 @@
         }
         .sidebar-backdrop.open { display:block; }
 
-        .text-clay { color:var(--clay)!important; }
+        .text-clay { color:var(--navy)!important; }
         .stars { color:var(--gold); }
 
           /* ── Notifications ────────────────────────────────────────────────────── */
@@ -189,7 +198,7 @@
     cursor: pointer;
 }
 .notif-item:hover {
-    background: #FAF5EE !important;
+    background: #F8F9FA !important;
 }
 .notif-unread {
     background: #FFF8F5;
@@ -230,7 +239,9 @@
 
 {{-- SIDEBAR --}}
 <aside class="sidebar" id="sidebar">
-    <div class="sidebar-brand">🏺 ArtisanHub</div>
+    <div class="sidebar-brand">
+        <img src="{{ asset('images/artisanhub-pro-logo.jpg') }}" alt="ArtisanHub Pro">
+    </div>
 
     <div class="sidebar-user">
         <img src="{{ auth()->user()->avatarUrl() }}" alt="{{ auth()->user()->name }}">

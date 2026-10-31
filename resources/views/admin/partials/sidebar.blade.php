@@ -17,7 +17,7 @@
     <i class="bi bi-people"></i> Utilisateurs
     @isset($sidebarBadges['unverified'])
         @if($sidebarBadges['unverified'] > 0)
-            <span class="badge ms-auto" style="background:#D4A853">{{ $sidebarBadges['unverified'] }}</span>
+            <span class="badge ms-auto" style="background:#FF6B35;color:#0B2545">{{ $sidebarBadges['unverified'] }}</span>
         @endif
     @endisset
 </a>
@@ -50,6 +50,11 @@
 <a href="{{ route('admin.support.index') }}"
    class="sidebar-link {{ request()->routeIs('admin.support.*') ? 'active' : '' }}">
    <i class="bi bi-headset"></i> Support
+</a>
+
+<a href="{{ route('admin.audit-logs.index') }}"
+   class="sidebar-link {{ request()->routeIs('admin.audit-logs.*') ? 'active' : '' }}">
+    <i class="bi bi-journal-text"></i> Journal d’audit
 </a>
 
 <a href="{{ route('admin.wallet.index') }}"

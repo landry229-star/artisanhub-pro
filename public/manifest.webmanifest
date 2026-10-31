@@ -1,14 +1,14 @@
 {
-  "name": "ArtisanHub - Artisans du Bénin",
-  "short_name": "ArtisanHub",
+  "name": "ArtisanHub Pro - Artisans du Bénin",
+  "short_name": "ArtisanHub Pro",
   "description": "Plateforme de mise en relation entre clients et artisans au Bénin.",
   "id": "/",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "background_color": "#FDFAF7",
-  "theme_color": "#C4622D",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FF6B35",
   "lang": "fr-FR",
   "categories": ["business", "shopping"],
   "icons": [

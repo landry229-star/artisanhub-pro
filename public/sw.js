@@ -1,8 +1,11 @@
-const CACHE = 'artisanhub-pwa-v2';
+const CACHE = 'artisanhub-pwa-v5';
 const OFFLINE_URL = '/offline.html';
 const SHELL = [
     OFFLINE_URL,
     '/manifest.webmanifest',
+    '/images/artisanhub-pro-logo.jpg',
+    '/icons/icon.svg',
+    '/favicon.ico',
     '/icons/icon-192.png',
     '/icons/icon-512.png',
 ];

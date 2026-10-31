@@ -26,7 +26,7 @@ class QuoteProposed extends Notification implements ShouldQueue
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-            ->subject('Nouvelle proposition de prix — ArtisanHub')
+            ->subject('Nouvelle proposition de prix — ArtisanHub Pro')
             ->line("Une proposition de {$this->quote->formattedAmount()} a été faite sur la commande « {$this->order->title} ».")
             ->when($this->quote->message, fn($m) => $m->line("Message : \"{$this->quote->message}\""))
             ->action('Voir et répondre', route(

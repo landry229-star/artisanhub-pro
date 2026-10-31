@@ -19,7 +19,7 @@ class RefundRequested extends Notification implements ShouldQueue
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-            ->subject('💰 Remboursement en cours — ArtisanHub')
+            ->subject('💰 Remboursement en cours — ArtisanHub Pro')
             ->line("Suite à l'arbitrage du litige sur la commande « {$this->order->title} », notre équipe a validé votre remboursement de {$this->payment->amount} XOF.")
             ->line('Le remboursement Mobile Money sera lancé par notre équipe et peut prendre quelques jours ouvrés.')
             ->line('Vous recevrez une confirmation dès que le remboursement sera effectué.');

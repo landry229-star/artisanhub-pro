@@ -14,7 +14,8 @@ class StatsController extends Controller
     {
         $user = Auth::user();
 
-        $start = now()->subMonths(11)->startOfMonth();
+        $currentMonth = now()->startOfMonth();
+        $start = $currentMonth->copy()->subMonths(11);
         $monthlyPayments = Payment::whereHas('order', fn($q)=>$q->where('artisan_id',$user->id))
             ->where('status','completed')->where('paid_at', '>=', $start)
             ->selectRaw('YEAR(paid_at) as payment_year, MONTH(paid_at) as payment_month, SUM(net_amount) as earned')
@@ -26,8 +27,8 @@ class StatsController extends Controller
             ->groupBy('order_year', 'order_month')->get()
             ->keyBy(fn ($row) => $row->order_year . '-' . $row->order_month);
 
-        $monthly = collect(range(11,0))->map(function($ago) use ($monthlyPayments, $monthlyOrders) {
-            $date = now()->subMonths($ago);
+        $monthly = collect(range(11,0))->map(function($ago) use ($currentMonth, $monthlyPayments, $monthlyOrders) {
+            $date = $currentMonth->copy()->subMonths($ago);
             $key = $date->year . '-' . $date->month;
             return [
                 'label'  => $date->format('M Y'),

@@ -21,7 +21,7 @@ class OrderDelivered extends Notification implements ShouldQueue
 
     public function toWhatsApp(object $notifiable): string
     {
-        return "📦 Votre commande « {$this->order->title} » a été marquée comme livrée. Validez-la sur ArtisanHub pour débloquer le paiement.";
+        return "📦 Votre commande « {$this->order->title} » a été marquée comme livrée. Validez-la sur ArtisanHub Pro pour débloquer le paiement.";
     }
 
     public function toMail(object $notifiable): MailMessage

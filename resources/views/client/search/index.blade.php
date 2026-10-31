@@ -5,9 +5,9 @@
 @section('content')
 
 {{-- Hero recherche --}}
-<div style="background:linear-gradient(135deg,#2C1A0E 0%,#5C3D1E 60%,#9E4A1E 100%);padding:48px 0 40px">
+<div style="background:linear-gradient(135deg,#0B2545 0%,#294361 60%,#0B2545 100%);padding:48px 0 40px">
     <div class="container">
-        <p style="color:#D4A853;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-align:center" class="mb-2">EXPLORER</p>
+        <p style="color:#0B2545;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-align:center" class="mb-2">EXPLORER</p>
         <h1 style="font-family:'Playfair Display',serif;color:#fff;font-size:2rem;text-align:center" class="mb-4">
             Trouvez l'artisan qu'il vous faut
         </h1>
@@ -59,7 +59,7 @@
                 <button type="button" class="btn btn-sm btn-outline-light" onclick="searchNearMe()">
                     <i class="bi bi-geo-alt me-1"></i>Autour de moi
                     @if(request('lat'))
-                        <span class="badge ms-1" style="background:#C4622D">activé</span>
+                        <span class="badge ms-1" style="background:#FF6B35;color:#0B2545">activé</span>
                     @endif
                 </button>
                 <input type="hidden" name="lat" id="input-lat" value="{{ request('lat') }}">
@@ -72,7 +72,7 @@
                         onclick="toggleFilters()">
                     <i class="bi bi-sliders me-1"></i>Filtres avancés
                     @if(request('price_min') || request('price_max') || request('min_rating') || request('available'))
-                        <span class="badge ms-1" style="background:#C4622D">actifs</span>
+                        <span class="badge ms-1" style="background:#FF6B35;color:#0B2545">actifs</span>
                     @endif
                 </button>
             </div>
@@ -142,7 +142,7 @@
                 <span class="text-muted"> sur {{ $totalArtisans }}</span>
             @endif
             @if(request('q'))
-                <span class="ms-2 badge" style="background:#F5EFE6;color:#C4622D">
+                <span class="ms-2 badge" style="background:#F8F9FA;color:#0B2545">
                     "{{ request('q') }}"
                 </span>
             @endif

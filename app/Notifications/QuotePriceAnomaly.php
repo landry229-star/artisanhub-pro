@@ -27,7 +27,7 @@ class QuotePriceAnomaly extends Notification implements ShouldQueue
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-            ->subject('⚠️ Écart de prix suspect sur un devis — ArtisanHub')
+            ->subject('⚠️ Écart de prix suspect sur un devis — ArtisanHub Pro')
             ->line("Commande #{$this->order->id} « {$this->order->title} » : {$this->quote->price_anomaly_note}")
             ->line("Montant proposé : {$this->quote->formattedAmount()}")
             ->action('Voir la commande', route('admin.orders.index'));

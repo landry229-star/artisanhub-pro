@@ -3,13 +3,7 @@
 @section('page-title', 'Mes paiements')
 
 @section('sidebar-nav')
-    <div class="sidebar-section-title">Principal</div>
-    <a href="{{ route('client.dashboard') }}" class="sidebar-link"><i class="bi bi-speedometer2"></i> Tableau de bord</a>
-    <a href="{{ route('client.orders.index') }}" class="sidebar-link"><i class="bi bi-bag"></i> Mes commandes</a>
-    <a href="{{ route('client.wallet.index') }}" class="sidebar-link active"><i class="bi bi-receipt"></i> Mes paiements</a>
-    <a href="{{ route('contacts.index') }}" class="sidebar-link"><i class="bi bi-people"></i> Mes contacts</a>
-    <div class="mt-2 sidebar-section-title">Découvrir</div>
-    <a href="{{ route('artisans.index') }}" class="sidebar-link"><i class="bi bi-search"></i> Explorer les artisans</a>
+    @include('client.partials.sidebar')
 @endsection
 
 @section('content')
@@ -28,7 +22,7 @@
 
 <div class="content-card">
     @forelse($payments as $payment)
-        <div class="flex-wrap gap-3 py-3 border-bottom d-flex align-items-center" style="border-color:#F5EFE6!important">
+        <div class="flex-wrap gap-3 py-3 border-bottom d-flex align-items-center" style="border-color:#F8F9FA!important">
             <div class="flex-grow-1">
                 <div class="fw-600">{{ $payment->order->title }}</div>
                 <div class="text-muted small">

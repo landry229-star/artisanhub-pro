@@ -47,8 +47,8 @@
     @foreach([
         ['label'=>'Nouvelles missions', 'value'=>$stats['pending'],   'icon'=>'bi-bell',        'bg'=>'#FFF3CD','ic'=>'#856404'],
         ['label'=>'En cours',           'value'=>$stats['active'],    'icon'=>'bi-bicycle',     'bg'=>'#CCE5FF','ic'=>'#004085'],
-        ['label'=>'Terminées',          'value'=>$stats['completed'], 'icon'=>'bi-check-circle','bg'=>'#D4EDDA','ic'=>'#155724'],
-        ['label'=>'Gains XOF',          'value'=>number_format($stats['earned'],0,',',' '), 'icon'=>'bi-cash-coin','bg'=>'#F5EFE6','ic'=>'#C4622D'],
+        ['label'=>'Terminées',          'value'=>$stats['completed'], 'icon'=>'bi-check-circle','bg'=>'#E6F7F5','ic'=>'#0B2545'],
+        ['label'=>'Gains XOF',          'value'=>number_format($stats['earned'],0,',',' '), 'icon'=>'bi-cash-coin','bg'=>'#F8F9FA','ic'=>'#FF6B35'],
     ] as $k)
         <div class="col-6 col-lg-3">
             <div class="stat-card">
@@ -68,7 +68,7 @@
         <div class="content-card">
             <h5 class="fw-700 mb-3">Missions en cours</h5>
             @forelse($missions as $delivery)
-                <div class="border rounded-3 p-3 mb-3" style="border-color:#ECD8C6!important">
+                <div class="border rounded-3 p-3 mb-3" style="border-color:#DDE3EA!important">
                     <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
                         <div>
                             <div class="fw-700">{{ $delivery->order->title }}</div>
@@ -153,7 +153,7 @@
             <h5 class="fw-700 mb-3">Historique récent</h5>
             @forelse($history as $d)
                 <div class="d-flex justify-content-between align-items-center py-2 border-bottom"
-                     style="border-color:#F5EFE6!important">
+                     style="border-color:#F8F9FA!important">
                     <div>
                         <div class="fw-600" style="font-size:.85rem">{{ Str::limit($d->order->title,28) }}</div>
                         <div class="text-muted" style="font-size:.75rem">

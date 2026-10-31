@@ -49,7 +49,7 @@
     <div class="content-card">
         <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
             <h5 class="fw-700 mb-0">{{ $messages->count() }} message(s)</h5>
-            <span class="badge" style="background:{{ $messages->where('is_flagged',true)->count()>0?'#f8d7da':'#d4edda' }};color:{{ $messages->where('is_flagged',true)->count()>0?'#721c24':'#155724' }}">
+            <span class="badge" style="background:{{ $messages->where('is_flagged',true)->count()>0?'#f8d7da':'#d4edda' }};color:{{ $messages->where('is_flagged',true)->count()>0?'#721c24':'#0B2545' }}">
                 {{ $messages->where('is_flagged',true)->count() }} signalé(s)
             </span>
         </div>
@@ -64,7 +64,7 @@
                          width="32" height="32" style="object-fit:cover;flex-shrink:0">
                     <div>
                         <span class="fw-700" style="font-size:.88rem">{{ $msg->sender->name }}</span>
-                        <span class="badge ms-1 px-2" style="font-size:.7rem;background:{{ $msg->sender->role==='artisan'?'#C4622D':'#2E7D32' }};color:#fff">
+                        <span class="badge ms-1 px-2" style="font-size:.7rem;background:{{ $msg->sender->role==='artisan'?'#FF6B35':'#2EC4B6' }};color:#fff">
                             {{ $msg->sender->role }}
                         </span>
                     </div>
@@ -83,7 +83,7 @@
                 <div class="d-flex gap-1">
                     <form action="{{ route('admin.messages.unflag', $msg) }}" method="POST">
                         @csrf @method('PATCH')
-                        <button class="btn btn-sm py-1 px-2" style="font-size:.72rem;background:#d4edda;border:1px solid #c3e6cb;color:#155724">
+                        <button class="btn btn-sm py-1 px-2" style="font-size:.72rem;background:#d4edda;border:1px solid #c3e6cb;color:#0B2545">
                             <i class="bi bi-check-lg me-1"></i>Désignaler
                         </button>
                     </form>
@@ -149,14 +149,14 @@
 
         {{-- Envoyer une alerte au client --}}
         @if(!$order->has_alert)
-        <div class="border-top pt-3" style="border-color:#ECD8C6!important">
+        <div class="border-top pt-3" style="border-color:#DDE3EA!important">
             <p class="fw-600 mb-2" style="font-size:.85rem">
                 <i class="bi bi-exclamation-triangle-fill text-warning me-1"></i>Alerter le client
             </p>
             <form action="{{ route('admin.orders.alert', $order) }}" method="POST">
                 @csrf
                 <textarea name="alert_message" class="form-control mb-2" rows="3"
-                          placeholder="Ex: Nous avons détecté une tentative de paiement hors plateforme. Ne payez que via ArtisanHub."
+                          placeholder="Ex: Nous avons détecté une tentative de paiement hors plateforme. Ne payez que via ArtisanHub Pro."
                           required maxlength="500" style="font-size:.82rem"></textarea>
                 <button type="submit" class="btn btn-warning w-100 btn-sm">
                     <i class="bi bi-send me-2"></i>Envoyer l'alerte

@@ -12,8 +12,8 @@
 <div class="row g-3 mb-4">
     <div class="col-6 col-lg-3">
         <div class="stat-card">
-            <div class="stat-icon mb-3" style="background:#D4EDDA">
-                <i class="bi bi-cash-coin" style="color:#155724"></i>
+            <div class="stat-icon mb-3" style="background:#E6F7F5">
+                <i class="bi bi-cash-coin" style="color:#0B2545"></i>
             </div>
 
             <div class="mb-4 content-card">
@@ -35,8 +35,8 @@
     </div>
     <div class="col-6 col-lg-3">
         <div class="stat-card">
-            <div class="stat-icon mb-3" style="background:#F5EFE6">
-                <i class="bi bi-calendar-month" style="color:#C4622D"></i>
+            <div class="stat-icon mb-3" style="background:#F8F9FA">
+                <i class="bi bi-calendar-month" style="color:#0B2545"></i>
             </div>
             <div class="stat-value">{{ number_format($stats['total_month'],0,',',' ') }}</div>
             <div class="stat-label">Ce mois-ci (XOF)</div>
@@ -63,8 +63,8 @@
                     $rate = $stats['commission_rate'];
                 @endphp
                 <span class="d-block mt-1 badge"
-                      style="background:{{ $rate==0.05?'#D4EDDA':($rate==0.08?'#FFF3CD':'#F8D7DA') }};
-                             color:{{ $rate==0.05?'#155724':($rate==0.08?'#856404':'#721C24') }};
+                      style="background:{{ $rate==0.05?'#E6F7F5':($rate==0.08?'#FFF3CD':'#FCE7EA') }};
+                             color:{{ $rate==0.05?'#0B2545':($rate==0.08?'#856404':'#E71D36') }};
                              font-size:.7rem">
                     {{ $rate==0.05?'Débutant':($rate==0.08?'Actif':'Top') }}
                 </span>
@@ -74,17 +74,17 @@
 </div>
 
 {{-- Info commission --}}
-<div class="content-card mb-4" style="background:#F5EFE6;border-color:#ECD8C6">
+<div class="content-card mb-4" style="background:#F8F9FA;border-color:#DDE3EA">
     <div class="d-flex align-items-center gap-3 flex-wrap">
         <div>
             <p class="section-label mb-1">COMMENT FONCTIONNE LA COMMISSION</p>
-            <p class="mb-0" style="font-size:.85rem;color:#5C3D1E">
+            <p class="mb-0" style="font-size:.85rem;color:#294361">
                 La commission est calculée sur votre chiffre d'affaires du mois en cours.
                 Plus vous gagnez, plus elle augmente progressivement.
             </p>
         </div>
         <div class="d-flex gap-3 ms-auto flex-wrap">
-            @foreach([['0–50k','5%','#D4EDDA','#155724'],['50k–200k','8%','#FFF3CD','#856404'],['200k+','10%','#F8D7DA','#721C24']] as [$range,$pct,$bg,$col])
+            @foreach([['0–50k','5%','#E6F7F5','#0B2545'],['50k–200k','8%','#FFF3CD','#856404'],['200k+','10%','#FCE7EA','#E71D36']] as [$range,$pct,$bg,$col])
                 <div class="text-center px-3 py-2 rounded-3" style="background:{{ $bg }}">
                     <div style="color:{{ $col }};font-weight:700;font-size:1.1rem">{{ $pct }}</div>
                     <div style="color:{{ $col }};font-size:.75rem">{{ $range }} XOF/mois</div>
@@ -105,17 +105,17 @@
                 @foreach($monthly as $m)
                     @php $pct = $max > 0 ? round(($m['amount']/$max)*100) : 0; @endphp
                     <div class="flex-1 d-flex flex-column align-items-center gap-1" style="flex:1">
-                        <div style="font-size:.72rem;color:#C4622D;font-weight:600;white-space:nowrap">
+                        <div style="font-size:.72rem;color:#0B2545;font-weight:600;white-space:nowrap">
                             @if($m['amount']>0)
                                 {{ number_format($m['amount']/1000,0) }}k
                             @endif
                         </div>
                         <div class="rounded-top" style="width:100%;
                              height:{{ max($pct,4) }}%;
-                             background:{{ $m['amount']>0 ? '#C4622D' : '#ECD8C6' }};
+                             background:{{ $m['amount']>0 ? '#FF6B35' : '#DDE3EA' }};
                              min-height:4px;transition:.3s">
                         </div>
-                        <div style="font-size:.7rem;color:#9A8070;white-space:nowrap">{{ $m['label'] }}</div>
+                        <div style="font-size:.7rem;color:#64748B;white-space:nowrap">{{ $m['label'] }}</div>
                     </div>
                 @endforeach
             </div>
@@ -126,10 +126,10 @@
             <h5 class="fw-700 mb-3">Historique des paiements reçus</h5>
             @forelse($payments as $p)
                 <div class="d-flex align-items-center gap-3 py-3 border-bottom flex-wrap"
-                     style="border-color:#F5EFE6!important">
+                     style="border-color:#F8F9FA!important">
                     <div class="rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
-                         style="width:40px;height:40px;background:#D4EDDA">
-                        <i class="bi bi-check-circle" style="color:#155724"></i>
+                         style="width:40px;height:40px;background:#E6F7F5">
+                        <i class="bi bi-check-circle" style="color:#0B2545"></i>
                     </div>
                     <div class="flex-grow-1" style="min-width:140px">
                         <div class="fw-600" style="font-size:.9rem">
@@ -168,7 +168,7 @@
                 <i class="bi bi-hourglass-split me-2 text-clay"></i>À recevoir
             </h5>
             @forelse($pendingOrders as $order)
-                <div class="py-3 border-bottom" style="border-color:#F5EFE6!important">
+                <div class="py-3 border-bottom" style="border-color:#F8F9FA!important">
                     <div class="fw-600" style="font-size:.875rem">{{ Str::limit($order->title,35) }}</div>
                     <div class="text-muted" style="font-size:.78rem">{{ $order->client->name }}</div>
                     <div class="d-flex justify-content-between align-items-center mt-1">
@@ -194,9 +194,9 @@
         </div>
 
         {{-- Info virement --}}
-        <div class="content-card mt-3" style="background:#F5EFE6">
+        <div class="content-card mt-3" style="background:#F8F9FA">
             <p class="section-label mb-2">💰 VERSEMENTS</p>
-            <p style="font-size:.82rem;color:#5C3D1E;margin-bottom:0">
+            <p style="font-size:.82rem;color:#294361;margin-bottom:0">
                 Les paiements sont versés sur votre Mobile Money
                 <strong>24 à 48h ouvrées</strong> après la validation du client.
             </p>

@@ -18,7 +18,7 @@
     }
 
     .mcard {
-        border: 1px solid #ECD8C6;
+        border: 1px solid #DDE3EA;
         border-radius: 12px;
         padding: 12px;
         margin-bottom: 10px;
@@ -31,7 +31,7 @@
         font-size: .82rem;
         padding: 3px 0;
     }
-    .mcard-row .label { color: #9A8070; }
+    .mcard-row .label { color: #64748B; }
     .mcard-actions {
         display: flex;
         gap: 6px;

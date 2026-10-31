@@ -7,9 +7,10 @@
     <div class="row justify-content-center">
         <div class="col-md-5">
             <div class="text-center mb-4">
-                <div style="font-size:2.5rem">🏺</div>
+                <img src="{{ asset('images/artisanhub-pro-logo.jpg') }}" alt="ArtisanHub Pro"
+                     style="width:112px;height:112px;object-fit:cover;border-radius:12px">
                 <h2 class="mt-2" style="font-family:'Playfair Display',serif">Connexion</h2>
-                <p class="text-muted">Bon retour sur ArtisanHub</p>
+                <p class="text-muted">Bon retour sur ArtisanHub Pro</p>
             </div>
 
             <div class="card p-4">
@@ -56,7 +57,7 @@
                                 Se souvenir de moi
                             </label>
                         </div>
-                        <a href="{{ route('password.forgot') }}" style="color:var(--clay);font-size:.875rem">Mot de passe oublié ?</a>
+                        <a href="{{ route('password.forgot') }}" style="color:var(--navy);font-size:.875rem">Mot de passe oublié ?</a>
                     </div>
 
                     <button type="submit" class="btn btn-clay w-100 py-2">
@@ -67,7 +68,7 @@
 
             <p class="text-center mt-3 text-muted">
                 Pas encore de compte ?
-                <a href="{{ route('register') }}" style="color:var(--clay);font-weight:600">
+                <a href="{{ route('register') }}" style="color:var(--navy);font-weight:600">
                     S'inscrire
                 </a>
             </p>

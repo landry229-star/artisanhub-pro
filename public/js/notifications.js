@@ -1,5 +1,5 @@
 /**
- * ArtisanHub — Système de notifications en temps réel
+ * ArtisanHub Pro — Système de notifications en temps réel
  * Polling AJAX toutes les 30 secondes sur /notifications/api
  */
 
@@ -107,14 +107,14 @@ const AHNotif = {
                onclick="AHNotif.markRead('${n.id}', this)">
                 <div class="notif-icon flex-shrink-0"
                      style="width:36px;height:36px;border-radius:50%;
-                            background:${n.read ? '#F5EFE6' : '#C4622D'};
+                            background:${n.read ? '#F8F9FA' : '#FF6B35'};
                             display:flex;align-items:center;justify-content:center;
                             font-size:1rem">
                     ${n.data.icon || '🔔'}
                 </div>
                 <div class="flex-grow-1 min-width-0">
                     <div class="notif-title fw-600"
-                         style="font-size:.85rem;color:${n.read ? '#9A8070' : '#2C1A0E'};
+                         style="font-size:.85rem;color:${n.read ? '#64748B' : '#0B2545'};
                                 white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
                         ${this.escape(n.data.title || '')}
                     </div>
@@ -128,9 +128,9 @@ const AHNotif = {
                         ${n.time}
                     </div>
                 </div>
-                ${!n.read ? '<div class="flex-shrink-0" style="width:8px;height:8px;border-radius:50%;background:#C4622D;margin-top:6px"></div>' : ''}
+                ${!n.read ? '<div class="flex-shrink-0" style="width:8px;height:8px;border-radius:50%;background:#FF6B35;margin-top:6px"></div>' : ''}
             </a>
-        `).join('<hr style="margin:0;border-color:#F5EFE6">');
+        `).join('<hr style="margin:0;border-color:#F8F9FA">');
     },
 
     // ── Marquer une notification lue ────────────────────────────────────────
@@ -148,10 +148,10 @@ const AHNotif = {
             if (element) {
                 element.classList.remove('notif-unread');
                 element.classList.add('notif-read');
-                const dot = element.querySelector('[style*="background:#C4622D"]');
+                const dot = element.querySelector('[style*="background:#FF6B35"]');
                 if (dot) dot.remove();
                 const icon = element.querySelector('.notif-icon');
-                if (icon) icon.style.background = '#F5EFE6';
+                if (icon) icon.style.background = '#F8F9FA';
             }
             // Décrémenter le badge
             const current = parseInt(this.badge?.textContent) || 0;

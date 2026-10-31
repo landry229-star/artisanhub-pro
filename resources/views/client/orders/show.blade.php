@@ -3,20 +3,7 @@
 @section('page-title', 'Commande #'.$order->id)
 
 @section('sidebar-nav')
-    <div class="sidebar-section-title">Principal</div>
-    <a href="{{ route('client.dashboard') }}" class="sidebar-link">
-        <i class="bi bi-speedometer2"></i> Tableau de bord
-    </a>
-    <a href="{{ route('client.orders.index') }}" class="sidebar-link active">
-        <i class="bi bi-bag"></i> Mes commandes
-    </a>
-    <a href="{{ route('contacts.index') }}" class="sidebar-link">
-        <i class="bi bi-people"></i> Mes contacts
-    </a>
-    <div class="mt-2 sidebar-section-title">Découvrir</div>
-    <a href="{{ route('artisans.index') }}" class="sidebar-link">
-        <i class="bi bi-search"></i> Explorer
-    </a>
+    @include('client.partials.sidebar')
 @endsection
 
 @section('topbar-actions')
@@ -35,8 +22,8 @@
             <div class="d-flex gap-3 align-items-start">
                 <i class="bi bi-shield-exclamation" style="font-size:1.8rem;color:#856404;flex-shrink:0"></i>
                 <div>
-                    <p class="fw-700 mb-1" style="color:#856404">⚠️ Alerte de sécurité — Équipe ArtisanHub</p>
-                    <p class="mb-0" style="font-size:.88rem;color:#5C3D1E">{{ $order->alert_message }}</p>
+                    <p class="fw-700 mb-1" style="color:#856404">⚠️ Alerte de sécurité — Équipe ArtisanHub Pro</p>
+                    <p class="mb-0" style="font-size:.88rem;color:#294361">{{ $order->alert_message }}</p>
                     <p class="mb-0 mt-1 text-muted" style="font-size:.75rem">Reçue le {{ $order->alerted_at?->format('d/m/Y à H:i') }}</p>
                 </div>
             </div>
@@ -86,19 +73,19 @@
                         <div class="flex-shrink-0 text-center" style="min-width:80px;flex:1">
                             <div class="mx-auto mb-1 rounded-circle d-flex align-items-center justify-content-center"
                                  style="width:38px;height:38px;
-                                        background:{{ $i <= $currentStep ? '#C4622D' : '#ECD8C6' }};
-                                        color:{{ $i <= $currentStep ? '#fff' : '#9A8070' }}">
+                                        background:{{ $i <= $currentStep ? '#FF6B35' : '#DDE3EA' }};
+                                        color:{{ $i <= $currentStep ? '#fff' : '#64748B' }}">
                                 <i class="bi {{ $step['icon'] }}" style="font-size:.9rem"></i>
                             </div>
                             <div style="font-size:.68rem;
-                                        color:{{ $i <= $currentStep ? '#C4622D' : '#9A8070' }};
+                                        color:{{ $i <= $currentStep ? '#FF6B35' : '#64748B' }};
                                         font-weight:{{ $i === $currentStep ? '700' : '400' }}">
                                 {{ $step['label'] }}
                             </div>
                         </div>
                         @if(!$loop->last)
                             <div style="flex:1;min-width:16px;height:2px;margin-bottom:20px;
-                                        background:{{ $i < $currentStep ? '#C4622D' : '#ECD8C6' }}">
+                                        background:{{ $i < $currentStep ? '#FF6B35' : '#DDE3EA' }}">
                             </div>
                         @endif
                     @endforeach
@@ -124,7 +111,7 @@
                 </div>
             @endif
 
-            <hr style="border-color:#ECD8C6">
+            <hr style="border-color:#DDE3EA">
 
             <h6 class="mb-2 fw-700">Description</h6>
             <p class="text-muted">{{ $order->description }}</p>
@@ -145,8 +132,8 @@
             <div class="row g-3">
                 @if($order->budget)
                     <div class="col-md-4">
-                        <div class="p-3 rounded-3" style="background:#F5EFE6">
-                            <div style="font-size:.72rem;color:#9A8070;text-transform:uppercase;letter-spacing:.1em">Budget</div>
+                        <div class="p-3 rounded-3" style="background:#F8F9FA">
+                            <div style="font-size:.72rem;color:#64748B;text-transform:uppercase;letter-spacing:.1em">Budget</div>
                             <div class="mt-1 fw-700 text-clay">
                                 {{ number_format($order->budget, 0, ',', ' ') }} XOF
                             </div>
@@ -155,8 +142,8 @@
                 @endif
                 @if($order->deadline)
                     <div class="col-md-4">
-                        <div class="p-3 rounded-3" style="background:#F5EFE6">
-                            <div style="font-size:.72rem;color:#9A8070;text-transform:uppercase;letter-spacing:.1em">Délai</div>
+                        <div class="p-3 rounded-3" style="background:#F8F9FA">
+                            <div style="font-size:.72rem;color:#64748B;text-transform:uppercase;letter-spacing:.1em">Délai</div>
                             <div class="mt-1 fw-700">{{ $order->deadline->format('d/m/Y') }}</div>
                         </div>
                     </div>
@@ -164,8 +151,8 @@
                 @if($order->contract_path)
                     <div class="col-md-4">
                         <a href="{{ route('files.contract', $order) }}" target="_blank"
-                           class="p-3 rounded-3 d-block text-decoration-none h-100" style="background:#F5EFE6">
-                            <div style="font-size:.72rem;color:#9A8070;text-transform:uppercase;letter-spacing:.1em">Contrat</div>
+                           class="p-3 rounded-3 d-block text-decoration-none h-100" style="background:#F8F9FA">
+                            <div style="font-size:.72rem;color:#64748B;text-transform:uppercase;letter-spacing:.1em">Contrat</div>
                             <div class="mt-1 fw-700 text-clay">
                                 <i class="bi bi-file-earmark-text me-1"></i>Voir le contrat
                             </div>
@@ -176,8 +163,8 @@
                 @if($order->completion_photo_path)
                     <div class="col-md-4">
                         <a href="{{ route('files.completion', $order) }}" target="_blank"
-                           class="p-3 rounded-3 d-block text-decoration-none h-100" style="background:#F5EFE6">
-                            <div style="font-size:.72rem;color:#9A8070;text-transform:uppercase;letter-spacing:.1em">Preuve</div>
+                           class="p-3 rounded-3 d-block text-decoration-none h-100" style="background:#F8F9FA">
+                            <div style="font-size:.72rem;color:#64748B;text-transform:uppercase;letter-spacing:.1em">Preuve</div>
                             <div class="mt-1 fw-700 text-clay"><i class="bi bi-image me-1"></i>Voir la preuve</div>
                         </a>
                     </div>
@@ -186,14 +173,14 @@
 
             {{-- ── DEVIS NÉGOCIÉ ── --}}
             @if($order->negotiation_status !== 'none' || $order->canProposeQuote())
-                <hr style="border-color:#ECD8C6">
+                <hr style="border-color:#DDE3EA">
                 <h6 class="mb-2 fw-700"><i class="bi bi-chat-left-text me-2 text-clay"></i>Négociation du prix</h6>
 
                 @if($order->quotes->isNotEmpty())
                     <div class="mb-3">
                         @foreach($order->quotes->sortBy('round') as $quote)
                             <div class="d-flex justify-content-between align-items-center p-2 rounded-3 mb-2"
-                                 style="background:{{ $quote->proposed_by_role === 'client' ? '#F5EFE6' : '#EFF6FF' }}">
+                                 style="background:{{ $quote->proposed_by_role === 'client' ? '#F8F9FA' : '#EFF6FF' }}">
                                 <div>
                                     <span class="fw-700" style="font-size:.88rem">{{ $quote->formattedAmount() }}</span>
                                     <span class="text-muted ms-2" style="font-size:.75rem">
@@ -208,7 +195,7 @@
                                         </div>
                                     @endif
                                 </div>
-                                <span class="badge" style="background:{{ match($quote->status){'pending'=>'#D4A853','accepted'=>'#2E7D32','rejected'=>'#C0392B',default=>'#9A8070'} }};color:#fff;font-size:.7rem">
+                                <span class="badge" style="background:{{ match($quote->status){'pending'=>'#FF6B35','accepted'=>'#2EC4B6','rejected'=>'#C0392B',default=>'#64748B'} }};color:#fff;font-size:.7rem">
                                     {{ match($quote->status){'pending'=>'En attente','accepted'=>'Accepté','rejected'=>'Refusé','countered'=>'Remplacé',default=>$quote->status} }}
                                 </span>
                             </div>
@@ -269,7 +256,7 @@
                 {{-- EN ATTENTE / ACCEPTÉE → Annuler --}}
                 @if($order->canBeCancelled())
                     <div class="p-3 mb-3 rounded-3"
-                         style="background:#F5EFE6;border:1px solid #ECD8C6">
+                         style="background:#F8F9FA;border:1px solid #DDE3EA">
                         <p class="mb-2 fw-700 text-clay">
                            <i class="bi bi-x-circle me-2"></i>Vous pouvez annuler cette commande
                         </p>
@@ -287,11 +274,11 @@
                 {{-- LIVREE → Valider et payer --}}
                 @if($order->canBeValidated())
                     <div class="p-3 mb-3 rounded-3"
-                         style="background:#D4EDDA;border:1px solid #C3E6CB">
-                        <p class="mb-2 fw-700" style="color:#155724">
+                         style="background:#E6F7F5;border:1px solid #C3E6CB">
+                        <p class="mb-2 fw-700" style="color:#0B2545">
                            <i class="bi bi-truck me-2"></i>L'artisan a livré votre commande !
                         </p>
-                        <p class="mb-3" style="font-size:.875rem;color:#155724">
+                        <p class="mb-3" style="font-size:.875rem;color:#0B2545">
                            Si vous êtes satisfait, validez pour déclencher le paiement via Mobile Money.
                            Sinon, signalez un problème.
                         </p>
@@ -322,14 +309,14 @@
                         <p class="mb-2" style="font-size:.875rem;color:#856404">
                             Communiquez ce code au livreur uniquement lorsque vous recevez votre commande.
                         </p>
-                        <strong style="font-size:1.6rem;letter-spacing:.25em;color:#2C1A0E">
+                        <strong style="font-size:1.6rem;letter-spacing:.25em;color:#0B2545">
                             {{ $order->delivery->proof_code }}
                         </strong>
                     </div>
                 @endif
 
                 @if($order->delivery?->status === 'recuperee' && !$order->delivery->hasDeliveryProof())
-                    <div class="p-3 mb-3 rounded-3" style="background:#F5EFE6;border:1px solid #ECD8C6">
+                    <div class="p-3 mb-3 rounded-3" style="background:#F8F9FA;border:1px solid #DDE3EA">
                         <p class="mb-1 fw-700 text-clay">
                             <i class="bi bi-pen me-2"></i>Signer la remise
                         </p>
@@ -374,7 +361,7 @@
                                 const p = point(event);
                                 context.lineWidth = 3;
                                 context.lineCap = 'round';
-                                context.strokeStyle = '#2C1A0E';
+                                context.strokeStyle = '#0B2545';
                                 context.lineTo(p.x, p.y);
                                 context.stroke();
                             });
@@ -397,7 +384,7 @@
 
                 {{-- TERMINEE → laisser un avis --}}
                 @if($order->status === \App\Models\Order::STATUS_COMPLETED && !$order->review)
-                    <div class="p-3 rounded-3" style="background:#F5EFE6;border:1px solid #ECD8C6">
+                    <div class="p-3 rounded-3" style="background:#F8F9FA;border:1px solid #DDE3EA">
                         <p class="mb-2 fw-700 text-clay">
                             <i class="bi bi-star me-2"></i>Laissez un avis à {{ $order->artisan->name }}
                         </p>
@@ -424,7 +411,7 @@
 
                 {{-- GARANTIE "SATISFAIT OU REPRIS" --}}
                 @if($order->status === \App\Models\Order::STATUS_COMPLETED && $order->payment && $order->payment->guarantee_contribution > 0 && $order->payment->paid_at && $order->payment->paid_at->diffInDays(now()) <= 14)
-                    <div class="mt-3 p-3 rounded-3" style="background:#F5EFE6;border:1px solid #ECD8C6">
+                    <div class="mt-3 p-3 rounded-3" style="background:#F8F9FA;border:1px solid #DDE3EA">
 
                         @if($order->guaranteeClaim)
                             @php $claim = $order->guaranteeClaim; @endphp
@@ -490,9 +477,9 @@
 
                 {{-- AVIS DÉJÀ DONNÉ --}}
                 @if($order->review)
-                    <div class="p-3 rounded-3" style="background:#F5EFE6">
+                    <div class="p-3 rounded-3" style="background:#F8F9FA">
                         <p class="mb-2 section-label">VOTRE AVIS</p>
-                        <div style="color:#D4A853;font-size:1.1rem">
+                        <div style="color:#0B2545;font-size:1.1rem">
                             @for($i=1;$i<=5;$i++)
                                 <i class="bi bi-star{{ $i <= $order->review->rating ? '-fill' : '' }}"></i>
                             @endfor
@@ -503,8 +490,8 @@
                             </p>
                         @endif
                         @if($order->review->artisan_reply)
-                            <div class="p-2 mt-2 rounded" style="background:#ECD8C6;font-size:.82rem">
-                                <strong style="color:#C4622D">Réponse de l'artisan :</strong>
+                            <div class="p-2 mt-2 rounded" style="background:#DDE3EA;font-size:.82rem">
+                                <strong style="color:#0B2545">Réponse de l'artisan :</strong>
                                 {{ $order->review->artisan_reply }}
                             </div>
                         @endif
@@ -543,8 +530,8 @@
                                  style="object-fit:cover;flex-shrink:0;align-self:flex-end">
                             <div style="max-width:70%">
                                 <div class="px-3 py-2 rounded-3"
-                                     style="background:{{ $isMine ? '#C4622D' : '#F5EFE6' }};
-                                            color:{{ $isMine ? '#fff' : '#2C1A0E' }}">
+                                     style="background:{{ $isMine ? '#FF6B35' : '#F8F9FA' }};
+                                            color:{{ $isMine ? '#fff' : '#0B2545' }}">
                                     @if($msg->body)
                                         <p style="font-size:.875rem;margin:0">{{ $msg->body }}</p>
                                         @if(!$isMine && $msg->translated_body)
@@ -561,7 +548,7 @@
                                     @if($msg->attachment_path)
                                         <a href="{{ route('files.message', [$msg, 'attachment']) }}"
                                            target="_blank"
-                                           style="font-size:.8rem;color:{{ $isMine ? '#FFD0B0' : '#C4622D' }}">
+                                           style="font-size:.8rem;color:{{ $isMine ? '#FFD0B0' : '#FF6B35' }}">
                                             <i class="bi bi-paperclip me-1"></i>Pièce jointe
                                         </a>
                                     @endif
@@ -583,7 +570,7 @@
                     @endforelse
                 </div>
 
-                <hr style="border-color:#ECD8C6">
+                <hr style="border-color:#DDE3EA">
 
                 <form action="{{ route('messages.store', [$order, $order->artisan]) }}" method="POST"
                       enctype="multipart/form-data">
@@ -615,7 +602,7 @@
             <p class="mb-3 section-label">ARTISAN</p>
             <img src="{{ $order->artisan->avatarUrl() }}" class="mb-2 rounded-circle"
                  width="64" height="64"
-                 style="object-fit:cover;border:2px solid #C4622D">
+                 style="object-fit:cover;border:2px solid #FF6B35">
             <h6 class="mb-0 fw-700">{{ $order->artisan->name }}</h6>
             <p class="mb-1 text-muted" style="font-size:.85rem">
                 {{ $order->artisan->artisanProfile?->specialty }}
@@ -631,7 +618,7 @@
 
         {{-- Paiement --}}
         @if($order->payment)
-            <div class="mb-4 content-card" style="background:#F5EFE6">
+            <div class="mb-4 content-card" style="background:#F8F9FA">
                 <p class="mb-3 section-label">PAIEMENT</p>
                 <div class="mb-2 d-flex justify-content-between" style="font-size:.875rem">
                     <span class="text-muted">Montant total</span>
@@ -639,11 +626,11 @@
                 </div>
                 <div class="mb-2 d-flex justify-content-between" style="font-size:.875rem">
                     <span class="text-muted">Commission (10%)</span>
-                    <span style="color:#721C24">
+                    <span style="color:#E71D36">
                         - {{ number_format($order->payment->commission, 0, ',', ' ') }} XOF
                     </span>
                 </div>
-                <hr style="border-color:#ECD8C6">
+                <hr style="border-color:#DDE3EA">
                 <div class="d-flex justify-content-between" style="font-size:.9rem">
                     <strong>Net artisan</strong>
                     <strong class="text-clay">
@@ -660,7 +647,7 @@
 
         {{-- Guide étapes --}}
         @if(!in_array($order->status, ['terminee', 'annulee', 'litige']))
-            <div class="content-card" style="background:#F5EFE6">
+            <div class="content-card" style="background:#F8F9FA">
                 <p class="mb-3 section-label">GUIDE</p>
                 @php
                     $guide = [
@@ -670,7 +657,7 @@
                             'text'=>'Commande acceptée. L\'artisan va démarrer le travail.'],
                         'en_cours'   => ['icon'=>'bi-tools','color'=>'#004085','bg'=>'#CCE5FF',
                             'text'=>'L\'artisan travaille. Utilisez la messagerie pour communiquer.'],
-                        'livree'     => ['icon'=>'bi-truck','color'=>'#155724','bg'=>'#D4EDDA',
+                        'livree'     => ['icon'=>'bi-truck','color'=>'#0B2545','bg'=>'#E6F7F5',
                             'text'=>'Vérifiez le travail et validez pour payer l\'artisan.'],
                     ];
                     $step = $guide[$order->status] ?? null;
@@ -701,10 +688,10 @@
 
     document.querySelectorAll('.star-rate').forEach((star, i, stars) => {
         star.addEventListener('click', () => {
-            stars.forEach((s, j) => s.style.color = j <= i ? '#D4A853' : '#ccc');
+            stars.forEach((s, j) => s.style.color = j <= i ? '#FF6B35' : '#ccc');
         });
         star.addEventListener('mouseover', () => {
-            stars.forEach((s, j) => s.style.color = j <= i ? '#D4A853' : '#ccc');
+            stars.forEach((s, j) => s.style.color = j <= i ? '#FF6B35' : '#ccc');
         });
     });
 </script>

@@ -21,7 +21,7 @@ class OrderCancelled extends Notification implements ShouldQueue
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-            ->subject('Commande annulée sur ArtisanHub')
+            ->subject('Commande annulée sur ArtisanHub Pro')
             ->view('emails.orders.cancelled', [
                 'order'      => $this->order,
                 'notifiable' => $notifiable,

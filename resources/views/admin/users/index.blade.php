@@ -73,8 +73,8 @@
                         </td>
                         <td>
                             <span class="badge"
-                                  style="background:{{ $user->role==='artisan' ? '#F5EFE6' : '#CCE5FF' }};
-                                         color:{{ $user->role==='artisan' ? '#C4622D' : '#004085' }};
+                                  style="background:{{ $user->role==='artisan' ? '#F8F9FA' : '#CCE5FF' }};
+                                         color:{{ $user->role==='artisan' ? '#FF6B35' : '#004085' }};
                                          font-size:.78rem">
                                 {{ ucfirst($user->role) }}
                             </span>
@@ -82,11 +82,11 @@
                         <td><span class="text-muted" style="font-size:.875rem">{{ $user->city }}</span></td>
                         <td>
                             @if(!$user->is_active)
-                                <span class="badge-status" style="background:#F8D7DA;color:#721C24">Suspendu</span>
+                                <span class="badge-status" style="background:#FCE7EA;color:#E71D36">Suspendu</span>
                             @elseif($user->role === 'artisan' && !$user->is_verified)
                                 <span class="badge-status" style="background:#FFF3CD;color:#856404">À vérifier</span>
                             @else
-                                <span class="badge-status" style="background:#D4EDDA;color:#155724">Actif</span>
+                                <span class="badge-status" style="background:#E6F7F5;color:#0B2545">Actif</span>
                             @endif
                         </td>
                         <td><span class="text-muted" style="font-size:.82rem">{{ $user->created_at->format('d/m/Y') }}</span></td>
@@ -94,11 +94,11 @@
                             @if($user->id_document_status === 'none')
                                 <span class="badge-status" style="background:#F0F0F0;color:#666">—</span>
                             @elseif($user->id_document_status === 'approved')
-                                <span class="badge-status" style="background:#D4EDDA;color:#155724">
+                                <span class="badge-status" style="background:#E6F7F5;color:#0B2545">
                                     <i class="bi bi-patch-check-fill"></i> Vérifié
                                 </span>
                             @elseif($user->id_document_status === 'rejected')
-                                <span class="badge-status" style="background:#F8D7DA;color:#721C24">Rejeté</span>
+                                <span class="badge-status" style="background:#FCE7EA;color:#E71D36">Rejeté</span>
                             @else
                                 <div class="d-flex align-items-center gap-1 flex-wrap">
                                     <a href="{{ route('kyc.document.view', $user) }}" target="_blank"
@@ -107,7 +107,7 @@
                                     </a>
                                     <form action="{{ route('admin.users.document.approve', $user) }}" method="POST">
                                         @csrf @method('PATCH')
-                                        <button class="btn btn-sm" style="background:#D4EDDA;color:#155724;font-size:.72rem" title="Approuver">
+                                        <button class="btn btn-sm" style="background:#E6F7F5;color:#0B2545;font-size:.72rem" title="Approuver">
                                             <i class="bi bi-check-lg"></i>
                                         </button>
                                     </form>
@@ -140,7 +140,7 @@
                                 @if($user->role === 'artisan' && !$user->is_verified)
                                     <form action="{{ route('admin.users.verify', $user) }}" method="POST">
                                         @csrf @method('PATCH')
-                                        <button class="btn btn-sm" style="background:#D4EDDA;color:#155724;font-size:.75rem"
+                                        <button class="btn btn-sm" style="background:#E6F7F5;color:#0B2545;font-size:.75rem"
                                                 title="Vérifier l'artisan">
                                             <i class="bi bi-shield-check"></i>
                                         </button>
@@ -187,8 +187,8 @@
                 <div class="mcard-row">
                     <span class="label">Rôle</span>
                     <span class="badge"
-                          style="background:{{ $user->role==='artisan' ? '#F5EFE6' : '#CCE5FF' }};
-                                 color:{{ $user->role==='artisan' ? '#C4622D' : '#004085' }};font-size:.75rem">
+                          style="background:{{ $user->role==='artisan' ? '#F8F9FA' : '#CCE5FF' }};
+                                 color:{{ $user->role==='artisan' ? '#FF6B35' : '#004085' }};font-size:.75rem">
                         {{ ucfirst($user->role) }}
                     </span>
                 </div>
@@ -198,11 +198,11 @@
                 <div class="mcard-row">
                     <span class="label">Statut</span>
                     @if(!$user->is_active)
-                        <span class="badge-status" style="background:#F8D7DA;color:#721C24">Suspendu</span>
+                        <span class="badge-status" style="background:#FCE7EA;color:#E71D36">Suspendu</span>
                     @elseif($user->role === 'artisan' && !$user->is_verified)
                         <span class="badge-status" style="background:#FFF3CD;color:#856404">À vérifier</span>
                     @else
-                        <span class="badge-status" style="background:#D4EDDA;color:#155724">Actif</span>
+                        <span class="badge-status" style="background:#E6F7F5;color:#0B2545">Actif</span>
                     @endif
                 </div>
                 <div class="mcard-row">
@@ -213,7 +213,7 @@
                     @if($user->role === 'artisan' && !$user->is_verified)
                         <form action="{{ route('admin.users.verify', $user) }}" method="POST">
                             @csrf @method('PATCH')
-                            <button class="btn btn-sm" style="background:#D4EDDA;color:#155724">
+                            <button class="btn btn-sm" style="background:#E6F7F5;color:#0B2545">
                                 <i class="bi bi-shield-check me-1"></i>Vérifier
                             </button>
                         </form>

@@ -51,18 +51,18 @@
                         <div class="text-center" style="min-width:72px;flex:1">
                             <div class="mx-auto mb-1 rounded-circle d-flex align-items-center justify-content-center"
                                  style="width:36px;height:36px;
-                                        background:{{ $i <= $currentStep ? '#C4622D' : '#ECD8C6' }};
-                                        color:{{ $i <= $currentStep ? '#fff' : '#9A8070' }}">
+                                        background:{{ $i <= $currentStep ? '#FF6B35' : '#DDE3EA' }};
+                                        color:{{ $i <= $currentStep ? '#fff' : '#64748B' }}">
                                 <i class="bi {{ $step['icon'] }}" style="font-size:.85rem"></i>
                             </div>
-                            <div style="font-size:.68rem;color:{{ $i <= $currentStep ? '#C4622D' : '#9A8070' }};
+                            <div style="font-size:.68rem;color:{{ $i <= $currentStep ? '#FF6B35' : '#64748B' }};
                                         font-weight:{{ $i === $currentStep ? '700' : '400' }}">
                                 {{ $step['label'] }}
                             </div>
                         </div>
                         @if(!$loop->last)
                             <div style="flex:1;height:2px;min-width:12px;margin-bottom:20px;
-                                        background:{{ $i < $currentStep ? '#C4622D' : '#ECD8C6' }}">
+                                        background:{{ $i < $currentStep ? '#FF6B35' : '#DDE3EA' }}">
                             </div>
                         @endif
                     @endforeach
@@ -89,7 +89,7 @@
                 </div>
             @endif
 
-            <hr style="border-color:#ECD8C6">
+            <hr style="border-color:#DDE3EA">
 
             <h6 class="mb-2 fw-700">Description de la commande</h6>
             <p class="mb-3 text-muted">{{ $order->description }}</p>
@@ -109,16 +109,16 @@
             <div class="row g-3">
                 @if($order->budget)
                     <div class="col-md-4">
-                        <div class="p-3 rounded-3" style="background:#F5EFE6">
-                            <div style="font-size:.72rem;color:#9A8070;text-transform:uppercase;letter-spacing:.1em">Budget</div>
+                        <div class="p-3 rounded-3" style="background:#F8F9FA">
+                            <div style="font-size:.72rem;color:#64748B;text-transform:uppercase;letter-spacing:.1em">Budget</div>
                             <div class="mt-1 fw-700 text-clay">{{ number_format($order->budget,0,',',' ') }} XOF</div>
                         </div>
                     </div>
                 @endif
                 @if($order->deadline)
                     <div class="col-md-4">
-                        <div class="p-3 rounded-3" style="background:#F5EFE6">
-                            <div style="font-size:.72rem;color:#9A8070;text-transform:uppercase;letter-spacing:.1em">Délai</div>
+                        <div class="p-3 rounded-3" style="background:#F8F9FA">
+                            <div style="font-size:.72rem;color:#64748B;text-transform:uppercase;letter-spacing:.1em">Délai</div>
                             <div class="mt-1 fw-700">{{ $order->deadline->format('d/m/Y') }}</div>
                         </div>
                     </div>
@@ -126,8 +126,8 @@
                 @if($order->contract_path)
                     <div class="col-md-4">
                         <a href="{{ route('files.contract', $order) }}" target="_blank"
-                           class="p-3 rounded-3 d-block text-decoration-none" style="background:#F5EFE6">
-                            <div style="font-size:.72rem;color:#9A8070;text-transform:uppercase;letter-spacing:.1em">Contrat</div>
+                           class="p-3 rounded-3 d-block text-decoration-none" style="background:#F8F9FA">
+                            <div style="font-size:.72rem;color:#64748B;text-transform:uppercase;letter-spacing:.1em">Contrat</div>
                             <div class="mt-1 fw-700 text-clay">
                                 <i class="bi bi-file-earmark-text me-1"></i>Voir le contrat
                             </div>
@@ -138,8 +138,8 @@
                 @if($order->completion_photo_path)
                     <div class="col-md-4">
                         <a href="{{ route('files.completion', $order) }}" target="_blank"
-                           class="p-3 rounded-3 d-block text-decoration-none" style="background:#F5EFE6">
-                            <div style="font-size:.72rem;color:#9A8070;text-transform:uppercase;letter-spacing:.1em">Preuve</div>
+                           class="p-3 rounded-3 d-block text-decoration-none" style="background:#F8F9FA">
+                            <div style="font-size:.72rem;color:#64748B;text-transform:uppercase;letter-spacing:.1em">Preuve</div>
                             <div class="mt-1 fw-700 text-clay"><i class="bi bi-image me-1"></i>Voir la preuve</div>
                         </a>
                     </div>
@@ -148,14 +148,14 @@
 
             {{-- ── DEVIS NÉGOCIÉ ── --}}
             @if($order->negotiation_status !== 'none' || $order->canProposeQuote())
-                <hr style="border-color:#ECD8C6">
+                <hr style="border-color:#DDE3EA">
                 <h6 class="mb-2 fw-700"><i class="bi bi-chat-left-text me-2 text-clay"></i>Négociation du prix</h6>
 
                 @if($order->quotes->isNotEmpty())
                     <div class="mb-3">
                         @foreach($order->quotes->sortBy('round') as $quote)
                             <div class="d-flex justify-content-between align-items-center p-2 rounded-3 mb-2"
-                                 style="background:{{ $quote->proposed_by_role === 'artisan' ? '#F5EFE6' : '#EFF6FF' }}">
+                                 style="background:{{ $quote->proposed_by_role === 'artisan' ? '#F8F9FA' : '#EFF6FF' }}">
                                 <div>
                                     <span class="fw-700" style="font-size:.88rem">{{ $quote->formattedAmount() }}</span>
                                     <span class="text-muted ms-2" style="font-size:.75rem">
@@ -170,7 +170,7 @@
                                         </div>
                                     @endif
                                 </div>
-                                <span class="badge" style="background:{{ match($quote->status){'pending'=>'#D4A853','accepted'=>'#2E7D32','rejected'=>'#C0392B',default=>'#9A8070'} }};color:#fff;font-size:.7rem">
+                                <span class="badge" style="background:{{ match($quote->status){'pending'=>'#FF6B35','accepted'=>'#2EC4B6','rejected'=>'#C0392B',default=>'#64748B'} }};color:#fff;font-size:.7rem">
                                     {{ match($quote->status){'pending'=>'En attente','accepted'=>'Accepté','rejected'=>'Refusé','countered'=>'Remplacé',default=>$quote->status} }}
                                 </span>
                             </div>
@@ -281,8 +281,8 @@
     {{-- ③ MARQUER COMME LIVRÉ (statut : en_cours) --}}
     @if($order->canBeDelivered())
         <div class="mb-0 alert w-100 action-alert-row"
-             style="background:#D4EDDA;border-color:#C3E6CB">
-            <div style="color:#155724">
+             style="background:#E6F7F5;border-color:#C3E6CB">
+            <div style="color:#0B2545">
                 <i class="bi bi-tools me-2"></i>
                 <strong>Travail en cours</strong> — Cliquez sur "Livrer" une fois le travail terminé.
             </div>
@@ -314,8 +314,8 @@
 
         {{-- Bloc livraison --}}
         @if($order->needs_delivery)
-        <div class="content-card mb-4" style="border:1px solid #ECD8C6">
-            <h6 class="fw-700 mb-3"><i class="bi bi-bicycle me-2" style="color:#C4622D"></i>Livraison demandée</h6>
+        <div class="content-card mb-4" style="border:1px solid #DDE3EA">
+            <h6 class="fw-700 mb-3"><i class="bi bi-bicycle me-2" style="color:#0B2545"></i>Livraison demandée</h6>
             @if($order->delivery)
                 <div class="d-flex align-items-center gap-3">
                     <span class="badge px-3 py-2" style="background:{{ $order->delivery->statusColor() }};color:{{ $order->delivery->statusTextColor() }}">
@@ -377,8 +377,8 @@
                                  style="object-fit:cover;flex-shrink:0;align-self:flex-end">
                             <div style="max-width:72%">
                                 <div class="px-3 py-2 rounded-3"
-                                     style="background:{{ $msg->sender_id === auth()->id() ? '#C4622D' : '#F5EFE6' }};
-                                            color:{{ $msg->sender_id === auth()->id() ? '#fff' : '#2C1A0E' }}">
+                                     style="background:{{ $msg->sender_id === auth()->id() ? '#FF6B35' : '#F8F9FA' }};
+                                            color:{{ $msg->sender_id === auth()->id() ? '#fff' : '#0B2545' }}">
                                     @if($msg->body)
                                         <p class="mb-1" style="font-size:.9rem;margin:0">{{ $msg->body }}</p>
                                         @if($msg->sender_id !== auth()->id() && $msg->translated_body)
@@ -394,7 +394,7 @@
                                     @endif
                                     @if($msg->attachment_path)
                                         <a href="{{ route('files.message', [$msg, 'attachment']) }}" target="_blank"
-                                           style="color:{{ $msg->sender_id === auth()->id() ? '#FFD0B0' : '#C4622D' }};font-size:.82rem">
+                                           style="color:{{ $msg->sender_id === auth()->id() ? '#FFD0B0' : '#FF6B35' }};font-size:.82rem">
                                             <i class="bi bi-paperclip me-1"></i>Pièce jointe
                                         </a>
                                     @endif
@@ -416,7 +416,7 @@
                     @endforelse
                 </div>
 
-                <hr style="border-color:#ECD8C6">
+                <hr style="border-color:#DDE3EA">
 
                 {{-- Formulaire envoi --}}
                 <form action="{{ route('messages.store', [$order, $order->client]) }}" method="POST" enctype="multipart/form-data">
@@ -446,7 +446,7 @@
             <p class="mb-3 section-label">CLIENT</p>
             <img src="{{ $order->client->avatarUrl() }}" class="mb-2 rounded-circle"
                  width="64" height="64"
-                 style="object-fit:cover;border:2px solid #C4622D">
+                 style="object-fit:cover;border:2px solid #FF6B35">
             <h6 class="mb-0 fw-700">{{ $order->client->name }}</h6>
             <p class="mb-0 text-muted" style="font-size:.85rem">📍 {{ $order->client->city }}</p>
             @if($order->client->phone)
@@ -461,7 +461,7 @@
 
         {{-- Paiement --}}
         @if($order->payment)
-            <div class="mb-4 content-card" style="background:#F5EFE6">
+            <div class="mb-4 content-card" style="background:#F8F9FA">
                 <p class="mb-3 section-label">PAIEMENT</p>
                 <div class="mb-2 d-flex justify-content-between" style="font-size:.875rem">
                     <span class="text-muted">Montant total</span>
@@ -469,9 +469,9 @@
                 </div>
                 <div class="mb-2 d-flex justify-content-between" style="font-size:.875rem">
                     <span class="text-muted">Commission (10%)</span>
-                    <span style="color:#721C24">- {{ number_format($order->payment->commission,0,',',' ') }} XOF</span>
+                    <span style="color:#E71D36">- {{ number_format($order->payment->commission,0,',',' ') }} XOF</span>
                 </div>
-                <hr style="border-color:#ECD8C6">
+                <hr style="border-color:#DDE3EA">
                 <div class="d-flex justify-content-between" style="font-size:.95rem">
                     <strong>Net à recevoir</strong>
                     <strong class="text-clay">{{ number_format($order->payment->net_amount,0,',',' ') }} XOF</strong>
@@ -486,22 +486,22 @@
 
         {{-- Avis reçu --}}
         @if($order->review)
-            <div class="content-card" style="background:#F5EFE6">
+            <div class="content-card" style="background:#F8F9FA">
                 <p class="mb-2 section-label">AVIS CLIENT</p>
-                <div style="color:#D4A853;font-size:1.2rem">
+                <div style="color:#0B2545;font-size:1.2rem">
                     @for($i=1;$i<=5;$i++)
                         <i class="bi bi-star{{ $i <= $order->review->rating ? '-fill' : '' }}"></i>
                     @endfor
                     <span class="ms-1 fw-700" style="font-size:.9rem">{{ $order->review->rating }}/5</span>
                 </div>
                 @if($order->review->comment)
-                    <p class="mt-2 mb-2" style="font-size:.875rem;color:#5C3D1E">
+                    <p class="mt-2 mb-2" style="font-size:.875rem;color:#294361">
                         "{{ $order->review->comment }}"
                     </p>
                 @endif
                 @if($order->review->artisan_reply)
-                    <div class="p-2 rounded" style="background:#ECD8C6;font-size:.8rem">
-                        <strong style="color:#C4622D">Votre réponse :</strong>
+                    <div class="p-2 rounded" style="background:#DDE3EA;font-size:.8rem">
+                        <strong style="color:#0B2545">Votre réponse :</strong>
                         {{ $order->review->artisan_reply }}
                     </div>
                 @endif
@@ -536,7 +536,7 @@
                                onchange="previewCompletionPhoto(this)">
                         <div class="form-text">JPG, PNG ou WebP — 5 Mo max</div>
                         <img id="completion-photo-preview" class="mt-3 rounded d-none"
-                             style="max-width:100%;max-height:260px;object-fit:cover;border:1px solid #ECD8C6">
+                             style="max-width:100%;max-height:260px;object-fit:cover;border:1px solid #DDE3EA">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Annuler</button>
@@ -562,8 +562,8 @@
                 <form action="{{ route('reviews.reply', $order->review) }}" method="POST">
                     @csrf @method('PATCH')
                     <div class="modal-body">
-                        <div class="p-3 mb-3 rounded" style="background:#F5EFE6">
-                            <div style="color:#D4A853">
+                        <div class="p-3 mb-3 rounded" style="background:#F8F9FA">
+                            <div style="color:#0B2545">
                                 @for($i=1;$i<=5;$i++)
                                     <i class="bi bi-star{{ $i<=$order->review->rating?'-fill':'' }}"></i>
                                 @endfor

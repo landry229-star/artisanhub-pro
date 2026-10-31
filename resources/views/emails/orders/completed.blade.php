@@ -1,7 +1,7 @@
 @extends('emails.layout')
 @section('content')
 <div class="title">Commande terminée avec succès 🎉</div>
-<div class="subtitle">Paiement confirmé — merci d'avoir utilisé ArtisanHub</div>
+<div class="subtitle">Paiement confirmé — merci d'avoir utilisé ArtisanHub Pro</div>
 
 @if($notifiable->isArtisan())
     <p>Bonjour <strong>{{ $order->artisan->name }}</strong>,</p>
@@ -19,12 +19,12 @@
             <span class="info-value">{{ number_format($order->budget,0,',',' ') }} XOF</span>
         </div>
         <div class="info-row">
-            <span class="info-label">Commission ArtisanHub (10%)</span>
-            <span class="info-value" style="color:#721C24">- {{ number_format($order->payment->commission,0,',',' ') }} XOF</span>
+            <span class="info-label">Commission ArtisanHub Pro (10%)</span>
+            <span class="info-value" style="color:#E71D36">- {{ number_format($order->payment->commission,0,',',' ') }} XOF</span>
         </div>
-        <div class="info-row" style="border-top:1px solid #ECD8C6;padding-top:8px;margin-top:4px">
+        <div class="info-row" style="border-top:1px solid #DDE3EA;padding-top:8px;margin-top:4px">
             <span class="info-label"><strong>Net à recevoir</strong></span>
-            <span class="info-value" style="color:#C4622D;font-size:16px">{{ number_format($order->payment->net_amount,0,',',' ') }} XOF</span>
+            <span class="info-value" style="color:#0B2545;font-size:16px">{{ number_format($order->payment->net_amount,0,',',' ') }} XOF</span>
         </div>
     </div>
     <p>N'oubliez pas de <strong>demander un avis</strong> à votre client — cela améliore votre visibilité !</p>
@@ -34,7 +34,7 @@
     <p>Bonjour <strong>{{ $order->client->name }}</strong>,</p>
     <p>
         Votre paiement a bien été reçu. Merci d'avoir fait confiance à
-        <strong>{{ $order->artisan->name }}</strong> via ArtisanHub !
+        <strong>{{ $order->artisan->name }}</strong> via ArtisanHub Pro !
     </p>
     <div class="info-box">
         <div class="info-row">

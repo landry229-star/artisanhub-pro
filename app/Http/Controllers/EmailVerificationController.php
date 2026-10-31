@@ -32,7 +32,7 @@ class EmailVerificationController extends Controller
 
         try {
             Mail::send('emails.verify_email', ['user'=>$user,'url'=>$url],
-                fn($m) => $m->to($user->email,$user->name)->subject('Vérifiez votre email — ArtisanHub')
+                fn($m) => $m->to($user->email,$user->name)->subject('Vérifiez votre email — ArtisanHub Pro')
             );
             return back()->with('success', 'Email renvoyé à '.$user->email.'. Vérifiez aussi vos spams.');
         } catch (\Exception $e) {
@@ -66,6 +66,6 @@ class EmailVerificationController extends Controller
         $dashboards = ['artisan'=>'artisan.dashboard','client'=>'client.dashboard','livreur'=>'livreur.dashboard','admin'=>'admin.dashboard'];
 
         return redirect()->route($dashboards[$user->role] ?? 'home')
-            ->with('success', '✅ Email vérifié ! Bienvenue sur ArtisanHub, '.$user->name.' !');
+            ->with('success', '✅ Email vérifié ! Bienvenue sur ArtisanHub Pro, '.$user->name.' !');
     }
 }

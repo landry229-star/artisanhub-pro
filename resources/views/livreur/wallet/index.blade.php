@@ -38,8 +38,8 @@
 
 <div class="row g-3 mb-4">
     @foreach([
-        ['label' => 'Gains totaux', 'value' => number_format($stats['total_earned'], 0, ',', ' ') . ' XOF', 'icon' => 'bi-cash-coin', 'bg' => '#F5EFE6', 'ic' => '#C4622D'],
-        ['label' => 'Ce mois', 'value' => number_format($stats['month_earned'], 0, ',', ' ') . ' XOF', 'icon' => 'bi-calendar3', 'bg' => '#D4EDDA', 'ic' => '#155724'],
+        ['label' => 'Gains totaux', 'value' => number_format($stats['total_earned'], 0, ',', ' ') . ' XOF', 'icon' => 'bi-cash-coin', 'bg' => '#F8F9FA', 'ic' => '#FF6B35'],
+        ['label' => 'Ce mois', 'value' => number_format($stats['month_earned'], 0, ',', ' ') . ' XOF', 'icon' => 'bi-calendar3', 'bg' => '#E6F7F5', 'ic' => '#0B2545'],
         ['label' => 'Livraisons terminées', 'value' => $stats['deliveries_count'], 'icon' => 'bi-check-circle', 'bg' => '#CCE5FF', 'ic' => '#004085'],
         ['label' => 'En attente', 'value' => number_format($stats['active_value'], 0, ',', ' ') . ' XOF', 'icon' => 'bi-hourglass-split', 'bg' => '#FFF3CD', 'ic' => '#856404'],
     ] as $k)
@@ -58,7 +58,7 @@
 <div class="content-card">
     <h5 class="fw-700 mb-3">Historique des missions</h5>
     @forelse($deliveries as $delivery)
-        <div class="d-flex justify-content-between align-items-center py-3 border-bottom" style="border-color:#F5EFE6!important">
+        <div class="d-flex justify-content-between align-items-center py-3 border-bottom" style="border-color:#F8F9FA!important">
             <div>
                 <div class="fw-600">{{ $delivery->order->title }}</div>
                 <div class="small text-muted">

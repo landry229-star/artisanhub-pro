@@ -99,7 +99,7 @@
                                      alt="{{ $item->title }}" loading="lazy">
                                 <div class="portfolio-overlay position-absolute d-flex flex-column
                                             justify-content-end p-2"
-                                     style="inset:0;background:linear-gradient(transparent,rgba(44,26,14,.85));
+                                     style="inset:0;background:linear-gradient(transparent,rgba(11,37,69,.85));
                                             opacity:0;transition:.2s">
                                     <div class="text-white fw-600" style="font-size:.8rem">
                                         {{ $item->title }}
@@ -138,7 +138,7 @@
     @media (max-width: 991.98px), (hover: none) {
         .portfolio-overlay {
             opacity: 1 !important;
-            background: linear-gradient(transparent 40%, rgba(44,26,14,.85)) !important;
+            background: linear-gradient(transparent 40%, rgba(11,37,69,.85)) !important;
         }
     }
 </style>

@@ -21,7 +21,7 @@
     </div>
 </div>
 
-<p style="font-size:13px;color:#9A8070">
+<p style="font-size:13px;color:#64748B">
     Si vous avez des questions, n'hésitez pas à contacter notre support.
 </p>
 <a href="{{ route('support') }}" class="btn">Contacter le support</a>

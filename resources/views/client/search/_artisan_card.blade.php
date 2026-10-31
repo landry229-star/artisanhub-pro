@@ -4,7 +4,7 @@
         <div class="d-flex gap-3 align-items-start mb-3">
             <img src="{{ $artisan->avatarUrl() }}" class="rounded-circle flex-shrink-0"
                  width="56" height="56" loading="lazy"
-                 style="object-fit:cover;border:2px solid #C4622D"
+                 style="object-fit:cover;border:2px solid #FF6B35"
                  alt="{{ $artisan->name }}, {{ $profile->specialty }}">
             <div class="flex-grow-1 min-w-0">
                 <div class="d-flex justify-content-between align-items-start">
@@ -16,12 +16,12 @@
                     </div>
                     <div class="d-flex flex-column gap-1 align-items-end flex-shrink-0">
                         <span class="badge ms-1 px-2 py-1"
-                              style="background:{{ $profile->badge()==='Top Artisan'?'#C4622D':($profile->badge()==='Vérifié'?'#2E7D32':'#D4A853') }};
+                              style="background:{{ $profile->badge()==='Top Artisan'?'#FF6B35':($profile->badge()==='Vérifié'?'#2EC4B6':'#FF6B35') }};
                                      color:#fff;font-size:.7rem">
                             {{ $profile->badge() }}
                         </span>
                         @if($profile->tier !== \App\Models\ArtisanProfile::TIER_DEBUTANT)
-                            <span class="badge ms-1 px-2 py-1" style="background:{{ $profile->tierColor() }};color:#fff;font-size:.65rem">
+                            <span class="badge ms-1 px-2 py-1" style="background:{{ $profile->tierColor() }};color:#0B2545;font-size:.65rem">
                                 <i class="bi bi-award me-1"></i>{{ $profile->tierLabel() }}
                             </span>
                         @endif
@@ -46,7 +46,7 @@
             <div class="d-flex justify-content-between align-items-center mb-2">
                 @if($profile->rating > 0)
                     <div>
-                        <span style="color:#D4A853;font-size:.85rem">
+                        <span style="color:#0B2545;font-size:.85rem">
                             @for($i=1;$i<=5;$i++)
                                 <i class="bi bi-star{{ $i<=round($profile->rating)?'-fill':'' }}"></i>
                             @endfor
@@ -69,11 +69,11 @@
                     <span class="text-muted" style="font-size:.78rem">
                         📍 {{ $artisan->city }}
                     @if(isset($profile->distance_km) && $profile->distance_km !== null)
-                        <span class="ms-1" style="color:#C4622D">· {{ number_format($profile->distance_km, 1) }} km</span>
+                        <span class="ms-1" style="color:#0B2545">· {{ number_format($profile->distance_km, 1) }} km</span>
                     @endif
                     </span>
                     @if($profile->is_available)
-                        <span class="ms-2" style="background:#D4EDDA;color:#155724;
+                        <span class="ms-2" style="background:#E6F7F5;color:#0B2545;
                               border-radius:100px;padding:1px 8px;font-size:.72rem;font-weight:600">
                             ● Disponible
                         </span>

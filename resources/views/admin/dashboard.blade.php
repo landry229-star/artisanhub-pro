@@ -19,12 +19,12 @@
 {{-- KPIs --}}
 <div class="row g-3 mb-4">
     @php $kpis = [
-        ['label'=>'Artisans',        'value'=>$stats['total_artisans'],   'icon'=>'bi-tools',         'color'=>'#F5EFE6','icolor'=>'#C4622D'],
+        ['label'=>'Artisans',        'value'=>$stats['total_artisans'],   'icon'=>'bi-tools',         'color'=>'#F8F9FA','icolor'=>'#FF6B35'],
         ['label'=>'Clients',         'value'=>$stats['total_clients'],    'icon'=>'bi-people',        'color'=>'#CCE5FF','icolor'=>'#004085'],
         ['label'=>'Cmd. en attente', 'value'=>$stats['pending_orders'],   'icon'=>'bi-clock',         'color'=>'#FFF3CD','icolor'=>'#856404'],
-        ['label'=>'Litiges actifs',  'value'=>$stats['disputed_orders'],  'icon'=>'bi-exclamation-triangle','color'=>'#F8D7DA','icolor'=>'#721C24'],
-        ['label'=>'Cmd. terminées',  'value'=>$stats['completed_orders'], 'icon'=>'bi-check-circle',  'color'=>'#D4EDDA','icolor'=>'#155724'],
-        ['label'=>'Revenus XOF',     'value'=>number_format($stats['total_revenue'],0,',',' '), 'icon'=>'bi-cash-coin','color'=>'#F5EFE6','icolor'=>'#C4622D'],
+        ['label'=>'Litiges actifs',  'value'=>$stats['disputed_orders'],  'icon'=>'bi-exclamation-triangle','color'=>'#FCE7EA','icolor'=>'#E71D36'],
+        ['label'=>'Cmd. terminées',  'value'=>$stats['completed_orders'], 'icon'=>'bi-check-circle',  'color'=>'#E6F7F5','icolor'=>'#0B2545'],
+        ['label'=>'Revenus XOF',     'value'=>number_format($stats['total_revenue'],0,',',' '), 'icon'=>'bi-cash-coin','color'=>'#F8F9FA','icolor'=>'#FF6B35'],
         ['label'=>'À vérifier',      'value'=>$stats['unverified'],       'icon'=>'bi-shield-exclamation','color'=>'#FFF3CD','icolor'=>'#856404'],
     ]; @endphp
     @foreach($kpis as $k)
@@ -49,7 +49,7 @@
                 <a href="{{ route('admin.orders.index') }}" class="btn btn-sm btn-outline-clay">Tout voir</a>
             </div>
             @forelse($recentOrders as $order)
-                <div class="d-flex gap-3 align-items-center py-2 border-bottom flex-wrap" style="border-color:#F5EFE6!important">
+                <div class="d-flex gap-3 align-items-center py-2 border-bottom flex-wrap" style="border-color:#F8F9FA!important">
                     <div class="flex-grow-1" style="min-width:160px">
                         <div class="fw-600" style="font-size:.9rem">{{ Str::limit($order->title, 40) }}</div>
                         <div class="text-muted" style="font-size:.78rem">
@@ -77,7 +77,7 @@
                 <a href="{{ route('admin.users.index') }}" class="btn btn-sm btn-outline-clay">Tout voir</a>
             </div>
             @foreach($recentUsers as $user)
-                <div class="d-flex gap-2 align-items-center py-2 border-bottom flex-wrap" style="border-color:#F5EFE6!important">
+                <div class="d-flex gap-2 align-items-center py-2 border-bottom flex-wrap" style="border-color:#F8F9FA!important">
                     <img src="{{ $user->avatarUrl() }}" class="rounded-circle"
                          width="36" height="36" style="object-fit:cover">
                     <div class="flex-grow-1" style="min-width:120px">
@@ -87,12 +87,12 @@
                     @if($user->role === 'artisan' && !$user->is_verified)
                         <form action="{{ route('admin.users.verify', $user) }}" method="POST">
                             @csrf @method('PATCH')
-                            <button class="btn btn-sm" style="background:#D4EDDA;color:#155724;font-size:.75rem">
+                            <button class="btn btn-sm" style="background:#E6F7F5;color:#0B2545;font-size:.75rem">
                                 Vérifier
                             </button>
                         </form>
                     @else
-                        <span class="badge" style="background:{{ $user->is_active ? '#D4EDDA' : '#F8D7DA' }};color:{{ $user->is_active ? '#155724' : '#721C24' }};font-size:.72rem">
+                        <span class="badge" style="background:{{ $user->is_active ? '#E6F7F5' : '#FCE7EA' }};color:{{ $user->is_active ? '#0B2545' : '#E71D36' }};font-size:.72rem">
                             {{ $user->is_active ? 'Actif' : 'Suspendu' }}
                         </span>
                     @endif
@@ -112,8 +112,8 @@
     {{-- KPIs secondaires --}}
     <div class="row g-3 mb-4">
         @php $advKpis = [
-            ['label'=>'Panier moyen',       'value'=>number_format($advancedStats['avg_basket'],0,',',' ').' XOF', 'icon'=>'bi-basket',       'bg'=>'#F5EFE6','ic'=>'#C4622D'],
-            ['label'=>'Taux de conversion', 'value'=>$advancedStats['conversion_rate'].'%',                        'icon'=>'bi-graph-up-arrow','bg'=>'#D4EDDA','ic'=>'#155724'],
+            ['label'=>'Panier moyen',       'value'=>number_format($advancedStats['avg_basket'],0,',',' ').' XOF', 'icon'=>'bi-basket',       'bg'=>'#F8F9FA','ic'=>'#FF6B35'],
+            ['label'=>'Taux de conversion', 'value'=>$advancedStats['conversion_rate'].'%',                        'icon'=>'bi-graph-up-arrow','bg'=>'#E6F7F5','ic'=>'#0B2545'],
             ['label'=>'Nouveaux clients (7j)',  'value'=>$advancedStats['new_clients_week'],                       'icon'=>'bi-person-plus',  'bg'=>'#CCE5FF','ic'=>'#004085'],
             ['label'=>'Nouveaux artisans (7j)', 'value'=>$advancedStats['new_artisans_week'],                      'icon'=>'bi-tools',        'bg'=>'#FFF3CD','ic'=>'#856404'],
         ]; @endphp
@@ -152,21 +152,21 @@
     <div class="row g-3 mb-4">
         <div class="col-6 col-md-3">
             <div class="content-card text-center py-3">
-                <i class="bi bi-geo-alt-fill fs-4 mb-1" style="color:#C4622D"></i>
+                <i class="bi bi-geo-alt-fill fs-4 mb-1" style="color:#0B2545"></i>
                 <p class="text-muted mb-0" style="font-size:.75rem">Ville la plus active</p>
                 <p class="fw-700 mb-0">{{ $advancedStats['top_city'] }}</p>
             </div>
         </div>
         <div class="col-6 col-md-3">
             <div class="content-card text-center py-3">
-                <i class="bi bi-star-fill fs-4 mb-1" style="color:#C4622D"></i>
+                <i class="bi bi-star-fill fs-4 mb-1" style="color:#0B2545"></i>
                 <p class="text-muted mb-0" style="font-size:.75rem">Spécialité la + demandée</p>
                 <p class="fw-700 mb-0">{{ $advancedStats['top_specialty'] }}</p>
             </div>
         </div>
         <div class="col-6 col-md-3">
             <div class="content-card text-center py-3">
-                <i class="bi bi-check2-circle fs-4 mb-1" style="color:#155724"></i>
+                <i class="bi bi-check2-circle fs-4 mb-1" style="color:#0B2545"></i>
                 <p class="text-muted mb-0" style="font-size:.75rem">Taux d’acceptation</p>
                 <p class="fw-700 mb-0">{{ $advancedStats['acceptance_rate'] }}%</p>
             </div>
@@ -264,8 +264,8 @@
                         datasets: [{
                             label: 'Revenus (XOF)',
                             data: @json($advancedStats['revenue_values']),
-                            borderColor: '#C4622D',
-                            backgroundColor: 'rgba(196,98,45,.12)',
+                            borderColor: '#FF6B35',
+                            backgroundColor: 'rgba(255,107,53,.12)',
                             tension: .35,
                             fill: true,
                             pointRadius: 2
@@ -291,7 +291,7 @@
                         labels: @json($advancedStats['status_labels']),
                         datasets: [{
                             data: @json($advancedStats['status_values']),
-                            backgroundColor: ['#FFF3CD','#CCE5FF','#F5EFE6','#D4EDDA','#F8D7DA']
+                            backgroundColor: ['#FFF3CD','#CCE5FF','#F8F9FA','#E6F7F5','#FCE7EA']
                         }]
                     },
                     options: {

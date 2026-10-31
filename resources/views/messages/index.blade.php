@@ -8,10 +8,10 @@
         <a href="{{ route('artisan.dashboard') }}" class="sidebar-link">
             <i class="bi bi-speedometer2"></i> Tableau de bord
         </a>
-        <a href="{{ route('artisan.orders.index') }}" class="sidebar-link active">
+        <a href="{{ route('artisan.orders.index') }}" class="sidebar-link">
             <i class="bi bi-bag-check"></i> Mes commandes
         </a>
-        <a href="{{ route('contacts.index') }}" class="sidebar-link">
+        <a href="{{ route('contacts.index') }}" class="sidebar-link {{ request()->routeIs('contacts.*') ? 'active' : '' }}">
             <i class="bi bi-people"></i> Mes contacts
         </a>
         <div class="mt-2 sidebar-section-title">Mon profil</div>
@@ -26,27 +26,21 @@
         <a href="{{ route('livreur.dashboard') }}" class="sidebar-link">
             <i class="bi bi-speedometer2"></i> Tableau de bord
         </a>
-        <a href="{{ route('livreur.missions.index') }}" class="sidebar-link active">
+        <a href="{{ route('livreur.missions.index') }}" class="sidebar-link {{ request()->routeIs('livreur.missions.*') ? 'active' : '' }}">
             <i class="bi bi-bicycle"></i> Mes missions
         </a>
-        <a href="{{ route('contacts.index') }}" class="sidebar-link">
+        <a href="{{ route('livreur.wallet.index') }}" class="sidebar-link {{ request()->routeIs('livreur.wallet.*') ? 'active' : '' }}">
+            <i class="bi bi-wallet2"></i> Mon solde
+        </a>
+        <a href="{{ route('contacts.index') }}" class="sidebar-link {{ request()->routeIs('contacts.*') ? 'active' : '' }}">
             <i class="bi bi-people"></i> Mes contacts
         </a>
+        <div class="mt-2 sidebar-section-title">Mon compte</div>
+        <a href="{{ route('livreur.profile.edit') }}" class="sidebar-link {{ request()->routeIs('livreur.profile.*') ? 'active' : '' }}">
+            <i class="bi bi-person-gear"></i> Mon profil
+        </a>
     @else
-        <div class="sidebar-section-title">Principal</div>
-        <a href="{{ route('client.dashboard') }}" class="sidebar-link">
-            <i class="bi bi-speedometer2"></i> Tableau de bord
-        </a>
-        <a href="{{ route('client.orders.index') }}" class="sidebar-link active">
-            <i class="bi bi-bag"></i> Mes commandes
-        </a>
-    <a href="{{ route('contacts.index') }}" class="sidebar-link">
-        <i class="bi bi-people"></i> Mes contacts
-    </a>
-        <div class="mt-2 sidebar-section-title">Découvrir</div>
-        <a href="{{ route('artisans.index') }}" class="sidebar-link">
-            <i class="bi bi-search"></i> Explorer
-        </a>
+        @include('client.partials.sidebar')
     @endif
 @endsection
 
@@ -93,9 +87,9 @@
         <div class="content-card d-flex flex-column" style="min-height:520px">
 
             {{-- En-tête conversation --}}
-            <div class="gap-3 pb-3 mb-3 d-flex align-items-center" style="border-bottom:1px solid #ECD8C6">
+            <div class="gap-3 pb-3 mb-3 d-flex align-items-center" style="border-bottom:1px solid #DDE3EA">
                 <img src="{{ $contact->avatarUrl() }}" class="rounded-circle"
-                     width="42" height="42" style="object-fit:cover;border:2px solid #C4622D">
+                     width="42" height="42" style="object-fit:cover;border:2px solid #FF6B35">
                 <div class="flex-grow-1">
                     <div class="fw-700">{{ $contact->name }}</div>
                     <div class="text-muted" style="font-size:.75rem">
@@ -121,13 +115,13 @@
                         <div style="max-width:70%">
                             {{-- Bulle --}}
                             <div class="px-3 py-2 rounded-3"
-                                 style="background:{{ $isMine ? '#C4622D' : '#F5EFE6' }};
-                                        color:{{ $isMine ? '#fff' : '#2C1A0E' }};
+                                 style="background:{{ $isMine ? '#FF6B35' : '#F8F9FA' }};
+                                        color:{{ $isMine ? '#fff' : '#0B2545' }};
                                         border-bottom-{{ $isMine ? 'right' : 'left' }}-radius:4px">
                                 @if($msg->body)
                                     <p style="font-size:.9rem;margin:0;line-height:1.5">{{ $msg->body }}</p>
                                     @if(!$isMine && $msg->translated_body)
-                                        <p class="mt-1 mb-0" style="font-size:.8rem;font-style:italic;opacity:.85;border-top:1px solid {{ $isMine ? 'rgba(255,255,255,.3)' : '#ECD8C6' }};padding-top:4px">
+                                        <p class="mt-1 mb-0" style="font-size:.8rem;font-style:italic;opacity:.85;border-top:1px solid {{ $isMine ? 'rgba(255,255,255,.3)' : '#DDE3EA' }};padding-top:4px">
                                             <i class="bi bi-translate me-1"></i>{{ $msg->translated_body }}
                                         </p>
                                     @endif
@@ -166,7 +160,7 @@
                                     @else
                                         <a href="{{ route('files.message', [$msg, 'attachment']) }}" target="_blank"
                                            class="gap-1 mt-1 d-flex align-items-center"
-                                           style="color:{{ $isMine ? '#FFD0B0' : '#C4622D' }};font-size:.82rem;text-decoration:none">
+                                           style="color:{{ $isMine ? '#FFD0B0' : '#FF6B35' }};font-size:.82rem;text-decoration:none">
                                             <i class="bi bi-file-earmark-pdf"></i> Voir le document
                                         </a>
                                     @endif
@@ -179,7 +173,7 @@
                                 @if($isMine && $msg->read_at)
                                     <i class="bi bi-check2-all ms-1" style="color:#4CAF50" title="Lu"></i>
                                 @elseif($isMine)
-                                    <i class="bi bi-check2 ms-1" style="color:#9A8070" title="Envoyé"></i>
+                                    <i class="bi bi-check2 ms-1" style="color:#64748B" title="Envoyé"></i>
                                 @endif
                             </div>
                         </div>
@@ -196,18 +190,18 @@
 
             {{-- Formulaire envoi --}}
             @if(!in_array($order->status, ['terminee','annulee']))
-                <div style="border-top:1px solid #ECD8C6;padding-top:16px">
+                <div style="border-top:1px solid #DDE3EA;padding-top:16px">
                     <form action="{{ route('messages.store', [$order, $contact]) }}" method="POST"
                           enctype="multipart/form-data" id="msg-form">
                         @csrf
 
                         {{-- Aperçu pièce jointe --}}
                         <div id="attachment-preview" class="gap-2 p-2 mb-2 rounded d-none d-flex align-items-center"
-                             style="background:#F5EFE6;border:1px solid #ECD8C6">
+                             style="background:#F8F9FA;border:1px solid #DDE3EA">
                             <i class="bi bi-paperclip text-clay"></i>
                             <span id="attachment-name" style="font-size:.82rem;flex:1"></span>
                             <button type="button" class="p-0 btn btn-sm" onclick="clearAttachment()"
-                                    style="color:#721C24;background:none;border:none">
+                                    style="color:#E71D36;background:none;border:none">
                                 <i class="bi bi-x-circle"></i>
                             </button>
                         </div>
@@ -253,7 +247,7 @@
                     </form>
                 </div>
             @else
-                <div class="py-2 text-center text-muted" style="font-size:.85rem;border-top:1px solid #ECD8C6;padding-top:12px">
+                <div class="py-2 text-center text-muted" style="font-size:.85rem;border-top:1px solid #DDE3EA;padding-top:12px">
                     <i class="bi bi-lock me-1"></i>
                     La messagerie est fermée — commande {{ $order->statusLabel() }}
                 </div>
@@ -288,7 +282,7 @@
             <p class="mb-3 section-label">{{ ['artisan'=>'ARTISAN','client'=>'CLIENT','livreur'=>'LIVREUR'][$contact->role] ?? strtoupper($contact->role) }}</p>
             <img src="{{ $contact->avatarUrl() }}" class="mb-2 rounded-circle"
                  width="56" height="56"
-                 style="object-fit:cover;border:2px solid #C4622D">
+                 style="object-fit:cover;border:2px solid #FF6B35">
             <h6 class="mb-0 fw-700">{{ $contact->name }}</h6>
             <p class="mb-0 text-muted" style="font-size:.82rem">📍 {{ $contact->city }}</p>
             @if($contact->phone)

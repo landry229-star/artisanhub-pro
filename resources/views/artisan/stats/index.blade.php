@@ -11,8 +11,8 @@
 {{-- KPIs --}}
 <div class="row g-3 mb-4">
     @foreach([
-        ['label'=>'Total gagné',       'value'=>number_format($stats['total_earned'],0,',',' ').' XOF', 'icon'=>'bi-cash-coin',    'bg'=>'#D4EDDA','ic'=>'#155724'],
-        ['label'=>'Ce mois',           'value'=>number_format($stats['month_earned'],0,',',' ').' XOF', 'icon'=>'bi-calendar-month','bg'=>'#F5EFE6','ic'=>'#C4622D'],
+        ['label'=>'Total gagné',       'value'=>number_format($stats['total_earned'],0,',',' ').' XOF', 'icon'=>'bi-cash-coin',    'bg'=>'#E6F7F5','ic'=>'#0B2545'],
+        ['label'=>'Ce mois',           'value'=>number_format($stats['month_earned'],0,',',' ').' XOF', 'icon'=>'bi-calendar-month','bg'=>'#F8F9FA','ic'=>'#FF6B35'],
         ['label'=>'Commandes terminées','value'=>$stats['completed_orders'],                             'icon'=>'bi-check-circle', 'bg'=>'#CCE5FF','ic'=>'#004085'],
         ['label'=>"Taux d'acceptation",'value'=>$stats['accept_rate'].'%',                              'icon'=>'bi-percent',      'bg'=>'#FFF3CD','ic'=>'#856404'],
     ] as $k)
@@ -44,18 +44,18 @@
                         @php $pct = $max > 0 ? max(round(($m['earned']/$max)*100), 2) : 2; @endphp
                         <div class="d-flex flex-column align-items-center gap-1" style="flex:1;min-width:36px">
                             @if($m['earned'] > 0)
-                                <div style="font-size:.65rem;color:#C4622D;font-weight:600;white-space:nowrap">
+                                <div style="font-size:.65rem;color:#0B2545;font-weight:600;white-space:nowrap">
                                     {{ number_format($m['earned']/1000,0) }}k
                                 </div>
                             @else
                                 <div style="font-size:.65rem">&nbsp;</div>
                             @endif
                             <div class="rounded-top w-100"
-                                 style="height:{{ $pct }}%;background:{{ $m['earned']>0?'#C4622D':'#ECD8C6' }};
+                                 style="height:{{ $pct }}%;background:{{ $m['earned']>0?'#FF6B35':'#DDE3EA' }};
                                         min-height:4px;transition:.3s"
                                  title="{{ $m['label'] }} : {{ number_format($m['earned'],0,',',' ') }} XOF">
                             </div>
-                            <div style="font-size:.65rem;color:#9A8070;white-space:nowrap;transform:rotate(-30deg);transform-origin:top left;margin-top:4px">
+                            <div style="font-size:.65rem;color:#64748B;white-space:nowrap;transform:rotate(-30deg);transform-origin:top left;margin-top:4px">
                                 {{ explode(' ', $m['label'])[0] }}
                             </div>
                         </div>
@@ -79,11 +79,11 @@
                     $pct   = $totalReviews > 0 ? round(($count/$totalReviews)*100) : 0;
                 @endphp
                 <div class="d-flex align-items-center gap-2 mb-2">
-                    <span style="font-size:.8rem;color:#D4A853;width:60px;white-space:nowrap">
+                    <span style="font-size:.8rem;color:#0B2545;width:60px;white-space:nowrap">
                         {{ $star }} ★
                     </span>
-                    <div class="flex-grow-1 rounded-pill" style="background:#ECD8C6;height:8px">
-                        <div class="rounded-pill" style="background:#D4A853;height:8px;width:{{ $pct }}%;transition:.3s"></div>
+                    <div class="flex-grow-1 rounded-pill" style="background:#DDE3EA;height:8px">
+                        <div class="rounded-pill" style="background:#FF6B35;height:8px;width:{{ $pct }}%;transition:.3s"></div>
                     </div>
                     <span class="text-muted" style="font-size:.78rem;width:24px;text-align:right">
                         {{ $count }}
@@ -91,8 +91,8 @@
                 </div>
             @endforeach
             @if($stats['reviews_count'] > 0)
-                <div class="text-center mt-3 p-2 rounded" style="background:#F5EFE6">
-                    <div style="font-size:1.8rem;font-weight:700;color:#C4622D">
+                <div class="text-center mt-3 p-2 rounded" style="background:#F8F9FA">
+                    <div style="font-size:1.8rem;font-weight:700;color:#0B2545">
                         {{ $stats['avg_rating'] }}/5
                     </div>
                     <div class="text-muted" style="font-size:.8rem">

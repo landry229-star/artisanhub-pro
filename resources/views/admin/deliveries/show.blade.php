@@ -29,7 +29,7 @@
 
         <div class="row g-3 mb-4">
             <div class="col-12 col-md-6">
-                <div class="p-3 rounded-3" style="background:#F5EFE6;border:1px solid #ECD8C6">
+                <div class="p-3 rounded-3" style="background:#F8F9FA;border:1px solid #DDE3EA">
                     <p class="section-label mb-2"><i class="bi bi-box2 me-1"></i>Enlèvement</p>
                     <p class="fw-700 mb-1">{{ $delivery->order->artisan->name }}</p>
                     <p class="text-muted mb-0" style="font-size:.85rem">
@@ -53,7 +53,7 @@
         <div class="row g-3 text-center">
             <div class="col-4">
                 <p class="section-label mb-1">Frais</p>
-                <p class="fw-700 mb-0" style="color:#C4622D;font-size:1.1rem">
+                <p class="fw-700 mb-0" style="color:#0B2545;font-size:1.1rem">
                     {{ number_format($delivery->fee,0,',',' ') }} XOF
                 </p>
             </div>
@@ -81,19 +81,19 @@
 
     {{-- Livreur --}}
     <div class="content-card mb-4">
-        <h5 class="fw-700 mb-3"><i class="bi bi-bicycle me-2" style="color:#C4622D"></i>Livreur</h5>
+        <h5 class="fw-700 mb-3"><i class="bi bi-bicycle me-2" style="color:#0B2545"></i>Livreur</h5>
 
         @if($delivery->livreur)
         <div class="d-flex gap-3 align-items-center mb-3 flex-wrap">
             <img src="{{ $delivery->livreur->avatarUrl() }}" class="rounded-circle"
-                 width="56" height="56" style="object-fit:cover;border:2px solid #C4622D">
+                 width="56" height="56" style="object-fit:cover;border:2px solid #FF6B35">
             <div>
                 <p class="fw-700 mb-0">{{ $delivery->livreur->name }}</p>
                 <p class="text-muted mb-0" style="font-size:.85rem">
                     📍 {{ $delivery->livreur->city }} —
                     {{ $delivery->livreur->phone ?? 'Tél non renseigné' }}
                 </p>
-                <span class="badge" style="background:{{ $delivery->livreur->is_livreur_available ? '#d4edda' : '#f8d7da' }};color:{{ $delivery->livreur->is_livreur_available ? '#155724' : '#721c24' }};font-size:.75rem">
+                <span class="badge" style="background:{{ $delivery->livreur->is_livreur_available ? '#d4edda' : '#f8d7da' }};color:{{ $delivery->livreur->is_livreur_available ? '#0B2545' : '#721c24' }};font-size:.75rem">
                     {{ $delivery->livreur->is_livreur_available ? '● Disponible' : '● Occupé' }}
                 </span>
             </div>
@@ -104,7 +104,7 @@
 
         {{-- Réassignation manuelle --}}
         @if(!in_array($delivery->status, ['livree','echouee']))
-        <div class="border-top pt-3 mt-2" style="border-color:#ECD8C6!important">
+        <div class="border-top pt-3 mt-2" style="border-color:#DDE3EA!important">
             <p class="fw-600 mb-2" style="font-size:.88rem">Réassigner manuellement :</p>
             {{-- Anciennement "max-width:280px" fixe sur le select : débordait / restait minuscule sur mobile.
                  Passe en colonne pleine largeur sous 576px via .reassign-form --}}

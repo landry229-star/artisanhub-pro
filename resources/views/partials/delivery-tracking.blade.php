@@ -28,15 +28,15 @@
             @endphp
             @foreach($steps as $key => $label)
                 <div class="flex-fill text-center py-1 rounded"
-                     style="background:{{ array_search($key, array_keys($steps)) <= $order_idx ? '#C4622D' : '#F5EFE6' }};
-                            color:{{ array_search($key, array_keys($steps)) <= $order_idx ? '#fff' : '#9A8070' }}">
+                     style="background:{{ array_search($key, array_keys($steps)) <= $order_idx ? '#FF6B35' : '#F8F9FA' }};
+                            color:{{ array_search($key, array_keys($steps)) <= $order_idx ? '#fff' : '#64748B' }}">
                     {{ $label }}
                 </div>
             @endforeach
         </div>
 
         {{-- Carte --}}
-        <div id="tracking-map" style="height:260px;border-radius:10px;overflow:hidden;border:1px solid #ECD8C6"></div>
+        <div id="tracking-map" style="height:260px;border-radius:10px;overflow:hidden;border:1px solid #DDE3EA"></div>
         <div id="tracking-updated" class="mt-1 text-muted" style="font-size:.72rem"></div>
 
         @if($delivery->livreur)

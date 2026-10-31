@@ -26,13 +26,13 @@ class OrderPlaced extends Notification implements ShouldQueue
 
     public function toWhatsApp(object $notifiable): string
     {
-        return "📦 Nouvelle demande sur ArtisanHub : « {$this->order->title} » de {$this->order->client->name}. Connectez-vous pour répondre.";
+        return "📦 Nouvelle demande sur ArtisanHub Pro : « {$this->order->title} » de {$this->order->client->name}. Connectez-vous pour répondre.";
     }
 
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-            ->subject('Nouvelle demande de commande — ArtisanHub')
+            ->subject('Nouvelle demande de commande — ArtisanHub Pro')
             ->view('emails.orders.placed', [
                 'order'      => $this->order,
                 'notifiable' => $notifiable,

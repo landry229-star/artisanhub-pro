@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', $categoryData['label'].' au Bénin — Artisans vérifiés')
-@section('meta_description', "Trouvez un artisan ".strtolower($categoryData['label'])." qualifié au Bénin. Devis gratuit, prix négocié directement avec l'artisan, garantie satisfait ou repris sur ArtisanHub.")
+@section('meta_description', "Trouvez un artisan ".strtolower($categoryData['label'])." qualifié au Bénin. Devis gratuit, prix négocié directement avec l'artisan, garantie satisfait ou repris sur ArtisanHub Pro.")
 
 @push('head')
 <script type="application/ld+json">
@@ -17,22 +17,22 @@
 @endpush
 
 @section('content')
-<div style="background:linear-gradient(135deg,#2C1A0E 0%,#5C3D1E 60%,#9E4A1E 100%);padding:48px 0 40px">
+<div style="background:linear-gradient(135deg,#0B2545 0%,#294361 60%,#0B2545 100%);padding:48px 0 40px">
     <div class="container">
         <nav aria-label="breadcrumb" class="mb-3">
-            <ol class="breadcrumb mb-0" style="--bs-breadcrumb-divider-color:#D4A853">
-                <li class="breadcrumb-item"><a href="{{ route('home') }}" style="color:#D4A853">Accueil</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('artisans.index') }}" style="color:#D4A853">Artisans</a></li>
+            <ol class="breadcrumb mb-0" style="--bs-breadcrumb-divider-color:#0B2545">
+                <li class="breadcrumb-item"><a href="{{ route('home') }}" style="color:#0B2545">Accueil</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('artisans.index') }}" style="color:#0B2545">Artisans</a></li>
                 <li class="breadcrumb-item active" style="color:#fff" aria-current="page">{{ $categoryData['label'] }}</li>
             </ol>
         </nav>
-        <p style="color:#D4A853;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-align:center" class="mb-2">
+        <p style="color:#0B2545;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;text-align:center" class="mb-2">
             {{ $categoryData['icon'] }} MÉTIER
         </p>
         <h1 style="font-family:'Playfair Display',serif;color:#fff;font-size:2rem;text-align:center" class="mb-2">
             {{ $categoryData['label'] }} au Bénin
         </h1>
-        <p style="color:#C8B5A0;text-align:center;max-width:560px;margin:0 auto" class="mb-4">
+        <p style="color:#CBD5E1;text-align:center;max-width:560px;margin:0 auto" class="mb-4">
             {{ $artisans->total() }} artisan{{ $artisans->total() > 1 ? 's' : '' }} {{ strtolower($categoryData['label']) }} vérifié{{ $artisans->total() > 1 ? 's' : '' }}, prêts à recevoir votre demande de devis.
         </p>
 
@@ -68,7 +68,7 @@
 
     {{-- Maillage interne : autres métiers --}}
     <div class="mt-5 pt-4 border-top">
-        <h2 class="fw-700 mb-3" style="font-size:1.1rem">Autres métiers sur ArtisanHub</h2>
+        <h2 class="fw-700 mb-3" style="font-size:1.1rem">Autres métiers sur ArtisanHub Pro</h2>
         <div class="d-flex flex-wrap gap-2">
             @foreach($categories as $key => $cat)
                 @if($key !== $category)

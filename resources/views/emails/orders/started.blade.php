@@ -6,7 +6,7 @@
 <p>Bonjour <strong>{{ $order->client->name }}</strong>,</p>
 <p>
     <strong>{{ $order->artisan->name }}</strong> a démarré le travail sur votre commande.
-    Vous pouvez suivre l'avancement et lui envoyer des messages directement sur ArtisanHub.
+    Vous pouvez suivre l'avancement et lui envoyer des messages directement sur ArtisanHub Pro.
 </p>
 
 <div class="info-box">
@@ -26,7 +26,7 @@
     @endif
 </div>
 
-<p style="font-size:13px;color:#9A8070">
+<p style="font-size:13px;color:#64748B">
     Vous serez notifié par email dès que l'artisan marquera la commande comme livrée.
 </p>
 

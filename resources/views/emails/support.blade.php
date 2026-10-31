@@ -5,7 +5,7 @@
 <div class="subtitle">Demande reçue depuis le formulaire de contact</div>
 
 <p>Bonjour,</p>
-<p>Une demande a été envoyée depuis le formulaire de support ArtisanHub.</p>
+<p>Une demande a été envoyée depuis le formulaire de support ArtisanHub Pro.</p>
 
 <div class="info-box">
     <div class="info-row">

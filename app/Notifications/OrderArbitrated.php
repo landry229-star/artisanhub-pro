@@ -21,7 +21,7 @@ class OrderArbitrated extends Notification implements ShouldQueue
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-            ->subject("Décision d'arbitrage rendue — ArtisanHub")
+            ->subject("Décision d'arbitrage rendue — ArtisanHub Pro")
             ->view('emails.orders.accepted', [
                 'order'      => $this->order,
                 'notifiable' => $notifiable,

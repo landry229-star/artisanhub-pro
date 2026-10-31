@@ -1,17 +1,17 @@
 @extends('layouts.app')
 @section('title', 'Comment ça marche')
-@section('meta_description', "Découvrez comment ArtisanHub fonctionne : trouvez un artisan, négociez le prix, commandez en toute sécurité et bénéficiez de la garantie satisfait ou repris.")
+@section('meta_description', "Découvrez comment ArtisanHub Pro fonctionne : trouvez un artisan, négociez le prix, commandez en toute sécurité et bénéficiez de la garantie satisfait ou repris.")
 
 @section('content')
 
 {{-- Hero --}}
-<div style="background:linear-gradient(135deg,#2C1A0E 0%,#5C3D1E 55%,#9E4A1E 100%);padding:40px 16px 32px">
+<div style="background:linear-gradient(135deg,#0B2545 0%,#294361 55%,#0B2545 100%);padding:40px 16px 32px">
     <div class="container text-center px-2">
-        <p class="section-label mb-2" style="color:#E8845A">GUIDE</p>
+        <p class="section-label mb-2" style="color:#0B2545">GUIDE</p>
         <h1 style="font-family:'Playfair Display',serif;font-size:clamp(1.5rem,6vw,2.8rem);color:#fff;font-weight:800;max-width:600px;margin:0 auto 16px;line-height:1.25">
-            Comment fonctionne ArtisanHub ?
+            Comment fonctionne ArtisanHub Pro ?
         </h1>
-        <p style="color:#C8B5A0;max-width:480px;margin:0 auto;font-size:clamp(.9rem,2.5vw,1rem)">
+        <p style="color:#CBD5E1;max-width:480px;margin:0 auto;font-size:clamp(.9rem,2.5vw,1rem)">
             De la recherche d'un artisan jusqu'à la livraison de votre commande,
             tout se passe en quelques étapes simples.
         </p>
@@ -19,13 +19,13 @@
 </div>
 
 {{-- Tabs navigation --}}
-<div class="sticky-top" style="background:#F5EFE6;border-bottom:1px solid #ECD8C6;top:56px;z-index:100">
+<div class="sticky-top" style="background:#F8F9FA;border-bottom:1px solid #DDE3EA;top:56px;z-index:100">
     <div class="container px-0 px-sm-3">
         <ul class="nav nav-pills gap-2 py-3 px-3 px-sm-0 flex-nowrap overflow-auto how-tabs-scroll" id="howTabs" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active fw-600 text-nowrap" id="tab-client" data-bs-toggle="pill"
                     data-bs-target="#pane-client" type="button" role="tab"
-                    style="color:#C4622D;background:#FFF0E8;border:1px solid #FFCBA4">
+                    style="color:#0B2545;background:#FFF0E8;border:1px solid #FFCBA4">
                     <i class="bi bi-person me-1"></i>Je suis client
                 </button>
             </li>
@@ -79,9 +79,9 @@
             <div class="col-6 col-md-6 col-lg-3">
                 <div class="card h-100 p-3 p-md-4 text-center">
                     <div style="font-size:1.6rem;background:var(--sand);border-radius:50%;width:56px;height:56px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px">
-                        <i class="bi {{ $s['icon'] }}" style="color:var(--clay)"></i>
+                        <i class="bi {{ $s['icon'] }}" style="color:var(--navy)"></i>
                     </div>
-                    <div style="font-size:.7rem;font-weight:700;letter-spacing:.1em;color:var(--clay);margin-bottom:4px">ÉTAPE {{ $s['num'] }}</div>
+                    <div style="font-size:.7rem;font-weight:700;letter-spacing:.1em;color:var(--navy);margin-bottom:4px">ÉTAPE {{ $s['num'] }}</div>
                     <h5 class="fw-700 mb-2" style="font-size:1rem">{{ $s['title'] }}</h5>
                     <p class="text-muted mb-0" style="font-size:.85rem">{{ $s['desc'] }}</p>
                 </div>
@@ -92,7 +92,7 @@
         {{-- Protection acheteur --}}
         <div class="card p-3 p-md-4 mb-4" style="background:#F0FFF4;border-color:#A5D6A7">
             <div class="d-flex gap-3 align-items-start">
-                <i class="bi bi-shield-check fs-3" style="color:#2E7D32;flex-shrink:0"></i>
+                <i class="bi bi-shield-check fs-3" style="color:#0B2545;flex-shrink:0"></i>
                 <div>
                     <h6 class="fw-700 mb-1" style="color:#1B5E20">Votre commande est protégée</h6>
                     <p class="mb-0 text-muted" style="font-size:.9rem">
@@ -136,9 +136,9 @@
             <div class="col-6 col-md-6 col-lg-3">
                 <div class="card h-100 p-3 p-md-4 text-center">
                     <div style="font-size:1.6rem;background:var(--sand);border-radius:50%;width:56px;height:56px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px">
-                        <i class="bi {{ $s['icon'] }}" style="color:var(--clay)"></i>
+                        <i class="bi {{ $s['icon'] }}" style="color:var(--navy)"></i>
                     </div>
-                    <div style="font-size:.7rem;font-weight:700;letter-spacing:.1em;color:var(--clay);margin-bottom:4px">ÉTAPE {{ $s['num'] }}</div>
+                    <div style="font-size:.7rem;font-weight:700;letter-spacing:.1em;color:var(--navy);margin-bottom:4px">ÉTAPE {{ $s['num'] }}</div>
                     <h5 class="fw-700 mb-2" style="font-size:1rem">{{ $s['title'] }}</h5>
                     <p class="text-muted mb-0" style="font-size:.85rem">{{ $s['desc'] }}</p>
                 </div>
@@ -150,21 +150,21 @@
         <div class="row g-3 mb-4">
             <div class="col-12 col-md-4">
                 <div class="card p-3 p-md-4 text-center h-100">
-                    <i class="bi bi-percent fs-2 mb-2" style="color:var(--clay)"></i>
+                    <i class="bi bi-percent fs-2 mb-2" style="color:var(--navy)"></i>
                     <h6 class="fw-700">Commission transparente</h6>
                     <p class="text-muted mb-0" style="font-size:.9rem">Un faible pourcentage prélevé uniquement sur les commandes complétées. Aucun frais d'inscription.</p>
                 </div>
             </div>
             <div class="col-12 col-md-4">
                 <div class="card p-3 p-md-4 text-center h-100">
-                    <i class="bi bi-phone fs-2 mb-2" style="color:var(--clay)"></i>
+                    <i class="bi bi-phone fs-2 mb-2" style="color:var(--navy)"></i>
                     <h6 class="fw-700">Retrait Mobile Money</h6>
                     <p class="text-muted mb-0" style="font-size:.9rem">Retirez vos gains directement sur MTN, Moov ou tout autre opérateur compatible FedaPay.</p>
                 </div>
             </div>
             <div class="col-12 col-md-4">
                 <div class="card p-3 p-md-4 text-center h-100">
-                    <i class="bi bi-graph-up fs-2 mb-2" style="color:var(--clay)"></i>
+                    <i class="bi bi-graph-up fs-2 mb-2" style="color:var(--navy)"></i>
                     <h6 class="fw-700">Statistiques détaillées</h6>
                     <p class="text-muted mb-0" style="font-size:.9rem">Suivez vos revenus, commandes et avis depuis votre tableau de bord artisan.</p>
                 </div>
@@ -187,11 +187,11 @@
 
         <div class="row g-4 mb-4 mb-md-5">
             <div class="col-12 col-lg-6">
-                <h5 class="fw-700 mb-3"><i class="bi bi-credit-card me-2" style="color:var(--clay)"></i>Moyens de paiement acceptés</h5>
+                <h5 class="fw-700 mb-3"><i class="bi bi-credit-card me-2" style="color:var(--navy)"></i>Moyens de paiement acceptés</h5>
                 <ul class="list-unstyled" style="font-size:.95rem">
-                    <li class="mb-2"><i class="bi bi-check-circle-fill me-2" style="color:#2E7D32"></i>Mobile Money (MTN, Moov…)</li>
-                    <li class="mb-2"><i class="bi bi-check-circle-fill me-2" style="color:#2E7D32"></i>Carte bancaire Visa / Mastercard</li>
-                    <li class="mb-2"><i class="bi bi-check-circle-fill me-2" style="color:#2E7D32"></i>Portefeuille FedaPay</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill me-2" style="color:#0B2545"></i>Mobile Money (MTN, Moov…)</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill me-2" style="color:#0B2545"></i>Carte bancaire Visa / Mastercard</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill me-2" style="color:#0B2545"></i>Portefeuille FedaPay</li>
                 </ul>
                 <div class="card p-3 mt-3" style="background:#FFF0E8;border-color:#FFCBA4">
                     <p class="mb-0" style="font-size:.9rem;color:#8B3A1A">
@@ -201,14 +201,14 @@
                 </div>
             </div>
             <div class="col-12 col-lg-6">
-                <h5 class="fw-700 mb-3"><i class="bi bi-truck me-2" style="color:var(--clay)"></i>Livraison</h5>
+                <h5 class="fw-700 mb-3"><i class="bi bi-truck me-2" style="color:var(--navy)"></i>Livraison</h5>
                 <p class="text-muted" style="font-size:.95rem">
                     Selon les artisans et commandes, la livraison peut être assurée par notre réseau de livreurs partenaires ou directement par l'artisan.
                 </p>
                 <ul class="list-unstyled" style="font-size:.95rem">
-                    <li class="mb-2"><i class="bi bi-geo-alt-fill me-2" style="color:var(--clay)"></i>Suivi en temps réel de votre colis</li>
-                    <li class="mb-2"><i class="bi bi-bell-fill me-2" style="color:var(--clay)"></i>Notifications à chaque étape (assignation, en route, livré)</li>
-                    <li class="mb-2"><i class="bi bi-shield-check-fill me-2" style="color:var(--clay)"></i>Signature électronique à la réception</li>
+                    <li class="mb-2"><i class="bi bi-geo-alt-fill me-2" style="color:var(--navy)"></i>Suivi en temps réel de votre colis</li>
+                    <li class="mb-2"><i class="bi bi-bell-fill me-2" style="color:var(--navy)"></i>Notifications à chaque étape (assignation, en route, livré)</li>
+                    <li class="mb-2"><i class="bi bi-shield-check-fill me-2" style="color:var(--navy)"></i>Signature électronique à la réception</li>
                 </ul>
             </div>
         </div>
@@ -218,10 +218,10 @@
         @php
         $flow = [
             ['icon'=>'bi-person','label'=>'Client paie','bg'=>null],
-            ['icon'=>'bi-safe','label'=>'Séquestre ArtisanHub','bg'=>'#FFF0E8'],
+            ['icon'=>'bi-safe','label'=>'Séquestre ArtisanHub Pro','bg'=>'#FFF0E8'],
             ['icon'=>'bi-truck','label'=>'Artisan livre','bg'=>null],
-            ['icon'=>'bi-check2-circle','label'=>'Client valide','bg'=>null,'color'=>'#2E7D32'],
-            ['icon'=>'bi-wallet2','label'=>'Artisan encaissé','bg'=>'#F0FFF4','color'=>'#2E7D32'],
+            ['icon'=>'bi-check2-circle','label'=>'Client valide','bg'=>null,'color'=>'#2EC4B6'],
+            ['icon'=>'bi-wallet2','label'=>'Artisan encaissé','bg'=>'#F0FFF4','color'=>'#2EC4B6'],
         ];
         @endphp
 
@@ -285,7 +285,7 @@
                     <button class="accordion-button {{ $i > 0 ? 'collapsed' : '' }} fw-600"
                         type="button" data-bs-toggle="collapse"
                         data-bs-target="#faq-{{ $i }}"
-                        style="{{ $i === 0 ? 'color:var(--clay);background:#FFF0E8' : '' }};font-size:.95rem">
+                        style="{{ $i === 0 ? 'color:var(--navy);background:#FFF0E8' : '' }};font-size:.95rem">
                         {{ $faq['q'] }}
                     </button>
                 </h2>

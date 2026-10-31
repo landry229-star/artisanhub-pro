@@ -24,7 +24,7 @@ class DeliveryStatusUpdated extends Notification implements ShouldQueue
         ];
 
         return (new MailMessage)
-            ->subject($subjects[$this->event] ?? 'Mise à jour livraison — ArtisanHub')
+            ->subject($subjects[$this->event] ?? 'Mise à jour livraison — ArtisanHub Pro')
             ->view('emails.deliveries.status', [
                 'delivery'   => $this->delivery,
                 'event'      => $this->event,

@@ -17,12 +17,12 @@ class OrderAlert extends Notification
     public function toMail($notifiable): MailMessage
     {
         return (new MailMessage)
-            ->subject('⚠️ Alerte sécurité sur votre commande — ArtisanHub')
+            ->subject('⚠️ Alerte sécurité sur votre commande — ArtisanHub Pro')
             ->greeting("Bonjour {$notifiable->name},")
             ->line("Notre équipe a détecté un élément suspect dans la conversation liée à votre commande **{$this->order->title}**.")
-            ->line("**Message de l'équipe ArtisanHub :**")
+            ->line("**Message de l'équipe ArtisanHub Pro :**")
             ->line($this->order->alert_message)
-            ->line("Pour votre sécurité, **ne communiquez jamais en dehors de la plateforme** et ne payez que via ArtisanHub.")
+            ->line("Pour votre sécurité, **ne communiquez jamais en dehors de la plateforme** et ne payez que via ArtisanHub Pro.")
             ->action('Voir ma commande', url('/client/commandes/' . $this->order->id))
             ->line('En cas de doute, contactez notre support.');
     }
@@ -32,7 +32,7 @@ class OrderAlert extends Notification
         return [
             'icon'          => '⚠️',
             'title'         => 'Alerte sécurité',
-            'message'       => "Élément suspect détecté dans la conversation de « {$this->order->title} ». Ne payez et n'échangez que via ArtisanHub.",
+            'message'       => "Élément suspect détecté dans la conversation de « {$this->order->title} ». Ne payez et n'échangez que via ArtisanHub Pro.",
             'url'           => route('client.orders.show', $this->order->id),
             'order_id'      => $this->order->id,
             'order_title'   => $this->order->title,

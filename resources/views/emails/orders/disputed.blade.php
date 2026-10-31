@@ -3,7 +3,7 @@
 <div class="title">Litige signalé — intervention requise ⚠️</div>
 <div class="subtitle">Un litige a été ouvert sur une commande</div>
 
-<p>Bonjour <strong>Admin ArtisanHub</strong>,</p>
+<p>Bonjour <strong>Admin ArtisanHub Pro</strong>,</p>
 <p>
     Un litige vient d'être signalé. Veuillez intervenir dans les <strong>48 heures</strong>.
 </p>
@@ -28,7 +28,7 @@
     @if($order->budget)
     <div class="info-row">
         <span class="info-label">Montant en jeu</span>
-        <span class="info-value" style="color:#C4622D">{{ number_format($order->budget,0,',',' ') }} XOF</span>
+        <span class="info-value" style="color:#0B2545">{{ number_format($order->budget,0,',',' ') }} XOF</span>
     </div>
     @endif
 </div>

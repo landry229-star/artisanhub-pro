@@ -3,33 +3,7 @@
 @section('page-title', 'Mon Espace')
 
 @section('sidebar-nav')
-    <div class="sidebar-section-title">Principal</div>
-    <a href="{{ route('client.dashboard') }}" class="sidebar-link {{ request()->routeIs('client.dashboard') ? 'active' : '' }}">
-        <i class="bi bi-speedometer2"></i> Tableau de bord
-    </a>
-    <a href="{{ route('client.orders.index') }}" class="sidebar-link {{ request()->routeIs('client.orders.*') ? 'active' : '' }}">
-        <i class="bi bi-bag"></i> Mes commandes
-    </a>
-    <a href="{{ route('client.wallet.index') }}" class="sidebar-link {{ request()->routeIs('client.wallet.*') ? 'active' : '' }}">
-        <i class="bi bi-receipt"></i> Mes paiements
-    </a>
-    <a href="{{ route('contacts.index') }}" class="sidebar-link">
-        <i class="bi bi-people"></i> Mes contacts
-    </a>
-    <div class="sidebar-section-title mt-2">Mon compte</div>
-    <a href="{{ route('client.profile.edit') }}" class="sidebar-link {{ request()->routeIs('client.profile.*') ? 'active' : '' }}">
-        <i class="bi bi-person-gear"></i> Mon profil
-    </a>
-    <a href="{{ route('client.favorites.index') }}" class="sidebar-link">
-        <i class="bi bi-heart"></i> Mes favoris
-    </a>
-    <a href="{{ route('client.support.index') }}" class="sidebar-link">
-        <i class="bi bi-life-preserver"></i> Support
-    </a>
-    <div class="sidebar-section-title mt-2">Découvrir</div>
-    <a href="{{ route('artisans.index') }}" class="sidebar-link">
-        <i class="bi bi-search"></i> Explorer les artisans
-    </a>
+    @include('client.partials.sidebar')
 @endsection
 
 @section('content')
@@ -47,9 +21,9 @@
 {{-- Stats --}}
 <div class="row g-3 mb-4">
     @php $statCards = [
-        ['label'=>'Total commandes',  'value'=>$stats['total'],       'icon'=>'bi-bag',          'color'=>'#F5EFE6','icolor'=>'var(--clay)'],
+        ['label'=>'Total commandes',  'value'=>$stats['total'],       'icon'=>'bi-bag',          'color'=>'#F8F9FA','icolor'=>'var(--clay)'],
         ['label'=>'En cours',         'value'=>$stats['in_progress'], 'icon'=>'bi-tools',        'color'=>'#CCE5FF','icolor'=>'#004085'],
-        ['label'=>'Terminées',        'value'=>$stats['completed'],   'icon'=>'bi-check-circle', 'color'=>'#D4EDDA','icolor'=>'#155724'],
+        ['label'=>'Terminées',        'value'=>$stats['completed'],   'icon'=>'bi-check-circle', 'color'=>'#E6F7F5','icolor'=>'#0B2545'],
         ['label'=>'Dépenses XOF',     'value'=>number_format($stats['spent'],0,',',' '), 'icon'=>'bi-cash-coin','color'=>'#FFF3CD','icolor'=>'#856404'],
     ]; @endphp
     @foreach($statCards as $sc)
@@ -73,7 +47,7 @@
                 <a href="{{ route('client.orders.index') }}" class="btn btn-sm btn-outline-clay">Voir tout</a>
             </div>
             @forelse($recentOrders as $order)
-                <div class="d-flex align-items-center gap-3 py-3 border-bottom" style="border-color:#F5EFE6!important">
+                <div class="d-flex align-items-center gap-3 py-3 border-bottom" style="border-color:#F8F9FA!important">
                     <img src="{{ $order->artisan->avatarUrl() }}" class="rounded-circle"
                          width="40" height="40" style="object-fit:cover;flex-shrink:0">
                     <div class="flex-grow-1">
@@ -102,10 +76,10 @@
     </div>
 
     <div class="col-lg-4">
-        <div class="content-card" style="background:linear-gradient(135deg,#2C1A0E,#9E4A1E);color:#fff">
-            <p style="color:#D4A853;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em" class="mb-2">BESOIN D'UN ARTISAN ?</p>
+        <div class="content-card" style="background:linear-gradient(135deg,#0B2545,#0B2545);color:#fff">
+            <p style="color:#0B2545;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em" class="mb-2">BESOIN D'UN ARTISAN ?</p>
             <h5 class="fw-700 mb-2" style="color:#fff">Trouvez le bon profil</h5>
-            <p style="color:#C8B5A0;font-size:.875rem" class="mb-3">
+            <p style="color:#CBD5E1;font-size:.875rem" class="mb-3">
                 Plus de 1 200 artisans vérifiés disponibles dans toutes les villes du Bénin.
             </p>
             <a href="{{ route('artisans.index') }}" class="btn btn-clay w-100">

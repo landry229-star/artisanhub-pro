@@ -19,7 +19,7 @@ class RefundCompleted extends Notification implements ShouldQueue
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-            ->subject('✅ Remboursement effectué — ArtisanHub')
+            ->subject('✅ Remboursement effectué — ArtisanHub Pro')
             ->line("Le remboursement de {$this->payment->amount} XOF pour la commande « {$this->order->title} » a été effectué.")
             ->line('Vous devriez le recevoir sur votre compte Mobile Money sous peu si ce n\'est pas déjà fait.');
     }

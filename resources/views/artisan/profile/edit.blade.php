@@ -232,11 +232,11 @@
             <p class="text-muted mb-1" style="font-size:.85rem">{{ $profile->specialty }}</p>
             <div class="d-flex gap-1 justify-content-center flex-wrap">
                 <span class="badge px-2 py-1"
-                      style="background:{{ $profile->badge()==='Top Artisan' ? 'var(--clay)' : ($profile->badge()==='Vérifié' ? '#2E7D32' : 'var(--gold)') }};
+                      style="background:{{ $profile->badge()==='Top Artisan' ? 'var(--clay)' : ($profile->badge()==='Vérifié' ? '#2EC4B6' : 'var(--gold)') }};
                              color:#fff;font-size:.75rem">
                     {{ $profile->badge() }}
                 </span>
-                <span class="badge px-2 py-1" style="background:{{ $profile->tierColor() }};color:#fff;font-size:.75rem">
+                <span class="badge px-2 py-1" style="background:{{ $profile->tierColor() }};color:#0B2545;font-size:.75rem">
                     <i class="bi bi-award me-1"></i>{{ $profile->tierLabel() }}
                 </span>
             </div>
@@ -245,7 +245,7 @@
         <div class="content-card mb-3">
             <p class="section-label mb-2">🛡️ VÉRIFICATION D'IDENTITÉ</p>
             @if($user->isFullyVerified())
-                <p class="mb-0" style="font-size:.85rem;color:#2E7D32">
+                <p class="mb-0" style="font-size:.85rem;color:#0B2545">
                     <i class="bi bi-patch-check-fill me-1"></i>Identité vérifiée — vous pouvez proposer la garantie satisfait/repris si vous êtes Expert.
                 </p>
             @else

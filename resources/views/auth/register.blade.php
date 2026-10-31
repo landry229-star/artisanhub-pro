@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Inscription — Devenez artisan ou trouvez un artisan')
-@section('meta_description', "Créez votre compte ArtisanHub gratuitement : artisan pour trouver des clients au Bénin, ou client pour commander sur mesure. Inscription rapide, sans frais.")
+@section('meta_description', "Créez votre compte ArtisanHub Pro gratuitement : artisan pour trouver des clients au Bénin, ou client pour commander sur mesure. Inscription rapide, sans frais.")
 
 @section('content')
 <div class="container py-5">
@@ -8,9 +8,10 @@
         <div class="col-md-7">
 
             <div class="text-center mb-4">
-                <div style="font-size:2.5rem">🏺</div>
+                <img src="{{ asset('images/artisanhub-pro-logo.jpg') }}" alt="ArtisanHub Pro"
+                     style="width:112px;height:112px;object-fit:cover;border-radius:12px">
                 <h2 class="mt-2" style="font-family:'Playfair Display',serif">Créer un compte</h2>
-                <p class="text-muted">Rejoignez la communauté ArtisanHub</p>
+                <p class="text-muted">Rejoignez la communauté ArtisanHub Pro</p>
             </div>
 
             {{-- Choix rôle --}}
@@ -150,7 +151,7 @@
                         </button>
                         <p class="text-center mt-3 text-muted mb-0" style="font-size:.85rem">
                             Déjà un compte ?
-                            <a href="{{ route('login') }}" style="color:var(--clay);font-weight:600">Se connecter</a>
+                            <a href="{{ route('login') }}" style="color:var(--navy);font-weight:600">Se connecter</a>
                         </p>
                     </div>
                 </form>
@@ -164,8 +165,8 @@
 @push('styles')
 <style>
     .role-card.selected { border:2px solid var(--clay)!important; background:var(--sand)!important; }
-    .role-card.selected .fw-700 { color:var(--clay); }
-    .role-card:hover { box-shadow:0 2px 8px rgba(196,98,45,.15); }
+    .role-card.selected .fw-700 { color:var(--navy); }
+    .role-card:hover { box-shadow:0 2px 8px rgba(255,107,53,.15); }
 </style>
 @endpush
 
